@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <Link to="/" className="logo">
-            <img src="/logo.jpeg" alt="WYNA" className="logo-img" />
+            <img src="/Asset/logo.jpeg" className="logo-img" />
             <span className="logo-text">WYNA</span>
           </Link>
           <button

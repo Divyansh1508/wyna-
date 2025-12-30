@@ -1,49 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import './Checkout.css';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
+import "./Checkout.css";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    paymentMethod: 'card'
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    paymentMethod: "card",
   });
   const [loading, setLoading] = useState(false);
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     if (cart.length === 0) {
-      toast.error('Your cart is empty');
-      navigate('/cart');
+      toast.error("Your cart is empty");
+      navigate("/cart");
       return;
     }
     setCartItems(cart);
-    const sum = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const sum = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     setTotal(sum);
   }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmitOrder = async (e) => {
     e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.address || !formData.city || !formData.postalCode) {
-      toast.error('Please fill in all fields');
+
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.address ||
+      !formData.city ||
+      !formData.postalCode
+    ) {
+      toast.error("Please fill in all fields");
       return;
     }
 
@@ -56,30 +63,30 @@ const Checkout = () => {
           phone: formData.phone,
           address: formData.address,
           city: formData.city,
-          postalCode: formData.postalCode
+          postalCode: formData.postalCode,
         },
         items: cartItems,
         totalAmount: total,
         paymentMethod: formData.paymentMethod,
-        status: 'pending'
+        status: "pending",
       };
 
-      const response = await axios.post('/api/orders', orderData);
-      
+      const response = await axios.post("/api/orders", orderData);
+
       if (response.status === 201 || response.status === 200) {
-        toast.success('Order placed successfully!');
-        localStorage.removeItem('cart');
-        navigate('/');
+        toast.success("Order placed successfully!");
+        localStorage.removeItem("cart");
+        navigate("/");
       }
     } catch (error) {
-      toast.error('Failed to place order');
+      toast.error("Failed to place order");
       console.error(error);
     } finally {
       setLoading(false);
     }
   };
 
-  const finalTotal = total + (total * 0.18);
+  const finalTotal = total + total * 0.18;
 
   return (
     <div className="checkout-page">
@@ -90,7 +97,7 @@ const Checkout = () => {
           <form className="checkout-form" onSubmit={handleSubmitOrder}>
             <div className="form-section">
               <h2>Delivery Information</h2>
-              
+
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
                 <input
@@ -174,14 +181,14 @@ const Checkout = () => {
 
             <div className="form-section">
               <h2>Payment Method</h2>
-              
+
               <div className="radio-group">
                 <label>
                   <input
                     type="radio"
                     name="paymentMethod"
                     value="card"
-                    checked={formData.paymentMethod === 'card'}
+                    checked={formData.paymentMethod === "card"}
                     onChange={handleInputChange}
                   />
                   Credit/Debit Card
@@ -194,7 +201,7 @@ const Checkout = () => {
                     type="radio"
                     name="paymentMethod"
                     value="upi"
-                    checked={formData.paymentMethod === 'upi'}
+                    checked={formData.paymentMethod === "upi"}
                     onChange={handleInputChange}
                   />
                   UPI
@@ -207,7 +214,7 @@ const Checkout = () => {
                     type="radio"
                     name="paymentMethod"
                     value="netbanking"
-                    checked={formData.paymentMethod === 'netbanking'}
+                    checked={formData.paymentMethod === "netbanking"}
                     onChange={handleInputChange}
                   />
                   Net Banking
@@ -215,26 +222,28 @@ const Checkout = () => {
               </div>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="btn-place-order"
               disabled={loading}
             >
-              {loading ? 'Processing...' : 'Place Order'}
+              {loading ? "Processing..." : "Place Order"}
             </button>
           </form>
 
           <div className="order-summary">
             <h2>Order Summary</h2>
-            
+
             <div className="summary-items">
-              {cartItems.map(item => (
+              {cartItems.map((item) => (
                 <div key={item._id} className="summary-item">
                   <div>
                     <p className="item-name">{item.name}</p>
                     <p className="item-qty">Qty: {item.quantity}</p>
                   </div>
-                  <p className="item-total">₹{(item.price * item.quantity).toLocaleString()}</p>
+                  <p className="item-total">
+                    ₹{(item.price * item.quantity).toLocaleString()}
+                  </p>
                 </div>
               ))}
             </div>

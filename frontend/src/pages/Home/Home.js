@@ -66,7 +66,7 @@ const Home = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/logo.jpeg" alt="WYNA - Premium Ethnic Wear" />
+            <img src="/Asset/logo.jpeg" alt="WYNA - Premium Ethnic Wear" />
           </div>
         </div>
       </section>

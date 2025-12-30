@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import './Cart.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import "./Cart.css";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -9,39 +9,42 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     setCartItems(cart);
     calculateTotal(cart);
   }, []);
 
   const calculateTotal = (items) => {
-    const sum = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+    const sum = items.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
     setTotal(sum);
   };
 
   const handleRemoveItem = (id) => {
-    const updatedCart = cartItems.filter(item => item._id !== id);
+    const updatedCart = cartItems.filter((item) => item._id !== id);
     setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
     calculateTotal(updatedCart);
-    toast.success('Item removed from cart');
+    toast.success("Item removed from cart");
   };
 
   const handleUpdateQuantity = (id, newQuantity) => {
     if (newQuantity < 1) return;
-    
-    const updatedCart = cartItems.map(item =>
+
+    const updatedCart = cartItems.map((item) =>
       item._id === id ? { ...item, quantity: newQuantity } : item
     );
     setCartItems(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
     calculateTotal(updatedCart);
   };
 
   const handleClearCart = () => {
     setCartItems([]);
-    localStorage.removeItem('cart');
-    toast.success('Cart cleared');
+    localStorage.removeItem("cart");
+    toast.success("Cart cleared");
   };
 
   if (cartItems.length === 0) {
@@ -67,14 +70,14 @@ const Cart = () => {
 
         <div className="cart-grid">
           <div className="cart-items">
-            {cartItems.map(item => (
+            {cartItems.map((item) => (
               <div key={item._id} className="cart-item">
-                <img 
-                  src={item.image || '/images/placeholder.jpg'} 
+                <img
+                  src={item.image || "/images/placeholder.jpg"}
                   alt={item.name}
                   className="item-image"
                 />
-                
+
                 <div className="item-details">
                   <h3>{item.name}</h3>
                   <p className="item-category">{item.category}</p>
@@ -82,16 +85,28 @@ const Cart = () => {
                 </div>
 
                 <div className="item-quantity">
-                  <button onClick={() => handleUpdateQuantity(item._id, item.quantity - 1)}>-</button>
+                  <button
+                    onClick={() =>
+                      handleUpdateQuantity(item._id, item.quantity - 1)
+                    }
+                  >
+                    -
+                  </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => handleUpdateQuantity(item._id, item.quantity + 1)}>+</button>
+                  <button
+                    onClick={() =>
+                      handleUpdateQuantity(item._id, item.quantity + 1)
+                    }
+                  >
+                    +
+                  </button>
                 </div>
 
                 <div className="item-subtotal">
                   <p>₹{(item.price * item.quantity).toLocaleString()}</p>
                 </div>
 
-                <button 
+                <button
                   className="btn-remove"
                   onClick={() => handleRemoveItem(item._id)}
                 >
@@ -103,7 +118,7 @@ const Cart = () => {
 
           <div className="cart-summary">
             <h2>Order Summary</h2>
-            
+
             <div className="summary-row">
               <span>Subtotal</span>
               <span>₹{total.toLocaleString()}</span>
@@ -126,9 +141,9 @@ const Cart = () => {
               <span>₹{(total + total * 0.18).toFixed(2)}</span>
             </div>
 
-            <button 
+            <button
               className="btn-checkout"
-              onClick={() => navigate('/checkout')}
+              onClick={() => navigate("/checkout")}
             >
               Proceed to Checkout
             </button>
@@ -137,10 +152,7 @@ const Cart = () => {
               Continue Shopping
             </Link>
 
-            <button 
-              className="btn-clear"
-              onClick={handleClearCart}
-            >
+            <button className="btn-clear" onClick={handleClearCart}>
               Clear Cart
             </button>
           </div>
