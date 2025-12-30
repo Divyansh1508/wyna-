@@ -1,7 +1,7 @@
 {
-  "name": "hamp8-ecommerce",
+  "name": "wyna-ecommerce",
   "version": "1.0.0",
-  "description": "MERN Stack E-commerce Application based on Hamp8",
+  "description": "WYNA - Premium Ethnic Wear E-commerce Platform",
   "main": "server.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",

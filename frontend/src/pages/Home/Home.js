@@ -6,32 +6,32 @@ const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: 'Premium Corporate Gift Basket',
-      price: '₹2,499',
-      image: '/images/gift-basket-1.jpg',
-      description: 'Elegant assortment of premium chocolates, nuts, and gourmet treats'
+      name: 'Designer Banarasi Saree',
+      price: '₹12,999',
+      image: '/images/saree-1.jpg',
+      description: 'Exquisite pure silk Banarasi saree with golden zari work'
     },
     {
       id: 2,
-      name: 'Custom Hamper Deluxe',
-      price: '₹3,999',
-      image: '/images/hamper-1.jpg',
-      description: 'Personalized luxury hamper with artisanal products and custom branding'
+      name: 'Royal Lehenga Choli',
+      price: '₹24,999',
+      image: '/images/lehenga-1.jpg',
+      description: 'Stunning bridal lehenga with intricate embroidery and golden accents'
     },
     {
       id: 3,
-      name: 'Executive Gift Set',
-      price: '₹1,899',
-      image: '/images/gift-set-1.jpg',
-      description: 'Sophisticated gift set perfect for corporate gifting and special occasions'
+      name: 'Elegant Anarkali Suit',
+      price: '₹8,999',
+      image: '/images/anarkali-1.jpg',
+      description: 'Graceful anarkali suit with traditional embellishments'
     }
   ];
 
   const categories = [
-    { name: 'Gift Baskets', count: 25, image: '/images/category-basket.jpg' },
-    { name: 'Corporate Hampers', count: 18, image: '/images/category-hampers.jpg' },
-    { name: 'Premium Chocolates', count: 32, image: '/images/category-chocolates.jpg' },
-    { name: 'Gourmet foods', count: 28, image: '/images/category-gourmet.jpg' }
+    { name: 'Sarees', count: 150, image: '/images/category-sarees.jpg' },
+    { name: 'Lehengas', count: 85, image: '/images/category-lehengas.jpg' },
+    { name: 'Suits & Salwar', count: 120, image: '/images/category-suits.jpg' },
+    { name: 'Bridal Collection', count: 65, image: '/images/category-bridal.jpg' }
   ];
 
   return (
@@ -41,14 +41,14 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Premium corporate Gifts & 
-              <span className="highlight"> Custom Hampers</span>
+              Weave Your New
+              <span className="highlight"> Aura</span>
             </h1>
             <p className="hero-subtitle">
-              Thoughtful gifting solutions since 2012. Create lasting impressions with our curated collection of premium gifts and personalized hampers.
+              Discover the finest collection of premium ethnic wear. From traditional sarees to contemporary lehengas, celebrate your heritage with elegance and grace.
             </p>
             <div className="hero-buttons">
-              <Link to="/products" className="btn btn-primary">
+              <Link to="/products" className="btn btn-gold">
                 <i className="fas fa-shopping-bag"></i>
                 Shop Now
               </Link>
@@ -59,7 +59,7 @@ const Home = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/images/hero-gifts.jpg" alt="Premium corporate Gifts" />
+            <img src="/logo.jpeg" alt="WYNA - Premium Ethnic Wear" />
           </div>
         </div>
       </section>
@@ -141,35 +141,35 @@ const Home = () => {
       {/* Features Section */}
       <section className="features animate-fade-in-up">
         <div className="container">
-          <h2 className="section-title">Why Choose Hamp8?</h2>
+          <h2 className="section-title">Why Choose WYNA?</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-gift"></i>
+                <i className="fas fa-gem"></i>
               </div>
               <h3>Premium Quality</h3>
-              <p>Only the finest products curated for exceptional gifting experiences</p>
+              <p>Authentic fabrics and traditional craftsmanship in every piece</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <i className="fas fa-palette"></i>
               </div>
-              <h3>Custom Design</h3>
-              <p>Personalized hampers and gifts tailored to your brand and occasion</p>
+              <h3>Exquisite Designs</h3>
+              <p>Curated collection blending tradition with contemporary elegance</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <i className="fas fa-shipping-fast"></i>
               </div>
               <h3>Fast Delivery</h3>
-              <p>Reliable nationwide delivery with premium packaging and care</p>
+              <p>Secure packaging and swift delivery across India</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <i className="fas fa-headset"></i>
               </div>
               <h3>Expert Support</h3>
-              <p>Dedicated customer service to help you find the perfect gift</p>
+              <p>Dedicated assistance to help you find your perfect attire</p>
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ app.use('/api/orders', orderRoutes);
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({
-    message: 'Hamp8 E-commerce API is running',
+    message: 'WYNA E-commerce API is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development'
   });

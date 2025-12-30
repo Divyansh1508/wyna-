@@ -7,23 +7,29 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>HAMP8</h3>
-            <p>Your premier destination for thoughtful, premium, and branded gifting solutions. Gifts, Endless. Always.</p>
+            <h3>WYNA</h3>
+            <p>Weave Your New Aura - Premium ethnic wear collection featuring elegant sarees, lehengas, and traditional Indian attire. Since 2025.</p>
+            <div className="social-links">
+              <a href="#" aria-label="Facebook">📘</a>
+              <a href="#" aria-label="Instagram">📷</a>
+              <a href="#" aria-label="Twitter">🐦</a>
+              <a href="#" aria-label="Pinterest">📌</a>
+            </div>
           </div>
 
           <div className="footer-section">
-            <h4>Quick Links</h4>
+            <h3>Quick Links</h3>
             <ul>
               <li><a href="/">Home</a></li>
               <li><a href="/products">All Products</a></li>
               <li><a href="/about">About Us</a></li>
               <li><a href="/contact">Contact Us</a></li>
-              <li><a href="/blog">Blog</a></li>
+              <li><a href="/admin">Admin Portal</a></li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <h4>Information</h4>
+            <h3>Information</h3>
             <ul>
               <li><a href="/shipping">Shipping Policy</a></li>
               <li><a href="/refund">Refund Policy</a></li>
@@ -33,17 +39,17 @@ const Footer = () => {
           </div>
 
           <div className="footer-section">
-            <h4>Contact Us</h4>
-            <div className="contact-info">
-              <p>Corporate Office: B-107, Tower T3, NX One, Noida Extension, UP-201306</p>
-              <p>Phone: <a href="tel:+911169266281">+91 11 6926 6281</a></p>
-              <p>Email: <a href="mailto:hello@hamp8.com">hello@hamp8.com</a></p>
+            <h3>Newsletter</h3>
+            <p>Subscribe to get special offers and updates</p>
+            <div className="newsletter-form">
+              <input type="email" placeholder="Enter your email" />
+              <button type="submit">Subscribe</button>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2024 Hamp8. All rights reserved. | Powered by Bit By Bit Web Services Pvt. Ltd.</p>
+          <p>&copy; 2026-27 <a href="/">WYNA</a>. Weave Your New Aura. All rights reserved.</p>
         </div>
       </div>
     </footer>
