@@ -13,12 +13,15 @@ This guide will help you set up and run the complete WYNA e-commerce platform wi
 ## 🚀 Quick Start (5 Minutes)
 
 ### Step 1: Start MongoDB
+
 ```powershell
 mongod
 ```
+
 Keep this window open.
 
 ### Step 2: Install Dependencies
+
 ```powershell
 npm install
 cd backend && npm install
@@ -27,20 +30,24 @@ cd ..
 ```
 
 ### Step 3: Add Logo
+
 Copy `logo.jpeg` to `frontend/public/logo.jpeg`
 
 ### Step 4: Run Application
+
 ```powershell
 npm run dev
 ```
 
 ### Step 5: Access
+
 - **Frontend**: http://localhost:3000
 - **Admin**: http://localhost:3000/admin (Password: `wyna2027`)
 
 ## 🎨 Features
 
 ### Customer Features
+
 ✅ Browse premium ethnic wear
 ✅ Shopping cart
 ✅ Checkout process
@@ -48,6 +55,7 @@ npm run dev
 ✅ Red & golden theme
 
 ### Admin Features
+
 ✅ Dashboard with statistics
 ✅ Product management
 ✅ Order management
@@ -55,6 +63,7 @@ npm run dev
 ✅ Password protected
 
 ## 🎨 Brand Colors
+
 - Primary Red: #8B0000
 - Golden: #FFD700
 
@@ -67,6 +76,7 @@ npm run dev
 **Logo Not Showing**: Place logo.jpeg in frontend/public/
 
 ## 📝 Admin Access
+
 URL: http://localhost:3000/admin
 Password: `wyna2027`
 

@@ -3,6 +3,7 @@
 ## 🚀 Quick Commands
 
 ### Start Everything
+
 ```powershell
 # Terminal 1: Start MongoDB
 mongod
@@ -13,6 +14,7 @@ npm run dev
 ```
 
 ### Individual Services
+
 ```powershell
 # Backend only
 cd backend
@@ -25,15 +27,16 @@ npm start
 
 ## 🌐 URLs
 
-| Service | URL |
-|---------|-----|
-| **Frontend** | http://localhost:3000 |
-| **Backend API** | http://localhost:5000 |
+| Service         | URL                         |
+| --------------- | --------------------------- |
+| **Frontend**    | http://localhost:3000       |
+| **Backend API** | http://localhost:5000       |
 | **Admin Panel** | http://localhost:3000/admin |
 
 ## 🔐 Credentials
 
 **Admin Dashboard**
+
 - Password: `wyna2027`
 
 ## 🎨 Brand Colors
@@ -48,24 +51,26 @@ Light Golden:  #FFA500
 
 ## 📱 Pages
 
-| Page | Route | Description |
-|------|-------|-------------|
-| Home | `/` | Hero section, featured products |
-| Products | `/products` | All products listing |
-| Product Detail | `/products/:id` | Single product page |
-| Cart | `/cart` | Shopping cart |
-| Checkout | `/checkout` | Order completion |
-| About | `/about` | About WYNA |
-| Contact | `/contact` | Contact form |
-| Admin | `/admin` | Dashboard (Protected) |
+| Page           | Route           | Description                     |
+| -------------- | --------------- | ------------------------------- |
+| Home           | `/`             | Hero section, featured products |
+| Products       | `/products`     | All products listing            |
+| Product Detail | `/products/:id` | Single product page             |
+| Cart           | `/cart`         | Shopping cart                   |
+| Checkout       | `/checkout`     | Order completion                |
+| About          | `/about`        | About WYNA                      |
+| Contact        | `/contact`      | Contact form                    |
+| Admin          | `/admin`        | Dashboard (Protected)           |
 
 ## 📁 Important Files
 
 ### Configuration
+
 - `backend/.env` - Environment variables
 - `frontend/public/logo.jpeg` - Logo image
 
 ### Key Components
+
 - `frontend/src/App.js` - Main app
 - `frontend/src/components/Header/Header.js` - Navigation
 - `frontend/src/pages/Admin/AdminDashboard.js` - Admin panel
@@ -74,6 +79,7 @@ Light Golden:  #FFA500
 ## 🔧 Common Issues
 
 **Port Already in Use**
+
 ```powershell
 # Find and kill process
 netstat -ano | findstr :3000
@@ -81,12 +87,14 @@ taskkill /PID <PID> /F
 ```
 
 **MongoDB Not Running**
+
 ```powershell
 # Start MongoDB
 mongod
 ```
 
 **Dependencies Issue**
+
 ```powershell
 # Reinstall
 rm -rf node_modules
@@ -94,12 +102,14 @@ npm install
 ```
 
 **Logo Not Showing**
+
 - Check: `frontend/public/logo.jpeg` exists
 - Clear cache: Ctrl + Shift + R
 
 ## 📊 API Endpoints
 
 ### Products
+
 - `GET /api/products` - All products
 - `GET /api/products/:id` - Single product
 - `POST /api/products` - Create (Admin)
@@ -107,11 +117,13 @@ npm install
 - `DELETE /api/products/:id` - Delete (Admin)
 
 ### Orders
+
 - `GET /api/orders` - All orders (Admin)
 - `POST /api/orders` - Create order
 - `PATCH /api/orders/:id` - Update status (Admin)
 
 ### Categories
+
 - `GET /api/categories` - All categories
 - `POST /api/categories` - Create (Admin)
 

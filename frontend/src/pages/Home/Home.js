@@ -1,37 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Home.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Home.css";
 
 const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: 'Designer Banarasi Saree',
-      price: '₹12,999',
-      image: '/images/saree-1.jpg',
-      description: 'Exquisite pure silk Banarasi saree with golden zari work'
+      name: "Designer Banarasi Saree",
+      price: "₹12,999",
+      image: "/images/saree-1.jpg",
+      description: "Exquisite pure silk Banarasi saree with golden zari work",
     },
     {
       id: 2,
-      name: 'Royal Lehenga Choli',
-      price: '₹24,999',
-      image: '/images/lehenga-1.jpg',
-      description: 'Stunning bridal lehenga with intricate embroidery and golden accents'
+      name: "Royal Lehenga Choli",
+      price: "₹24,999",
+      image: "/images/lehenga-1.jpg",
+      description:
+        "Stunning bridal lehenga with intricate embroidery and golden accents",
     },
     {
       id: 3,
-      name: 'Elegant Anarkali Suit',
-      price: '₹8,999',
-      image: '/images/anarkali-1.jpg',
-      description: 'Graceful anarkali suit with traditional embellishments'
-    }
+      name: "Elegant Anarkali Suit",
+      price: "₹8,999",
+      image: "/images/anarkali-1.jpg",
+      description: "Graceful anarkali suit with traditional embellishments",
+    },
   ];
 
   const categories = [
-    { name: 'Sarees', count: 150, image: '/images/category-sarees.jpg' },
-    { name: 'Lehengas', count: 85, image: '/images/category-lehengas.jpg' },
-    { name: 'Suits & Salwar', count: 120, image: '/images/category-suits.jpg' },
-    { name: 'Bridal Collection', count: 65, image: '/images/category-bridal.jpg' }
+    { name: "Sarees", count: 150, image: "/images/category-sarees.jpg" },
+    { name: "Lehengas", count: 85, image: "/images/category-lehengas.jpg" },
+    { name: "Suits & Salwar", count: 120, image: "/images/category-suits.jpg" },
+    {
+      name: "Bridal Collection",
+      count: 65,
+      image: "/images/category-bridal.jpg",
+    },
   ];
 
   return (
@@ -45,7 +50,9 @@ const Home = () => {
               <span className="highlight"> Aura</span>
             </h1>
             <p className="hero-subtitle">
-              Discover the finest collection of premium ethnic wear. From traditional sarees to contemporary lehengas, celebrate your heritage with elegance and grace.
+              Discover the finest collection of premium ethnic wear. From
+              traditional sarees to contemporary lehengas, celebrate your
+              heritage with elegance and grace.
             </p>
             <div className="hero-buttons">
               <Link to="/products" className="btn btn-gold">
@@ -68,22 +75,29 @@ const Home = () => {
       <section className="categories animate-fade-in-up">
         <div className="container">
           <h2 className="section-title">Shop by Category</h2>
-          <p className="section-subtitle">Discover our curated collections of premium gifts</p>
-          
+          <p className="section-subtitle">
+            Discover our curated collections of premium gifts
+          </p>
+
           <div className="categories-grid">
             {categories.map((category, index) => (
               <div key={index} className="category-card card">
                 <div className="category-image">
                   <img src={category.image} alt={category.name} />
                   <div className="category-overlay">
-                    <Link to={`/categories/${category.name.toLowerCase()}`} className="btn btn-primary">
+                    <Link
+                      to={`/categories/${category.name.toLowerCase()}`}
+                      className="btn btn-primary"
+                    >
                       View All
                     </Link>
                   </div>
                 </div>
                 <div className="card-body">
                   <h3 className="card-title">{category.name}</h3>
-                  <p className="card-text">{category.count} products available</p>
+                  <p className="card-text">
+                    {category.count} products available
+                  </p>
                 </div>
               </div>
             ))}
@@ -95,8 +109,10 @@ const Home = () => {
       <section className="featured-products animate-fade-in-up">
         <div className="container">
           <h2 className="section-title">Featured Products</h2>
-          <p className="section-subtitle">Handpicked premium gifts for every occasion</p>
-          
+          <p className="section-subtitle">
+            Handpicked premium gifts for every occasion
+          </p>
+
           <div className="products-grid">
             {featuredProducts.map((product) => (
               <div key={product.id} className="product-card card">
@@ -120,7 +136,10 @@ const Home = () => {
                   <p className="card-text">{product.description}</p>
                   <div className="product-footer">
                     <span className="price">{product.price}</span>
-                    <Link to={`/products/${product.id}`} className="btn btn-outline">
+                    <Link
+                      to={`/products/${product.id}`}
+                      className="btn btn-outline"
+                    >
                       View Details
                     </Link>
                   </div>
@@ -128,7 +147,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-5">
             <Link to="/products" className="btn btn-primary btn-large">
               View All Products
@@ -148,14 +167,18 @@ const Home = () => {
                 <i className="fas fa-gem"></i>
               </div>
               <h3>Premium Quality</h3>
-              <p>Authentic fabrics and traditional craftsmanship in every piece</p>
+              <p>
+                Authentic fabrics and traditional craftsmanship in every piece
+              </p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
                 <i className="fas fa-palette"></i>
               </div>
               <h3>Exquisite Designs</h3>
-              <p>Curated collection blending tradition with contemporary elegance</p>
+              <p>
+                Curated collection blending tradition with contemporary elegance
+              </p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
@@ -182,9 +205,9 @@ const Home = () => {
             <h2>Stay Updated</h2>
             <p>Get the latest news about new products and exclusive offers</p>
             <form className="newsletter-form">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
+              <input
+                type="email"
+                placeholder="Enter your email address"
                 className="newsletter-input"
               />
               <button type="submit" className="btn btn-primary">
@@ -196,7 +219,6 @@ const Home = () => {
       </section>
     </div>
   );
-
 };
 
 export default Home;

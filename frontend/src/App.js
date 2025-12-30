@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Home from './pages/Home/Home';
-import Products from './pages/Products/Products';
-import ProductDetail from './pages/ProductDetail/ProductDetail';
-import Cart from './pages/Cart/Cart';
-import Checkout from './pages/Checkout/Checkout';
-import About from './pages/About/About';
-import Contact from './pages/Contact/Contact';
-import AdminDashboard from './pages/Admin/AdminDashboard';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import Cart from "./pages/Cart/Cart";
+import Checkout from "./pages/Checkout/Checkout";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import "./App.css";
 
 function App() {
   return (
@@ -37,8 +37,8 @@ function App() {
           toastOptions={{
             duration: 3000,
             style: {
-              background: '#363636',
-              color: '#fff',
+              background: "#363636",
+              color: "#fff",
             },
           }}
         />

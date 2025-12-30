@@ -1,19 +1,19 @@
 /* Home Page Styles with WYNA Red and Golden Theme */
 .home {
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
-  color: #FFF;
+  background: linear-gradient(135deg, #8b0000 0%, #b22222 100%);
+  color: #fff;
   padding: 5rem 0;
   position: relative;
   overflow: hidden;
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -50,11 +50,11 @@
   font-weight: 700;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  color: #FFF;
+  color: #fff;
 }
 
 .highlight {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -88,20 +88,20 @@
   height: auto;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  border: 5px solid #FFD700;
+  border: 5px solid #ffd700;
 }
 
 /* Categories Section */
 .categories {
   padding: 4rem 0;
-  background: #FFF;
+  background: #fff;
 }
 
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #8B0000;
+  color: #8b0000;
   margin-bottom: 1rem;
 }
 
@@ -147,7 +147,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(139, 0, 0, 0.9) 100%);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(139, 0, 0, 0.9) 100%
+  );
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -163,7 +167,7 @@
 /* Featured Products */
 .featured-products {
   padding: 4rem 0;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .products-grid {
@@ -214,13 +218,13 @@
 }
 
 .badge-new {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  color: #8B0000;
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+  color: #8b0000;
 }
 
 .badge-sale {
-  background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
-  color: #FFF;
+  background: linear-gradient(135deg, #8b0000 0%, #b22222 100%);
+  color: #fff;
 }
 
 .product-actions {
@@ -242,9 +246,9 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   border: none;
-  color: #8B0000;
+  color: #8b0000;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -266,13 +270,13 @@
 .price {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #8B0000;
+  color: #8b0000;
 }
 
 /* Features Section */
 .features {
   padding: 4rem 0;
-  background: #FFF;
+  background: #fff;
 }
 
 .features-grid {
@@ -285,7 +289,11 @@
   text-align: center;
   padding: 2rem;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.05) 0%, rgba(255, 215, 0, 0.05) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(139, 0, 0, 0.05) 0%,
+    rgba(255, 215, 0, 0.05) 100%
+  );
   transition: all 0.3s ease;
 }
 
@@ -298,18 +306,18 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  color: #8B0000;
+  color: #8b0000;
   box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
 }
 
 .feature-card h3 {
-  color: #8B0000;
+  color: #8b0000;
   font-size: 1.3rem;
   margin-bottom: 1rem;
 }
@@ -322,8 +330,8 @@
 /* Newsletter Section */
 .newsletter {
   padding: 4rem 0;
-  background: linear-gradient(135deg, #6B0000 0%, #8B0000 100%);
-  color: #FFF;
+  background: linear-gradient(135deg, #6b0000 0%, #8b0000 100%);
+  color: #fff;
 }
 
 .newsletter-content {
@@ -334,7 +342,7 @@
 
 .newsletter h2 {
   font-size: 2.5rem;
-  color: #FFD700;
+  color: #ffd700;
   margin-bottom: 1rem;
 }
 
@@ -357,14 +365,14 @@
   border: 2px solid rgba(255, 215, 0, 0.3);
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.1);
-  color: #FFF;
+  color: #fff;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
 
 .newsletter-input:focus {
   outline: none;
-  border-color: #FFD700;
+  border-color: #ffd700;
   background: rgba(255, 255, 255, 0.15);
 }
 
@@ -413,15 +421,15 @@
   .hero-content {
     grid-template-columns: 1fr;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .highlight {
     font-size: 3rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
@@ -431,28 +439,28 @@
   .hero {
     padding: 3rem 0;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .highlight {
     font-size: 2.5rem;
   }
-  
+
   .hero-subtitle {
     font-size: 1rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
   }
-  
+
   .categories-grid,
   .products-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .newsletter-form {
     flex-direction: column;
   }
@@ -462,15 +470,15 @@
   .hero-title {
     font-size: 1.8rem;
   }
-  
+
   .highlight {
     font-size: 2.2rem;
   }
-  
+
   .section-title {
     font-size: 1.8rem;
   }
-  
+
   .product-image,
   .category-image {
     height: 250px;

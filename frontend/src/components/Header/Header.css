@@ -1,6 +1,6 @@
 /* Header Styles with WYNA Red and Golden Theme */
 .header {
-  background: linear-gradient(135deg, #8B0000 0%, #B22222 100%);
+  background: linear-gradient(135deg, #8b0000 0%, #b22222 100%);
   box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
   position: sticky;
   top: 0;
@@ -32,14 +32,14 @@
   height: 50px;
   width: auto;
   border-radius: 8px;
-  border: 2px solid #FFD700;
+  border: 2px solid #ffd700;
   box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
 }
 
 .logo-text {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,7 +62,7 @@
 .mobile-menu-btn span {
   width: 25px;
   height: 3px;
-  background: #FFD700;
+  background: #ffd700;
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -75,7 +75,7 @@
 }
 
 .nav a {
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -86,13 +86,13 @@
 }
 
 .nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(90deg, #ffd700 0%, #ffa500 100%);
   transition: width 0.3s ease;
 }
 
@@ -102,14 +102,14 @@
 }
 
 .nav a:hover {
-  color: #FFD700;
+  color: #ffd700;
   transform: translateY(-2px);
 }
 
 /* Cart Link */
 .cart-link {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  color: #8B0000 !important;
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+  color: #8b0000 !important;
   padding: 0.6rem 1.2rem !important;
   border-radius: 25px;
   font-weight: 600;
@@ -138,7 +138,7 @@
   background: rgba(255, 215, 0, 0.15);
   padding: 0.5rem 1rem !important;
   border-radius: 20px;
-  border: 1.5px solid #FFD700;
+  border: 1.5px solid #ffd700;
 }
 
 .admin-link:hover {
@@ -160,17 +160,16 @@
   }
 }
 
-
 /* Responsive Design */
 @media (max-width: 968px) {
   .nav {
     gap: 1.5rem;
   }
-  
+
   .logo-text {
     font-size: 1.5rem;
   }
-  
+
   .nav a {
     font-size: 0.95rem;
   }
@@ -180,7 +179,7 @@
   .mobile-menu-btn {
     display: flex;
   }
-  
+
   .nav {
     position: fixed;
     top: 0;
@@ -188,7 +187,7 @@
     height: 100vh;
     width: 70%;
     max-width: 300px;
-    background: linear-gradient(180deg, #8B0000 0%, #6B0000 100%);
+    background: linear-gradient(180deg, #8b0000 0%, #6b0000 100%);
     flex-direction: column;
     padding: 5rem 2rem 2rem;
     gap: 1.5rem;
@@ -197,31 +196,31 @@
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
   }
-  
+
   .nav.mobile-open {
     right: 0;
   }
-  
+
   .nav a {
     width: 100%;
     padding: 1rem 0;
     border-bottom: 1px solid rgba(255, 215, 0, 0.2);
   }
-  
+
   .cart-link {
     width: 100% !important;
     justify-content: center;
   }
-  
+
   .admin-link {
     width: 100%;
     text-align: center;
   }
-  
+
   .logo-img {
     height: 40px;
   }
-  
+
   .logo-text {
     font-size: 1.3rem;
   }
@@ -231,16 +230,16 @@
   .header-content {
     padding: 0.75rem 0;
   }
-  
+
   .logo-img {
     height: 35px;
   }
-  
+
   .logo-text {
     font-size: 1.2rem;
     letter-spacing: 2px;
   }
-  
+
   .nav {
     width: 80%;
   }

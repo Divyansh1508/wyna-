@@ -7,15 +7,18 @@ Your WYNA brand logo (the beautiful red and golden image you provided) needs to 
 ### Step-by-Step:
 
 1. **Locate Your Logo File**
+
    - Find the WYNA logo image (the one with red background and golden text "WYNA")
    - This is the image you showed me with "Weave Your New Aura" and "2026-27"
 
 2. **Rename the File**
+
    - Rename the file to exactly: `logo.jpeg`
    - Make sure it's `.jpeg` not `.jpg` or `.png`
    - Or if you want to keep original format, update references in code
 
 3. **Copy to Correct Location**
+
    - Navigate to: `C:\Users\divya\Desktop\web\frontend\public\`
    - Paste the `logo.jpeg` file there
    - Final path should be: `C:\Users\divya\Desktop\web\frontend\public\logo.jpeg`
@@ -27,12 +30,14 @@ Your WYNA brand logo (the beautiful red and golden image you provided) needs to 
 ### Where the Logo Appears:
 
 Once added, the logo will automatically show in:
+
 - ✅ Website header (top left)
 - ✅ Admin dashboard sidebar
 - ✅ Browser tab icon (favicon)
 - ✅ Hero section background pattern
 
 ### File Structure:
+
 ```
 web/
 └── frontend/
@@ -45,6 +50,7 @@ web/
 ### Troubleshooting:
 
 **Logo Not Showing?**
+
 1. Check file name is exactly `logo.jpeg`
 2. Check file is in `frontend/public/` folder
 3. Clear browser cache (Ctrl + Shift + R)
@@ -52,6 +58,7 @@ web/
 
 **Need Different Format?**
 If your logo is `.png` or `.jpg`:
+
 - Either rename to `.jpeg`
 - Or update these files to use `.png`/`.jpg`:
   - `frontend/src/components/Header/Header.js`
@@ -61,11 +68,13 @@ If your logo is `.png` or `.jpg`:
 ### Quick Test:
 
 After adding the logo, open browser and navigate to:
+
 ```
 http://localhost:3000
 ```
 
 You should see the WYNA logo in:
+
 - Top left corner of header
 - Red and golden color scheme
 - Professional branding throughout
