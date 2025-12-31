@@ -396,7 +396,7 @@
   .nav {
     gap: 1.5rem;
   }
-  
+
   .search-container {
     max-width: 350px;
   }
@@ -430,7 +430,7 @@
     font-size: 1.8rem;
     letter-spacing: 2px;
   }
-  
+
   .mobile-menu-btn {
     display: flex;
     order: 3;
@@ -443,19 +443,19 @@
     flex-wrap: wrap;
     position: relative;
   }
-  
+
   .logo {
     order: 1;
     z-index: 1002;
   }
-  
+
   .search-toggle {
     display: flex;
     order: 2;
     margin-left: auto;
     margin-right: 1rem;
   }
-  
+
   .mobile-menu-btn {
     display: flex;
     order: 3;
@@ -517,7 +517,7 @@
     order: 4;
     width: 100%;
   }
-  
+
   .nav.mobile-open {
     transform: translateX(0);
   }
@@ -529,11 +529,11 @@
     border-bottom: 1px solid rgba(255, 215, 0, 0.2);
     text-align: left;
   }
-  
+
   .nav-item {
     width: 100%;
   }
-  
+
   .nav-item.products-dropdown .mega-menu {
     position: static;
     width: 100%;
@@ -541,7 +541,7 @@
     margin-top: 0.5rem;
     display: none;
   }
-  
+
   .nav-item.products-dropdown:hover .mega-menu {
     display: block;
   }
@@ -576,7 +576,7 @@
   .logo-img {
     height: 36px;
   }
-  
+
   .nav {
     top: 65px;
     padding: 0.75rem;
@@ -604,16 +604,16 @@
   .search-btn {
     padding: 0.7rem 0.9rem;
   }
-  
+
   .search-toggle {
     padding: 0.5rem;
     font-size: 0.95rem;
   }
-  
+
   .search-container {
     top: 65px;
   }
-  
+
   .mega-menu {
     top: 65px;
   }
@@ -623,7 +623,7 @@
   .header-content {
     padding: 0.5rem 0;
   }
-  
+
   .logo-text {
     font-size: 1.2rem;
     letter-spacing: 1px;
@@ -632,7 +632,7 @@
   .logo-img {
     height: 32px;
   }
-  
+
   .nav {
     top: 60px;
     padding: 0.5rem;
@@ -647,47 +647,47 @@
     padding: 0.65rem 0.8rem !important;
     font-size: 0.9rem;
   }
-  
+
   .cart-icon {
     font-size: 1rem;
   }
-  
+
   .search-toggle {
     padding: 0.45rem;
     font-size: 0.9rem;
     margin-right: 0.5rem;
   }
-  
+
   .mobile-menu-btn {
     padding: 6px;
   }
-  
+
   .mobile-menu-btn span {
     width: 22px;
     height: 2.5px;
   }
-  
+
   .search-container {
     top: 60px;
     left: 8px;
     right: 8px;
   }
-  
+
   .search-input {
     padding: 0.65rem 0.9rem;
     font-size: 0.9rem;
   }
-  
+
   .search-btn {
     padding: 0.65rem 0.8rem;
   }
-  
+
   .mega-menu {
     top: 60px;
     left: 8px;
     right: 8px;
   }
-  
+
   .mega-menu-content {
     padding: 0.75rem;
   }
