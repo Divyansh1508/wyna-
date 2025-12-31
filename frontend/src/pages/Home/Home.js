@@ -9,8 +9,7 @@ const Home = () => {
       id: 1,
       name: "Banarasi Handcrafted Saree - Variant 1",
       price: "₹8,500",
-      image:
-        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&auto=format&fit=crop",
+      image: "/Asset/11.png",
       description:
         "Exquisite handwoven Banarasi saree with traditional golden zari work",
       series: "Series 01",
@@ -21,7 +20,7 @@ const Home = () => {
       name: "Banarasi Handcrafted Saree - Variant 2",
       price: "₹9,200",
       image:
-        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=500&auto=format&fit=crop",
+        "/Asset/12.png",
       description:
         "Pure silk Banarasi masterpiece with intricate meenakari patterns",
       series: "Series 01",
@@ -32,7 +31,7 @@ const Home = () => {
       name: "Banarasi Handcrafted Saree - Variant 3",
       price: "₹7,800",
       image:
-        "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=500&auto=format&fit=crop",
+        "/Asset/13.png",
       description: "Heritage Banarasi weave with antique gold zari borders",
       series: "Series 01",
       exclusive: true,
@@ -42,7 +41,7 @@ const Home = () => {
       name: "Banarasi Handcrafted Saree - Variant 4",
       price: "₹8,900",
       image:
-        "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=500&auto=format&fit=crop",
+        "/Asset/14.png",
       description:
         "Royal blue silk with golden paisley motifs and ornate border",
       series: "Series 01",
@@ -55,28 +54,28 @@ const Home = () => {
       name: "Series 01 - Banarasi",
       count: 47,
       image:
-        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop",
+        "/Asset/11.png",
       description: "Handcrafted Banarasi sarees",
     },
     {
       name: "Coming Soon",
       count: 0,
       image:
-        "https://chhapa.in/cdn/shop/products/12AC8615-E836-48FD-8D56-15834B428F50_1445x.jpg?v=1665546574",
+        "/Asset/12.png",
       description: "Exclusive new series",
     },
     {
       name: "Heritage Collection",
       count: 15,
       image:
-        "https://assets0.mirraw.com/images/6802761/MR100013._zoom.jpg?1551354731",
+        "/Asset/13.png",
       description: "Vintage masterpieces",
     },
     {
       name: "Bridal Aura",
       count: 12,
       image:
-        "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop",
+        "/Asset/14.png",
       description: "Wedding exclusives",
     },
   ];
@@ -495,7 +494,7 @@ const Home = () => {
             <div className="instagram-grid">
               <div className="instagram-item">
                 <img
-                  src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=400&auto=format&fit=crop"
+                  src="/Asset/11.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">
@@ -505,7 +504,7 @@ const Home = () => {
               </div>
               <div className="instagram-item">
                 <img
-                  src="https://chhapa.in/cdn/shop/products/12AC8615-E836-48FD-8D56-15834B428F50_1445x.jpg?v=1665546574"
+                  src="/Asset/12.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">
@@ -515,7 +514,7 @@ const Home = () => {
               </div>
               <div className="instagram-item">
                 <img
-                  src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=400&h=400&auto=format&fit=crop"
+                  src="/Asset/13.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">
@@ -525,7 +524,7 @@ const Home = () => {
               </div>
               <div className="instagram-item">
                 <img
-                  src="https://chhapa.in/cdn/shop/products/12AC8615-E836-48FD-8D56-15834B428F50_1445x.jpg?v=1665546574"
+                  src="/Asset/14.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">
@@ -535,7 +534,7 @@ const Home = () => {
               </div>
               <div className="instagram-item">
                 <img
-                  src="https://assets0.mirraw.com/images/6802761/MR100013._zoom.jpg?1551354731"
+                  src="/Asset/11.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">
@@ -545,7 +544,7 @@ const Home = () => {
               </div>
               <div className="instagram-item">
                 <img
-                  src="https://assets0.mirraw.com/images/6802761/MR100013._zoom.jpg?1551354731"
+                  src="/Asset/13.png"
                   alt="WYNA on Instagram"
                 />
                 <div className="instagram-overlay">

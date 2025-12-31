@@ -6,7 +6,7 @@ const About = () => {
     <div className="about-page">
       <div className="container">
         <div className="about-header">
-          <h1>About Hamp8</h1>
+          <h1>About </h1>
         </div>
 
         <div className="about-content">
@@ -32,7 +32,7 @@ const About = () => {
 
                 <h3>A Legacy of Exceptional Quality</h3>
                 <p>
-                  At Hamp8, we carry that legacy forward. We combine the time-honored traditions of Chawri Bazar with modern
+                  At wyna,carry that legacy forward. We combine the time-honored traditions of Chawri Bazar with modern
                   aesthetics and premium quality. Every corporate gift, every festive hamper, and every customized box we create
                   is built on a foundation of over a decade of experience.
                 </p>
@@ -42,7 +42,7 @@ const About = () => {
                   our commitment is to create something not just beautiful, but truly memorable.
                 </p>
                 <p>
-                  Hamp8 is a proud venture of Bit By Bit Web Services Pvt. Ltd.
+                  wyna a proud venture of Bit By Bit Web Services Pvt. Ltd.
                 </p>
               </div>
             </div>
