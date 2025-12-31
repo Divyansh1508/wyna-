@@ -116,13 +116,13 @@ const Header = () => {
             <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
               Contact
             </Link>
-            <Link
+            {/* <Link
               to="/admin"
               className="admin-link"
               onClick={() => setMobileMenuOpen(false)}
             >
               Admin
-            </Link>
+            </Link> */}
             <Link
               to="/cart"
               className="cart-link"

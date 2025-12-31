@@ -11,12 +11,14 @@ import Checkout from "./pages/Checkout/Checkout";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
+import FirstVisitConfetti from "./components/FirstVisitConfetti/FirstVisitConfetti";
 import "./App.css";
 
 function App() {
   return (
     <Router>
       <div className="App">
+        <FirstVisitConfetti />
         <Header />
         <main className="main-content">
           <Routes>
