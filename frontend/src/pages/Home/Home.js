@@ -1,41 +1,48 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
 
 const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: "Designer Banarasi Saree",
-      price: "₹12,999",
-      image: "/images/saree-1.jpg",
-      description: "Exquisite pure silk Banarasi saree with golden zari work",
+      name: "Banarasi Handcrafted Saree - Variant 1",
+      price: "₹8,500",
+      image: "/images/banarasi-1.jpg",
+      description: "Exquisite handwoven Banarasi saree with traditional golden zari work",
+      series: "Series 01",
+      exclusive: true
     },
     {
       id: 2,
-      name: "Royal Lehenga Choli",
-      price: "₹24,999",
-      image: "/images/lehenga-1.jpg",
-      description:
-        "Stunning bridal lehenga with intricate embroidery and golden accents",
+      name: "Banarasi Handcrafted Saree - Variant 2",
+      price: "₹9,200",
+      image: "/images/banarasi-2.jpg",
+      description: "Pure silk Banarasi masterpiece with intricate meenakari patterns",
+      series: "Series 01",
+      exclusive: true
     },
     {
       id: 3,
-      name: "Elegant Anarkali Suit",
-      price: "₹8,999",
-      image: "/images/anarkali-1.jpg",
-      description: "Graceful anarkali suit with traditional embellishments",
+      name: "Banarasi Handcrafted Saree - Variant 3",
+      price: "₹7,800",
+      image: "/images/banarasi-3.jpg",
+      description: "Heritage Banarasi weave with antique gold zari borders",
+      series: "Series 01",
+      exclusive: true
     },
   ];
 
   const categories = [
-    { name: "Sarees", count: 150, image: "/images/category-sarees.jpg" },
-    { name: "Lehengas", count: 85, image: "/images/category-lehengas.jpg" },
-    { name: "Suits & Salwar", count: 120, image: "/images/category-suits.jpg" },
+    { name: "Series 01 - Banarasi", count: 47, image: "/images/series-banarasi.jpg", description: "Handcrafted Banarasi sarees" },
+    { name: "Coming Soon", count: 0, image: "/images/coming-soon.jpg", description: "Exclusive new series" },
+    { name: "Heritage Collection", count: 15, image: "/images/heritage.jpg", description: "Vintage masterpieces" },
     {
-      name: "Bridal Collection",
-      count: 65,
-      image: "/images/category-bridal.jpg",
+      name: "Bridal Aura",
+      count: 12,
+      image: "/images/bridal-aura.jpg",
+      description: "Wedding exclusives"
     },
   ];
 
@@ -46,13 +53,13 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-text">
             <h1 className="hero-title">
-              Weave Your New
-              <span className="highlight"> Aura</span>
+              WYNA
+              <span className="highlight"> Weave Your New Aura</span>
             </h1>
             <p className="hero-subtitle">
-              Discover the finest collection of premium ethnic wear. From
-              traditional sarees to contemporary lehengas, celebrate your
-              heritage with elegance and grace.
+              Where tradition meets timeless luxury. Each saree is not just attire,
+              but an aura — woven with heritage, elegance, and individuality.
+              Experience exclusive, one-of-a-kind creations curated for the discerning woman.
             </p>
             <div className="hero-buttons">
               <Link to="/products" className="btn btn-gold">
@@ -66,7 +73,7 @@ const Home = () => {
             </div>
           </div>
           <div className="hero-image">
-            <img src="/Asset/logo.jpeg" alt="WYNA - Premium Ethnic Wear" />
+            <img src="/Asset/model.png" alt="WYNA - Premium Ethnic Wear" />
           </div>
         </div>
       </section>
@@ -74,9 +81,9 @@ const Home = () => {
       {/* Categories Section */}
       <section className="categories animate-fade-in-up">
         <div className="container">
-          <h2 className="section-title">Shop by Category</h2>
+          <h2 className="section-title">Exclusive Series</h2>
           <p className="section-subtitle">
-            Discover our curated collections of premium gifts
+            Discover our curated collections of premium traditional sarees
           </p>
 
           <div className="categories-grid">
@@ -95,8 +102,9 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <h3 className="card-title">{category.name}</h3>
-                  <p className="card-text">
-                    {category.count} products available
+                  <p className="card-text">{category.description}</p>
+                  <p className="card-count">
+                    {category.count} {category.count === 1 ? 'saree' : 'sarees'} available
                   </p>
                 </div>
               </div>
@@ -108,9 +116,9 @@ const Home = () => {
       {/* Featured Products Section */}
       <section className="featured-products animate-fade-in-up">
         <div className="container">
-          <h2 className="section-title">Featured Products</h2>
+          <h2 className="section-title">Series 01: Banarasi Handcrafted</h2>
           <p className="section-subtitle">
-            Handpicked premium gifts for every occasion
+            11 exquisite variants • 47 unique articles • No repetition, no identical combinations
           </p>
 
           <div className="products-grid">
@@ -119,8 +127,8 @@ const Home = () => {
                 <div className="product-image">
                   <img src={product.image} alt={product.name} />
                   <div className="product-badges">
-                    <span className="badge badge-new">New</span>
-                    <span className="badge badge-sale">Sale</span>
+                    {product.exclusive && <span className="badge badge-exclusive">Exclusive</span>}
+                    <span className="badge badge-series">{product.series}</span>
                   </div>
                   <div className="product-actions">
                     <button className="btn-icon">
@@ -150,7 +158,7 @@ const Home = () => {
 
           <div className="text-center mt-5">
             <Link to="/products" className="btn btn-primary btn-large">
-              View All Products
+              Explore Series 01
               <i className="fas fa-arrow-right"></i>
             </Link>
           </div>
@@ -160,41 +168,181 @@ const Home = () => {
       {/* Features Section */}
       <section className="features animate-fade-in-up">
         <div className="container">
-          <h2 className="section-title">Why Choose WYNA?</h2>
+          <h2 className="section-title">The WYNA Philosophy</h2>
           <div className="features-grid">
             <div className="feature-card">
               <div className="feature-icon">
                 <i className="fas fa-gem"></i>
               </div>
-              <h3>Premium Quality</h3>
+              <h3>One-of-a-Kind</h3>
               <p>
-                Authentic fabrics and traditional craftsmanship in every piece
+                No repeated sarees, no identical color combinations. Every piece carries its own identity.
               </p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-palette"></i>
+                <i className="fas fa-crown"></i>
               </div>
-              <h3>Exquisite Designs</h3>
+              <h3>Curated Tradition</h3>
               <p>
-                Curated collection blending tradition with contemporary elegance
+                Series-based limited collections. Luxury at WYNA is intentional and rare.
               </p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-shipping-fast"></i>
+                <i className="fas fa-hand-sparkles"></i>
               </div>
-              <h3>Fast Delivery</h3>
-              <p>Secure packaging and swift delivery across India</p>
+              <h3>Handcrafted Excellence</h3>
+              <p>Traditional weaving techniques passed down through generations of master craftsmen.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">
-                <i className="fas fa-headset"></i>
+                <i className="fas fa-certificate"></i>
               </div>
-              <h3>Expert Support</h3>
-              <p>Dedicated assistance to help you find your perfect attire</p>
+              <h3>Authentic Heritage</h3>
+              <p>Under Shrinaya Parampara (Since 2025), founded by Mrs. Garima Singh.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="testimonials animate-fade-in-up">
+        <div className="container">
+          <h2 className="section-title">What Our Customers Say</h2>
+          <p className="section-subtitle">
+            Real stories from women who discovered their perfect aura with WYNA
+          </p>
+          
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="testimonial-stars">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </div>
+                <p className="testimonial-text">
+                  "The Banarasi saree I purchased exceeded all expectations. The craftsmanship is exceptional, and I felt like royalty wearing it. WYNA truly understands elegance."
+                </p>
+                <div className="testimonial-author">
+                  <img src="/images/customer-1.jpg" alt="Priya Sharma" className="author-image" />
+                  <div className="author-info">
+                    <h4>Priya Sharma</h4>
+                    <p>Mumbai, Wedding Collection</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="testimonial-stars">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </div>
+                <p className="testimonial-text">
+                  "Every saree from WYNA tells a unique story. The Heritage Collection piece I bought has become my most treasured possession. Absolutely worth every penny!"
+                </p>
+                <div className="testimonial-author">
+                  <img src="/images/customer-2.jpg" alt="Ananya Reddy" className="author-image" />
+                  <div className="author-info">
+                    <h4>Ananya Reddy</h4>
+                    <p>Hyderabad, Heritage Lover</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="testimonial-card">
+              <div className="testimonial-content">
+                <div className="testimonial-stars">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </div>
+                <p className="testimonial-text">
+                  "The Bridal Aura series made my special day even more memorable. The attention to detail and quality of fabric is unmatched. Thank you, WYNA!"
+                </p>
+                <div className="testimonial-author">
+                  <img src="/images/customer-3.jpg" alt="Kavya Patel" className="author-image" />
+                  <div className="author-info">
+                    <h4>Kavya Patel</h4>
+                    <p>Ahmedabad, Bridal Aura</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Instagram Feed Section */}
+          <div className="instagram-section">
+            <h3 className="instagram-title">#WYNAAura on Instagram</h3>
+            <div className="instagram-grid">
+              <div className="instagram-item">
+                <img src="/images/insta-1.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>1.2k likes</span>
+                </div>
+              </div>
+              <div className="instagram-item">
+                <img src="/images/insta-2.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>987 likes</span>
+                </div>
+              </div>
+              <div className="instagram-item">
+                <img src="/images/insta-3.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>1.5k likes</span>
+                </div>
+              </div>
+              <div className="instagram-item">
+                <img src="/images/insta-4.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>756 likes</span>
+                </div>
+              </div>
+              <div className="instagram-item">
+                <img src="/images/insta-5.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>892 likes</span>
+                </div>
+              </div>
+              <div className="instagram-item">
+                <img src="/images/insta-6.jpg" alt="WYNA on Instagram" />
+                <div className="instagram-overlay">
+                  <i className="fab fa-instagram"></i>
+                  <span>1.1k likes</span>
+                </div>
+              </div>
+            </div>
+            <div className="instagram-cta">
+              <a href="https://instagram.com/wyna" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                <i className="fab fa-instagram"></i>
+                Follow @wyna
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Aura Weaver Interactive Tool */}
+      <section className="aura-weaver-section animate-fade-in-up">
+        <div className="container">
+          <AuraWeaver />
         </div>
       </section>
 
@@ -202,8 +350,8 @@ const Home = () => {
       <section className="newsletter animate-fade-in-up">
         <div className="container">
           <div className="newsletter-content">
-            <h2>Stay Updated</h2>
-            <p>Get the latest news about new products and exclusive offers</p>
+            <h2>Embrace Your Aura</h2>
+            <p>Receive exclusive updates about new series and limited edition collections</p>
             <form className="newsletter-form">
               <input
                 type="email"
@@ -211,7 +359,7 @@ const Home = () => {
                 className="newsletter-input"
               />
               <button type="submit" className="btn btn-primary">
-                Subscribe
+                Join WYNA
               </button>
             </form>
           </div>

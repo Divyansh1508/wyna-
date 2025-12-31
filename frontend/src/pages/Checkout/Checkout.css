@@ -61,8 +61,8 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  border-color: var(--wyna-red);
+  box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.1);
 }
 
 .form-row {
@@ -92,7 +92,7 @@
 .btn-place-order {
   width: 100%;
   padding: 1rem;
-  background-color: #007bff;
+  background-color: var(--wyna-red);
   color: white;
   border: none;
   border-radius: 4px;
@@ -104,7 +104,7 @@
 }
 
 .btn-place-order:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: var(--wyna-dark-red);
 }
 
 .btn-place-order:disabled {
@@ -160,7 +160,7 @@
 
 .item-total {
   margin: 0;
-  color: #007bff;
+  color: var(--wyna-red);
   font-weight: bold;
 }
 
@@ -192,15 +192,15 @@
 }
 
 .info-box {
-  background-color: #f0f7ff;
+  background-color: rgba(139, 0, 0, 0.05);
   padding: 1rem;
   border-radius: 4px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid var(--wyna-red);
 }
 
 .info-box p {
   margin: 0.5rem 0;
-  color: #0056b3;
+  color: var(--wyna-dark-red);
   font-size: 0.9rem;
 }
 

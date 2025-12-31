@@ -72,7 +72,7 @@
 
 .item-price {
   margin: 0.5rem 0 0 0;
-  color: #007bff;
+  color: var(--wyna-red);
   font-weight: bold;
 }
 
@@ -108,7 +108,7 @@
 
 .item-subtotal p {
   margin: 0;
-  color: #007bff;
+  color: var(--wyna-red);
   font-weight: bold;
   font-size: 1rem;
   white-space: nowrap;
@@ -187,22 +187,22 @@
 }
 
 .btn-checkout {
-  background-color: #007bff;
+  background-color: var(--wyna-red);
   color: white;
 }
 
 .btn-checkout:hover {
-  background-color: #0056b3;
+  background-color: var(--wyna-dark-red);
 }
 
 .btn-continue {
   background-color: white;
-  color: #007bff;
-  border: 2px solid #007bff;
+  color: var(--wyna-red);
+  border: 2px solid var(--wyna-red);
 }
 
 .btn-continue:hover {
-  background-color: #f0f7ff;
+  background-color: rgba(139, 0, 0, 0.05);
 }
 
 .btn-clear {

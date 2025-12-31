@@ -30,14 +30,14 @@
 }
 
 .filter-section button:hover {
-  border-color: #007bff;
-  color: #007bff;
+  border-color: var(--wyna-red);
+  color: var(--wyna-red);
 }
 
 .filter-section button.active {
-  background-color: #007bff;
+  background-color: var(--wyna-red);
   color: white;
-  border-color: #007bff;
+  border-color: var(--wyna-red);
 }
 
 .products-grid {
@@ -108,7 +108,7 @@
 
 .product-footer .price {
   font-weight: bold;
-  color: #007bff;
+  color: var(--wyna-red);
   font-size: 1.1rem;
 }
 
