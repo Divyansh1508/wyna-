@@ -37,17 +37,17 @@ const Contact = () => {
             <div className="contact-details">
               <div className="contact-item">
                 <h3>Corporate Office</h3>
-                <p>B-107, Tower T3, NX One<br />Noida Extension, Uttar Pradesh-201306</p>
+                {/* <p>B-107, Tower T3, NX One<br />Noida Extension, Uttar Pradesh-201306</p> */}
               </div>
 
               <div className="contact-item">
                 <h3>Registered Address</h3>
-                <p>4550, Charkhewalan<br />Chawri Bazar, Delhi-110006, India</p>
+                {/* <p>4550, Charkhewalan<br />Chawri Bazar, Delhi-110006, India</p> */}
               </div>
 
               <div className="contact-item">
-                <h3>Support IVR (10+ Lines)</h3>
-                <p><a href="tel:+911169266281">+91 11 6926 6281</a></p>
+                <h3>Support </h3>
+                <p><a href="tel:+918744923702">+91 8744923702</a></p>
               </div>
 
               <div className="contact-item">
@@ -63,7 +63,7 @@ const Contact = () => {
 
               <div className="contact-item">
                 <h3>Email Us</h3>
-                <p><a href="mailto:hello@hamp8.com">hello@hamp8.com</a></p>
+                <p><a href="mailto:hello@hamp8.com">hello@wyna.in</a></p>
               </div>
             </div>
           </div>

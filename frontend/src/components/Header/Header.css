@@ -6,6 +6,7 @@
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  margin-bottom: 0;
 }
 
 .header-content {
@@ -112,6 +113,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
 }
 
 .search-toggle:hover {
@@ -123,17 +129,28 @@
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
-  background: transparent;
-  border: none;
+  background: rgba(255, 215, 0, 0.15);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50%;
   cursor: pointer;
   padding: 8px;
   z-index: 1001;
+  width: 40px;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 215, 0, 0.25);
+  transform: scale(1.1);
 }
 
 .mobile-menu-btn span {
-  width: 25px;
-  height: 3px;
+  width: 20px;
+  height: 2.5px;
   background: #ffd700;
   border-radius: 3px;
   transition: all 0.3s ease;
@@ -212,7 +229,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   border-bottom: 2px solid rgba(255, 215, 0, 0.3);
   padding-bottom: 0.5rem;
 }
@@ -270,7 +287,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
 }
 
 .featured-product p {
@@ -370,35 +387,85 @@
   .header-content {
     gap: 1rem;
   }
-  
+
   .mega-menu-content {
     grid-template-columns: repeat(2, 1fr);
     min-width: 500px;
+  }
+
+  .nav {
+    gap: 1.5rem;
+  }
+
+  .search-container {
+    max-width: 350px;
   }
 }
 
 @media (max-width: 968px) {
   .search-container {
-    max-width: 300px;
+    max-width: 250px;
     margin: 0 1rem;
   }
-  
+
   .mega-menu-content {
     grid-template-columns: 1fr;
     min-width: 300px;
   }
-  
+
   .nav {
-    gap: 1.5rem;
+    gap: 1rem;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+    padding: 0.6rem 0;
+  }
+
+  .logo-img {
+    height: 45px;
+  }
+
+  .logo-text {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    order: 3;
   }
 }
 
 @media (max-width: 768px) {
+  .header-content {
+    padding: 0.75rem 0;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .logo {
+    order: 1;
+    z-index: 1002;
+  }
+
+  .search-toggle {
+    display: flex;
+    order: 2;
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    order: 3;
+  }
+
   .search-container {
     position: fixed;
-    top: 80px;
-    left: 20px;
-    right: 20px;
+    top: 70px;
+    left: 10px;
+    right: 10px;
     max-width: none;
     margin: 0;
     z-index: 999;
@@ -406,49 +473,222 @@
     transform: translateY(-20px);
     transition: all 0.3s ease;
   }
-  
+
   .search-container.search-open {
     opacity: 1;
     transform: translateY(0);
   }
-  
-  .search-toggle {
-    display: flex;
-  }
-  
+
   .mega-menu {
     position: fixed;
-    top: 80px;
-    left: 20px;
-    right: 20px;
+    top: 70px;
+    left: 10px;
+    right: 10px;
     min-width: auto;
-    width: calc(100% - 40px);
-    max-height: 70vh;
+    width: calc(100% - 20px);
+    max-height: 75vh;
     overflow-y: auto;
   }
-  
+
   .mega-menu-content {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
   }
-  
+
   .mega-menu-featured {
     display: none;
   }
+
+  .nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #8b0000 0%, #b22222 100%);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    order: 4;
+    width: 100%;
+  }
+
+  .nav.mobile-open {
+    transform: translateX(0);
+  }
+
+  .nav a {
+    font-size: 1rem;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+    text-align: left;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-item.products-dropdown .mega-menu {
+    position: static;
+    width: 100%;
+    max-height: none;
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  .nav-item.products-dropdown:hover .mega-menu {
+    display: block;
+  }
+
+  .cart-link {
+    padding: 0.8rem 1rem !important;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+  .header-content {
+    padding: 0.6rem 0;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+  }
+
+  .logo-img {
+    height: 36px;
+  }
+
+  .nav {
+    top: 65px;
+    padding: 0.75rem;
+  }
+
+  .nav a {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  .cart-link {
+    padding: 0.7rem 0.9rem !important;
+    font-size: 0.95rem;
+  }
+
+  .cart-icon {
+    font-size: 1.1rem;
+  }
+
+  .search-input {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .search-btn {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .search-toggle {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .search-container {
+    top: 65px;
+  }
+
+  .mega-menu {
+    top: 65px;
+  }
+}
+
+@media (max-width: 375px) {
   .header-content {
     padding: 0.5rem 0;
   }
-  
+
   .logo-text {
     font-size: 1.2rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
-  
+
+  .logo-img {
+    height: 32px;
+  }
+
   .nav {
-    width: 85%;
+    top: 60px;
+    padding: 0.5rem;
+  }
+
+  .nav a {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .cart-link {
+    padding: 0.65rem 0.8rem !important;
+    font-size: 0.9rem;
+  }
+
+  .cart-icon {
+    font-size: 1rem;
+  }
+
+  .search-toggle {
+    padding: 0.45rem;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+
+  .mobile-menu-btn {
+    padding: 6px;
+  }
+
+  .mobile-menu-btn span {
+    width: 22px;
+    height: 2.5px;
+  }
+
+  .search-container {
+    top: 60px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .search-input {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
+
+  .search-btn {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .mega-menu {
+    top: 60px;
+    left: 8px;
+    right: 8px;
+  }
+
+  .mega-menu-content {
+    padding: 0.75rem;
   }
 }

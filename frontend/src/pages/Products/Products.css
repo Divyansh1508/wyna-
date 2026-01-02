@@ -132,13 +132,138 @@
   color: #666;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .products-page {
+    padding: 2.5rem 0;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .products-page h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .products-page {
+    padding: 2rem 0;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
   }
 
   .products-page h1 {
     font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-section {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-section button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .product-image {
+    height: 180px;
+  }
+
+  .product-info {
+    padding: 0.9rem;
+  }
+
+  .product-info h3 {
+    font-size: 1rem;
+  }
+
+  .product-info .description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-page {
+    padding: 1.5rem 0;
+  }
+
+  .products-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .filter-section {
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .filter-section button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .product-image {
+    height: 160px;
+  }
+
+  .product-info {
+    padding: 0.8rem;
+  }
+
+  .product-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .product-footer .price {
+    font-size: 1rem;
+  }
+
+  .product-footer .category {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .products-page h1 {
+    font-size: 1.4rem;
+  }
+
+  .filter-section button {
+    padding: 0.45rem 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+
+  .product-info h3 {
+    font-size: 0.9rem;
+  }
+
+  .product-info .description {
+    font-size: 0.8rem;
   }
 }

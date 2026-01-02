@@ -298,7 +298,74 @@ select:focus {
 }
 
 /* Enhanced Responsive Design */
+@media (max-width: 1400px) {
+  :root {
+    --max-width: 1140px;
+  }
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --max-width: 960px;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  h1 {
+    font-size: 2.3rem;
+  }
+  h2 {
+    font-size: 1.9rem;
+  }
+  h3 {
+    font-size: 1.65rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --max-width: 900px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .main-content {
+    padding: 1.5rem 0;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.75rem;
+    font-size: 0.95rem;
+  }
+
+  .card-body {
+    padding: 1.3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  :root {
+    --max-width: 720px;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
   .main-content {
     padding: 1rem 0;
   }
@@ -316,30 +383,181 @@ select:focus {
   h3 {
     font-size: 1.5rem;
   }
+  h4 {
+    font-size: 1.25rem;
+  }
 
   .btn {
     padding: 0.6rem 1.5rem;
     font-size: 0.9rem;
   }
 
-  .col {
+  .col,
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-6 {
     flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 0.75rem;
+  }
+
+  .card-body {
+    padding: 1.2rem;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.65rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --max-width: 540px;
+  }
+
+  body {
+    font-size: 13.5px;
+  }
+
+  .main-content {
+    padding: 0.75rem 0;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.7rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0.8rem;
+  }
+
+  .btn {
+    padding: 0.55rem 1.3rem;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .col {
     padding: 0 0.5rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
+  :root {
+    --max-width: 100%;
+  }
+
+  body {
+    font-size: 13px;
+  }
+
   .container {
     padding: 0 0.5rem;
   }
 
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
   h3 {
     font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .card-body {
+    padding: 0.9rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.55rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Responsive utility classes */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+  a,
+  button,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
   }
 }

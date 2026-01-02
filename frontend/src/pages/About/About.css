@@ -89,18 +89,157 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .about-page {
+    padding: 30px 0;
+  }
+
+  .about-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .story-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .about-page {
+    padding: 25px 0;
+  }
+
+  .about-header {
+    margin-bottom: 35px;
+  }
+
+  .about-header h1 {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.05rem;
+  }
+
+  .story-section {
+    margin-bottom: 35px;
+  }
+
+  .story-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
   .story-content {
     flex-direction: column;
     gap: 20px;
   }
 
+  .story-text h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 12px 0;
+  }
+
   .values-section {
-    padding: 30px;
+    padding: 30px 20px;
+    margin-top: 35px;
   }
 
   .values-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-page {
+    padding: 20px 0;
+  }
+
+  .about-header {
+    margin-bottom: 30px;
+  }
+
+  .about-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .story-section {
+    margin-bottom: 30px;
+  }
+
+  .story-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .story-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .story-text p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+
+  .values-section {
+    padding: 25px 15px;
+    border-radius: 8px;
+  }
+
+  .values-grid {
+    gap: 25px;
+  }
+
+  .value-item {
+    padding: 15px;
+  }
+
+  .value-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .value-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .about-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+  }
+
+  .story-section h2 {
+    font-size: 1.4rem;
+  }
+
+  .story-text h3 {
+    font-size: 1.05rem;
+  }
+
+  .story-text p {
+    font-size: 0.9rem;
+  }
+
+  .values-section {
+    padding: 20px 10px;
+  }
+
+  .value-item h3 {
+    font-size: 1.05rem;
+  }
+
+  .value-item p {
+    font-size: 0.9rem;
   }
 }
