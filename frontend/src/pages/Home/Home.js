@@ -2,8 +2,57 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
+import InstagramLightbox from "../../components/InstagramLightbox/InstagramLightbox";
+import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
+import AnimatedHero from "../../components/AnimatedHero/AnimatedHero";
 
 const Home = () => {
+  const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+
+  const instagramImages = [
+    {
+      src: "/Asset/11.png",
+      alt: "WYNA on Instagram",
+      likes: "1.2k likes"
+    },
+    {
+      src: "/Asset/12.png",
+      alt: "WYNA on Instagram",
+      likes: "987 likes"
+    },
+    {
+      src: "/Asset/13.png",
+      alt: "WYNA on Instagram",
+      likes: "1.5k likes"
+    },
+    {
+      src: "/Asset/14.png",
+      alt: "WYNA on Instagram",
+      likes: "756 likes"
+    },
+    {
+      src: "/Asset/11.png",
+      alt: "WYNA on Instagram",
+      likes: "892 likes"
+    },
+    {
+      src: "/Asset/13.png",
+      alt: "WYNA on Instagram",
+      likes: "1.1k likes"
+    }
+  ];
+
+  const openLightbox = (index) => {
+    setCurrentImageIndex(index);
+    setIsLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    document.body.style.overflow = 'unset';
+  };
   const featuredProducts = [
     {
       id: 1,
@@ -82,48 +131,20 @@ const Home = () => {
 
   return (
     <div className="home">
-      {/* Hero Section */}
-      <section className="hero animate-fade-in-up">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">
-              WYNA
-              <span className="highlight"> Weave Your New Aura</span>
-            </h1>
-            <p className="hero-subtitle">
-              Where tradition meets timeless luxury. Each saree is not just
-              attire, but an aura — woven with heritage, elegance, and
-              individuality. Experience exclusive, one-of-a-kind creations
-              curated for the discerning woman.
-            </p>
-            <div className="hero-buttons">
-              <Link to="/products" className="btn btn-gold">
-                <i className="fas fa-shopping-bag"></i>
-                Shop Now
-              </Link>
-              <Link to="/about" className="btn btn-outline">
-                <i className="fas fa-info-circle"></i>
-                Download Catalog
-              </Link>
-            </div>
-          </div>
-          <div className="hero-image">
-            <img src="/Asset/model.png" alt="WYNA - Premium Ethnic Wear" />
-          </div>
-        </div>
-      </section>
+      {/* Enhanced Hero Section */}
+      <AnimatedHero />
 
       {/* Categories Section */}
-      <section className="categories animate-fade-in-up">
+      <section className="categories section-separator animate-fade-in-up">
         <div className="container">
           <h2 className="section-title">Exclusive Series</h2>
           <p className="section-subtitle">
             Discover our curated collections of premium traditional sarees
           </p>
 
-          <div className="categories-grid">
+          <div className="categories-grid stagger-animation">
             {categories.map((category, index) => (
-              <div key={index} className="category-card card">
+              <div key={index} className="category-card card hover-lift">
                 <div className="category-image">
                   <img src={category.image} alt={category.name} />
                   <div className="category-overlay">
@@ -150,7 +171,7 @@ const Home = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="featured-products animate-fade-in-up">
+      <section className="featured-products section-separator-wave animate-fade-in-up">
         <div className="container">
           <h2 className="section-title">Series 01: Banarasi Handcrafted</h2>
           <p className="section-subtitle">
@@ -158,9 +179,9 @@ const Home = () => {
             identical combinations
           </p>
 
-          <div className="products-grid">
+          <div className="products-grid stagger-animation">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="product-card card">
+              <div key={product.id} className="product-card card hover-lift">
                 <div className="product-image">
                   <img src={product.image} alt={product.name} />
                   <div className="product-badges">
@@ -170,10 +191,10 @@ const Home = () => {
                     <span className="badge badge-series">{product.series}</span>
                   </div>
                   <div className="product-actions">
-                    <button className="btn-icon">
+                    <button className="btn-icon hover-scale">
                       <i className="fas fa-heart"></i>
                     </button>
-                    <button className="btn-icon">
+                    <button className="btn-icon hover-scale">
                       <i className="fas fa-shopping-cart"></i>
                     </button>
                   </div>
@@ -196,7 +217,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-5">
-            <Link to="/products" className="btn btn-primary btn-large">
+            <Link to="/products" className="btn btn-primary btn-large hover-scale">
               Explore Series 01
               <i className="fas fa-arrow-right"></i>
             </Link>
@@ -406,11 +427,9 @@ const Home = () => {
             <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="testimonial-stars">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="star filled"></span>
+                  ))}
                 </div>
                 <p className="testimonial-text">
                   "The Banarasi saree I purchased exceeded all expectations. The
@@ -434,11 +453,9 @@ const Home = () => {
             <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="testimonial-stars">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="star filled"></span>
+                  ))}
                 </div>
                 <p className="testimonial-text">
                   "Every saree from WYNA tells a unique story. The Heritage
@@ -462,11 +479,9 @@ const Home = () => {
             <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="testimonial-stars">
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
-                  <i className="fas fa-star"></i>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="star filled"></span>
+                  ))}
                 </div>
                 <p className="testimonial-text">
                   "The Bridal Aura series made my special day even more
@@ -492,66 +507,22 @@ const Home = () => {
           <div className="instagram-section">
             <h3 className="instagram-title">#WYNAAura on Instagram</h3>
             <div className="instagram-grid">
-              <div className="instagram-item">
-                <img
-                  src="/Asset/11.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>1.2k likes</span>
+              {instagramImages.map((image, index) => (
+                <div 
+                  key={index} 
+                  className="instagram-item"
+                  onClick={() => openLightbox(index)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                  />
+                  <div className="instagram-overlay">
+                    <i className="fab fa-instagram"></i>
+                    <span>{image.likes}</span>
+                  </div>
                 </div>
-              </div>
-              <div className="instagram-item">
-                <img
-                  src="/Asset/12.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>987 likes</span>
-                </div>
-              </div>
-              <div className="instagram-item">
-                <img
-                  src="/Asset/13.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>1.5k likes</span>
-                </div>
-              </div>
-              <div className="instagram-item">
-                <img
-                  src="/Asset/14.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>756 likes</span>
-                </div>
-              </div>
-              <div className="instagram-item">
-                <img
-                  src="/Asset/11.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>892 likes</span>
-                </div>
-              </div>
-              <div className="instagram-item">
-                <img
-                  src="/Asset/13.png"
-                  alt="WYNA on Instagram"
-                />
-                <div className="instagram-overlay">
-                  <i className="fab fa-instagram"></i>
-                  <span>1.1k likes</span>
-                </div>
-              </div>
+              ))}
             </div>
             <div className="instagram-cta">
               <a
@@ -597,6 +568,18 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Instagram Lightbox */}
+      <InstagramLightbox
+        images={instagramImages}
+        isOpen={isLightboxOpen}
+        onClose={closeLightbox}
+        currentIndex={currentImageIndex}
+        setCurrentIndex={setCurrentImageIndex}
+      />
+
+      {/* Weave Assistant */}
+      <WeaveAssistant />
     </div>
   );
 };

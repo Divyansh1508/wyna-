@@ -78,7 +78,7 @@
 .product-info h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #333;
+  /* color: #333; */
 }
 
 .product-meta {

@@ -121,7 +121,7 @@ body {
     var(--wyna-red) 40%,
     var(--wyna-dark-red) 100%
   );
-  color: var(--wyna-white);
+  /* color: var(--wyna-white); */
   box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
   border: 2px solid transparent;
   position: relative;

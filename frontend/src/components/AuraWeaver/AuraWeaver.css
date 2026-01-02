@@ -465,6 +465,7 @@
 
 .btn-secondary:hover {
   background: var(--wyna-soft-gold);
+  color: var(--wyna-red);
   transform: translateY(-2px);
 }
 

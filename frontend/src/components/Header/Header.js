@@ -96,7 +96,7 @@ const Header = () => {
                     <div className="mega-menu-featured">
                       <h3>Featured</h3>
                       <div className="featured-product">
-                        <img src="/images/featured-saree.jpg" alt="Featured Saree" />
+                        <img src="/Asset/logo.jpeg" alt="Featured Saree" />
                         <h4>Exquisite Banarasi Masterpiece</h4>
                         <p>Limited Edition • Handcrafted</p>
                         <Link to="/products/featured" className="btn btn-outline">View Details</Link>
