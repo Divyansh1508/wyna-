@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Setup script for Hamp8 E-commerce Application
+# Setup script for wyna E-commerce Application
 
-echo "Setting up Hamp8 E-commerce Application..."
+echo "Setting up wyna E-commerce Application..."
 
 # Install root dependencies
 echo "Installing root dependencies..."

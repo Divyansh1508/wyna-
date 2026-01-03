@@ -53,7 +53,7 @@ const Contact = () => {
               <div className="contact-item">
                 <h3>Need Customized Solutions?</h3>
                 <p>
-                  <a href="https://wa.me/919310804776?text=Hey,%20I%20am%20looking%20for%20customized%20gifting%20solutions."
+                  <a href="https://wa.me/918744923702?text=Hey,%20I%20am%20looking%20for%20customized%20gifting%20solutions."
                      target="_blank"
                      rel="noopener noreferrer">
                     Chat with us on WhatsApp
@@ -63,7 +63,7 @@ const Contact = () => {
 
               <div className="contact-item">
                 <h3>Email Us</h3>
-                <p><a href="mailto:hello@hamp8.com">hello@wyna.in</a></p>
+                <p><a href="Wynaindia@gmail.com">Wynaindia@gmail.com</a></p>
               </div>
             </div>
           </div>

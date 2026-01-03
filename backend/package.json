@@ -1,7 +1,7 @@
 {
-  "name": "hamp8-backend",
+  "name": "wyna-backend",
   "version": "1.0.0",
-  "description": "Backend API for Hamp8 E-commerce Application",
+  "description": "Backend API for wyna E-commerce Application",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
