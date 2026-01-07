@@ -1,5 +1,5 @@
 /* Enhanced Brand Identity & Visual System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
   /* Primary Brand Colors - WYNA Heritage Focus */
@@ -7,13 +7,13 @@
   --primary-slate: #6b0000;
   --accent-emerald: #ffd700;
   --accent-teal: #ffa500;
-  
+
   /* WYNA Heritage Colors (Enhanced) */
   --wyna-red: #8b0000;
   --wyna-red-light: #b22222;
   --wyna-gold: #ffd700;
   --wyna-gold-light: #ffa500;
-  
+
   /* Neutral Palette */
   --neutral-50: #f8fafc;
   --neutral-100: #f1f5f9;
@@ -25,31 +25,51 @@
   --neutral-700: #334155;
   --neutral-800: #1e293b;
   --neutral-900: #0f172a;
-  
+
   /* Semantic Colors */
-  --success: #22C55E;
+  --success: #22c55e;
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
-  
+
   /* Brand Gradients - Red & Gold Focus */
-  --gradient-primary: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-slate) 100%);
-  --gradient-accent: linear-gradient(135deg, var(--wyna-gold) 0%, var(--wyna-gold-light) 100%);
-  --gradient-wyna: linear-gradient(135deg, var(--wyna-red) 0%, var(--wyna-red-light) 50%, var(--wyna-gold) 100%);
-  --gradient-hero: linear-gradient(135deg, var(--wyna-red) 0%, var(--primary-slate) 50%, var(--wyna-gold) 100%);
-  
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--primary-dark) 0%,
+    var(--primary-slate) 100%
+  );
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--wyna-gold) 0%,
+    var(--wyna-gold-light) 100%
+  );
+  --gradient-wyna: linear-gradient(
+    135deg,
+    var(--wyna-red) 0%,
+    var(--wyna-red-light) 50%,
+    var(--wyna-gold) 100%
+  );
+  --gradient-hero: linear-gradient(
+    135deg,
+    var(--wyna-red) 0%,
+    var(--primary-slate) 50%,
+    var(--wyna-gold) 100%
+  );
+
   /* Shadows & Effects */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
   --shadow-glow: 0 0 20px rgba(255, 215, 0, 0.4);
-  
+
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Border Radius */
   --radius-sm: 0.375rem;
   --radius: 0.5rem;
@@ -57,11 +77,11 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-full: 9999px;
-  
+
   /* Typography */
-  --font-primary: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
-  --font-display: 'Poppins', 'Inter', sans-serif;
-  
+  --font-primary: "Inter", "Segoe UI", "Roboto", sans-serif;
+  --font-display: "Poppins", "Inter", sans-serif;
+
   /* Spacing */
   --max-width: 1400px;
   --section-padding: 6rem;
@@ -94,7 +114,11 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-emerald) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    var(--accent-emerald) 0%,
+    transparent 70%
+  );
   pointer-events: none;
   z-index: 9999;
   transition: transform 0.1s ease;
@@ -173,7 +197,7 @@ a {
 }
 
 a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -213,13 +237,18 @@ a:hover {
 }
 
 .btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: left 0.6s;
 }
 
@@ -275,13 +304,18 @@ a:hover {
 }
 
 .card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 }
 
 .card:hover {
@@ -457,7 +491,8 @@ select:focus {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -466,7 +501,8 @@ select:focus {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -475,7 +511,8 @@ select:focus {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(34, 197, 94, 0.5);
   }
   50% {
@@ -527,12 +564,24 @@ select:focus {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
-.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
-.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
-.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
-.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
-.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-animation > *:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-animation > *:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-animation > *:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-animation > *:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.stagger-animation > *:nth-child(6) {
+  animation-delay: 0.6s;
+}
 
 /* Hover Effects */
 .hover-lift {
@@ -566,7 +615,7 @@ select:focus {
 }
 
 .section-separator::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -576,26 +625,20 @@ select:focus {
   opacity: 0.3;
 }
 
-.section-separator-diagonal {
-  position: relative;
-  padding: var(--section-padding) 0;
-  /* background: var(--neutral-100); */
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-}
-
 .section-separator-wave {
   position: relative;
   padding: var(--section-padding) 0;
 }
 
 .section-separator-wave::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50px;
   left: 0;
   right: 0;
   height: 100px;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8fafc' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8fafc' fill-opacity='1' d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat;
   background-size: cover;
 }
 
@@ -607,14 +650,22 @@ select:focus {
 }
 
 .bg-gradient-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-              radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+  background: radial-gradient(
+      circle at 20% 50%,
+      rgba(34, 197, 94, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 50%,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 50%
+    );
   pointer-events: none;
 }
 
@@ -623,7 +674,11 @@ select:focus {
 }
 
 .bg-gradient-neutral {
-  background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--neutral-50) 0%,
+    var(--neutral-100) 100%
+  );
 }
 
 /* Floating Elements */
@@ -667,8 +722,7 @@ select:focus {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+  background-image: linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
   opacity: 0.3;

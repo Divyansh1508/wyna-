@@ -14,74 +14,71 @@ const Home = () => {
     {
       src: "/Asset/11.png",
       alt: "WYNA on Instagram",
-      likes: "1.2k likes"
+      likes: "1.2k likes",
     },
     {
       src: "/Asset/12.png",
       alt: "WYNA on Instagram",
-      likes: "987 likes"
+      likes: "987 likes",
     },
     {
       src: "/Asset/13.png",
       alt: "WYNA on Instagram",
-      likes: "1.5k likes"
+      likes: "1.5k likes",
     },
     {
       src: "/Asset/14.png",
       alt: "WYNA on Instagram",
-      likes: "756 likes"
+      likes: "756 likes",
     },
     {
       src: "/Asset/11.png",
       alt: "WYNA on Instagram",
-      likes: "892 likes"
+      likes: "892 likes",
     },
     {
       src: "/Asset/13.png",
       alt: "WYNA on Instagram",
-      likes: "1.1k likes"
-    }
+      likes: "1.1k likes",
+    },
   ];
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
     setIsLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setIsLightboxOpen(false);
-    document.body.style.overflow = 'unset';
+    document.body.style.overflow = "unset";
   };
   const featuredProducts = [
     {
       id: 1,
-      name: "Banarasi Handcrafted Saree - Variant 1",
+      name: " Handcrafted Saree - Variant 1",
       price: "₹8,500",
       image: "/Asset/11.png",
       description:
-        "Exquisite handwoven Banarasi saree with traditional golden zari work",
+        "Exquisite handwoven  saree with traditional golden zari work",
       series: "Series 01",
       exclusive: true,
     },
     {
       id: 2,
-      name: "Banarasi Handcrafted Saree - Variant 2",
+      name: " Handcrafted Saree - Variant 2",
       price: "₹9,200",
-      image:
-        "/Asset/12.png",
-      description:
-        "Pure silk Banarasi masterpiece with intricate meenakari patterns",
+      image: "/Asset/12.png",
+      description: "Pure silk masterpiece with intricate meenakari patterns",
       series: "Series 01",
       exclusive: true,
     },
     {
       id: 3,
-      name: "Banarasi Handcrafted Saree - Variant 3",
+      name: " Handcrafted Saree - Variant 3",
       price: "₹7,800",
-      image:
-        "/Asset/13.png",
-      description: "Heritage Banarasi weave with antique gold zari borders",
+      image: "/Asset/13.png",
+      description: "Heritageweave with antique gold zari borders",
       series: "Series 01",
       exclusive: true,
     },
@@ -89,8 +86,7 @@ const Home = () => {
       id: 4,
       name: "Banarasi Handcrafted Saree - Variant 4",
       price: "₹8,900",
-      image:
-        "/Asset/14.png",
+      image: "/Asset/14.png",
       description:
         "Royal blue silk with golden paisley motifs and ornate border",
       series: "Series 01",
@@ -100,31 +96,27 @@ const Home = () => {
 
   const categories = [
     {
-      name: "Series 01 - Banarasi",
+      name: "Series",
       count: 47,
-      image:
-        "/Asset/11.png",
-      description: "Handcrafted Banarasi sarees",
+      image: "/Asset/11.png",
+      description: "Handcrafted  sarees",
     },
     {
       name: "Coming Soon",
       count: 0,
-      image:
-        "/Asset/12.png",
+      image: "/Asset/12.png",
       description: "Exclusive new series",
     },
     {
       name: "Heritage Collection",
       count: 15,
-      image:
-        "/Asset/13.png",
+      image: "/Asset/13.png",
       description: "Vintage masterpieces",
     },
     {
       name: "Bridal Aura",
       count: 12,
-      image:
-        "/Asset/14.png",
+      image: "/Asset/14.png",
       description: "Wedding exclusives",
     },
   ];
@@ -173,7 +165,7 @@ const Home = () => {
       {/* Featured Products Section */}
       <section className="featured-products section-separator-wave animate-fade-in-up">
         <div className="container">
-          <h2 className="section-title">Series 01: Banarasi Handcrafted</h2>
+          <h2 className="section-title">Series: Handcrafted</h2>
           <p className="section-subtitle">
             11 exquisite variants • 47 unique articles • No repetition, no
             identical combinations
@@ -217,8 +209,11 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-5">
-            <Link to="/products" className="btn btn-primary btn-large hover-scale">
-              Explore Series 01
+            <Link
+              to="/products"
+              className="btn btn-primary btn-large hover-scale"
+            >
+              Explore Series
               <i className="fas fa-arrow-right"></i>
             </Link>
           </div>
@@ -415,130 +410,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="testimonials animate-fade-in-up">
-        <div className="container">
-          <h2 className="section-title">What Our Customers Say</h2>
-          <p className="section-subtitle">
-            Real stories from women who discovered their perfect aura with WYNA
-          </p>
-
-          <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="testimonial-stars">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="star filled"></span>
-                  ))}
-                </div>
-                <p className="testimonial-text">
-                  "The Banarasi saree I purchased exceeded all expectations. The
-                  craftsmanship is exceptional, and I felt like royalty wearing
-                  it. WYNA truly understands elegance."
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/44.jpg"
-                    alt="Priya Sharma"
-                    className="author-image"
-                  />
-                  <div className="author-info">
-                    <h4>Priya Sharma</h4>
-                    <p>Mumbai, Wedding Collection</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="testimonial-stars">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="star filled"></span>
-                  ))}
-                </div>
-                <p className="testimonial-text">
-                  "Every saree from WYNA tells a unique story. The Heritage
-                  Collection piece I bought has become my most treasured
-                  possession. Absolutely worth every penny!"
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/65.jpg"
-                    alt="Ananya Reddy"
-                    className="author-image"
-                  />
-                  <div className="author-info">
-                    <h4>Ananya Reddy</h4>
-                    <p>Hyderabad, Heritage Lover</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="testimonial-stars">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="star filled"></span>
-                  ))}
-                </div>
-                <p className="testimonial-text">
-                  "The Bridal Aura series made my special day even more
-                  memorable. The attention to detail and quality of fabric is
-                  unmatched. Thank you, WYNA!"
-                </p>
-                <div className="testimonial-author">
-                  <img
-                    src="https://randomuser.me/api/portraits/women/32.jpg"
-                    alt="Kavya Patel"
-                    className="author-image"
-                  />
-                  <div className="author-info">
-                    <h4>Kavya Patel</h4>
-                    <p>Ahmedabad, Bridal Aura</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Instagram Feed Section */}
-          <div className="instagram-section">
-            <h3 className="instagram-title">#WYNAAura on Instagram</h3>
-            <div className="instagram-grid">
-              {instagramImages.map((image, index) => (
-                <div 
-                  key={index} 
-                  className="instagram-item"
-                  onClick={() => openLightbox(index)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                  />
-                  <div className="instagram-overlay">
-                    <i className="fab fa-instagram"></i>
-                    <span>{image.likes}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="instagram-cta">
-              <a
-                href="https://instagram.com/wyna"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline"
-              >
-                <i className="fab fa-instagram"></i>
-                Follow @wyna
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Aura Weaver Interactive Tool */}
       <section className="aura-weaver-section animate-fade-in-up">
         <div className="container">
@@ -579,7 +450,7 @@ const Home = () => {
       />
 
       {/* Weave Assistant */}
-      <WeaveAssistant />
+      {/* <WeaveAssistant /> */}
     </div>
   );
 };

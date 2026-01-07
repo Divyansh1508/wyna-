@@ -14,6 +14,7 @@ import AdminDashboard from "./pages/Admin/AdminDashboard";
 import FirstVisitConfetti from "./components/FirstVisitConfetti/FirstVisitConfetti";
 import CustomCursor from "./components/CustomCursor/CustomCursor";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
+import WhatsAppChat from "./components/WhatsAppChat/WhatsAppChat";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <CustomCursor />
         <ScrollProgress />
         <FirstVisitConfetti />
+        <WhatsAppChat />
         <Header />
         <main className="main-content">
           <Routes>
