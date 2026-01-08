@@ -63,7 +63,7 @@ const AnimatedHero = () => {
           <div className="hero-buttons">
             <a href="/products" className="btn btn-primary hover-scale">
               <i className="fas fa-shopping-bag"></i>
-              Shop Collection
+              DOWNLOAD CATTALOGUE
             </a>
             <a href="/about" className="btn btn-outline hover-lift">
               <i className="fas fa-play-circle"></i>
@@ -94,11 +94,6 @@ const AnimatedHero = () => {
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="scroll-indicator">
-        <div className="scroll-arrow"></div>
-        <span>Scroll to explore</span>
       </div>
     </section>
   );

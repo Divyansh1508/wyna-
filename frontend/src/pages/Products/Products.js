@@ -10,6 +10,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -22,10 +23,14 @@ const Products = () => {
         }
 
         const response = await axios.get(url);
-        setProducts(response.data);
+        const productsData = Array.isArray(response.data) ? response.data : [];
+        setProducts(productsData);
+        setFilteredProducts(productsData);
       } catch (error) {
         toast.error("Failed to load products");
         console.error(error);
+        setProducts([]);
+        setFilteredProducts([]);
       } finally {
         setLoading(false);
       }
@@ -34,43 +39,79 @@ const Products = () => {
     fetchProducts();
   }, [slug]);
 
+  const handleFilter = (filterType) => {
+    setFilter(filterType);
+    const productsArray = Array.isArray(products) ? products : [];
+    if (filterType === "all") {
+      setFilteredProducts(productsArray);
+    } else if (filterType === "popular") {
+      setFilteredProducts(
+        productsArray.slice(0, Math.ceil(productsArray.length / 2))
+      );
+    } else if (filterType === "new") {
+      setFilteredProducts(
+        productsArray.slice(Math.ceil(productsArray.length / 2))
+      );
+    }
+  };
+
   if (loading) {
-    return <div className="loading">Loading products...</div>;
+    return (
+      <div className="products-loading">
+        <div className="spinner"></div>Loading our exquisite collection...
+      </div>
+    );
   }
+
+  const safeFilteredProducts = Array.isArray(filteredProducts)
+    ? filteredProducts
+    : [];
 
   return (
     <div className="products-page">
-      <div className="container">
-        <h1>Our Products</h1>
+      {/* Hero Section */}
+      <div className="products-hero">
+        <div className="container">
+          <h1 className="products-title">Our Exquisite Collection</h1>
+          <p className="products-subtitle">
+            Discover handcrafted sarees with premium quality and unique designs
+          </p>
+        </div>
+      </div>
 
+      <div className="container">
         <div className="filter-section">
           <button
-            className={filter === "all" ? "active" : ""}
-            onClick={() => setFilter("all")}
+            className={`filter-btn ${filter === "all" ? "active" : ""}`}
+            onClick={() => handleFilter("all")}
           >
-            All Products
+            <i className="fas fa-th"></i> All Products
           </button>
           <button
-            className={filter === "popular" ? "active" : ""}
-            onClick={() => setFilter("popular")}
+            className={`filter-btn ${filter === "popular" ? "active" : ""}`}
+            onClick={() => handleFilter("popular")}
           >
-            Popular
+            <i className="fas fa-fire"></i> Popular
           </button>
           <button
-            className={filter === "new" ? "active" : ""}
-            onClick={() => setFilter("new")}
+            className={`filter-btn ${filter === "new" ? "active" : ""}`}
+            onClick={() => handleFilter("new")}
           >
-            New Arrivals
+            <i className="fas fa-sparkles"></i> New Arrivals
           </button>
         </div>
 
-        {products.length === 0 ? (
+        {safeFilteredProducts.length === 0 ? (
           <div className="no-products">
-            <p>No products found.</p>
+            <i className="fas fa-inbox"></i>
+            <p>No products found in this category.</p>
+            <Link to="/" className="btn-back">
+              Back to Home
+            </Link>
           </div>
         ) : (
           <div className="products-grid">
-            {products.map((product) => (
+            {safeFilteredProducts.map((product) => (
               <Link
                 to={`/products/${product._id}`}
                 key={product._id}

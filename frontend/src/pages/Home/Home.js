@@ -5,6 +5,7 @@ import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
 import InstagramLightbox from "../../components/InstagramLightbox/InstagramLightbox";
 import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
 import AnimatedHero from "../../components/AnimatedHero/AnimatedHero";
+import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 const Home = () => {
   const [isLightboxOpen, setIsLightboxOpen] = React.useState(false);
@@ -123,6 +124,9 @@ const Home = () => {
 
   return (
     <div className="home">
+      {/* Image Slider Section */}
+      <ImageSlider />
+
       {/* Enhanced Hero Section */}
       <AnimatedHero />
 
@@ -210,7 +214,7 @@ const Home = () => {
 
           <div className="text-center mt-5">
             <Link
-              to="/products"
+              to="/series/handcrafted"
               className="btn btn-primary btn-large hover-scale"
             >
               Explore Series
