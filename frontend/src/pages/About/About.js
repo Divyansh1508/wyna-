@@ -1,5 +1,5 @@
-import React from 'react';
-import './About.css';
+import React from "react";
+import "./About.css";
 
 const About = () => {
   return (
@@ -14,29 +14,40 @@ const About = () => {
           <section className="about-section">
             <h3>About WYNA</h3>
             <p>
-              WYNA, an acronym for Weave Your New Aura, is a premium traditional Indian saree brand under Shrinaya Parampara (Since 2025), founded by Mrs. Garima Singh.
+              WYNA, an acronym for Weave Your New Aura, is a premium traditional
+              Indian saree brand under Shrinaya Parampara (Since 2025), founded
+              by Mrs. Garima Singh.
             </p>
             <p>
-              The brand embodies the belief that a saree is not just attire, but an aura — woven with heritage, elegance, and individuality. WYNA curates exclusive, one-of-a-kind creations that allow every woman to express her unique presence with grace and confidence.
+              The brand embodies the belief that a saree is not just attire, but
+              an aura — woven with heritage, elegance, and individuality. WYNA
+              curates exclusive, one-of-a-kind creations that allow every woman
+              to express her unique presence with grace and confidence.
             </p>
           </section>
 
           <section className="about-section">
             <h3>Owner Statement</h3>
             <p>
-              WYNA, an acronym for Weave Your New Aura, is a premium traditional Indian saree brand under Shrinaya Parampara (Since 2025), founded by Mrs. Garima Singh.
+              WYNA, an acronym for Weave Your New Aura, is a premium traditional
+              Indian saree brand under Shrinaya Parampara (Since 2025), founded
+              by Mrs. Garima Singh.
             </p>
             <p>
-              The brand embodies the belief that a saree is not just attire, but an aura — woven with heritage, elegance, and individuality. WYNA curates exclusive, one-of-a-kind creations that allow every woman to express her unique presence with grace and confidence.
+              The brand embodies the belief that a saree is not just attire, but
+              an aura — woven with heritage, elegance, and individuality. WYNA
+              curates exclusive, one-of-a-kind creations that allow every woman
+              to express her unique presence with grace and confidence.
             </p>
           </section>
 
           <section className="about-section founder">
             <h3>Our Founder</h3>
-            <p><strong>Founder of WYNA:</strong> Mrs. Garima Singh</p>
+            <p>
+              <strong>Founder of WYNA:</strong> Mrs. Garima Singh
+            </p>
           </section>
         </div>
-        
       </div>
     </div>
   );
