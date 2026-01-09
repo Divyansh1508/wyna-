@@ -430,10 +430,10 @@
   border-top: 2px solid rgba(139, 0, 0, 0.1);
 }
 
-.section-title {
+.container > .section-title {
   text-align: center;
   font-size: 2.5rem;
-  /* color: #8b0000; */
+  color: #8b0000;
   font-family: "Playfair Display", serif;
   margin-bottom: 3rem;
   font-weight: 700;
@@ -443,6 +443,10 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2.5rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .info-card {
