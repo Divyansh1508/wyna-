@@ -128,7 +128,7 @@ const Home = () => {
       <ImageSlider />
 
       {/* Enhanced Hero Section */}
-      <AnimatedHero />
+      {/* <AnimatedHero /> */}
 
       {/* Categories Section */}
       <section className="categories section-separator animate-fade-in-up">

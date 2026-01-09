@@ -335,7 +335,7 @@ body {
 
 @media (max-width: 576px) {
   .main-content {
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
   }
 
   .btn {

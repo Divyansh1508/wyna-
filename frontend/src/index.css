@@ -577,6 +577,7 @@ select:focus {
 
 .hover-scale:hover {
   transform: scale(1.05);
+  color: var(--wyna-red);
 }
 
 .hover-glow {
@@ -800,7 +801,7 @@ select:focus {
   }
 
   .main-content {
-    padding: 1.5rem 0;
+    /* padding: 1.5rem 0; */
   }
 
   h1 {
@@ -833,7 +834,7 @@ select:focus {
   }
 
   .main-content {
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
   }
 
   .container {
@@ -891,7 +892,7 @@ select:focus {
   }
 
   .main-content {
-    padding: 0.75rem 0;
+    /* padding: 0.75rem 0; */
   }
 
   .container {
