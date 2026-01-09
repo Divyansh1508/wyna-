@@ -253,7 +253,7 @@
 @media (max-width: 480px) {
   .image-slider {
     height: auto;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 3 / 1.5;
   }
 
   .slide-content {
@@ -344,7 +344,7 @@
 /* Large Desktop (1200px and above) */
 @media (min-width: 1200px) {
   .image-slider {
-    height: 700px;
+    height: 600px;
   }
 
   .slide-content {

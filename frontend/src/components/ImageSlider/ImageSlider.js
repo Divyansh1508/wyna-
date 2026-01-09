@@ -4,21 +4,44 @@ import "./ImageSlider.css";
 const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const [deviceType, setDeviceType] = useState('desktop');
 
-  const slides = [
-    {
-      id: 1,
-      image: "/Asset/slider1.jpeg",
-    },
-    {
-      id: 2,
-      image: "/Asset/slider2.jpeg",
-    },
-    {
-      id: 3,
-      image: "/Asset/slider3.jpeg",
-    },
-  ];
+  // Detect device type on component mount and window resize
+  useEffect(() => {
+    const checkDeviceType = () => {
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        setDeviceType('mobile');
+      } else if (window.matchMedia('(max-width: 1024px)').matches) {
+        setDeviceType('tablet');
+      } else {
+        setDeviceType('desktop');
+      }
+    };
+
+    // Initial check
+    checkDeviceType();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', checkDeviceType);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkDeviceType);
+  }, []);
+
+  // Define slides based on device type
+  const getSlides = () => {
+    const basePath = "/Asset/images/";
+    const prefix = deviceType === 'mobile' ? 'mobile' : 
+                  deviceType === 'tablet' ? 'tablet' : 'DesktopLarge-screens';
+    
+    return [
+      { id: 1, image: `${basePath}${prefix}-(1).jpg` },
+      { id: 2, image: `${basePath}${prefix}-(2).jpg` },
+      { id: 3, image: `${basePath}${prefix}-(3).jpg` },
+    ];
+  };
+
+  const slides = getSlides();
 
   useEffect(() => {
     if (!isAutoPlay) return;
