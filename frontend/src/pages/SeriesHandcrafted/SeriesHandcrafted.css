@@ -433,7 +433,7 @@
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  color: #8b0000;
+  /* color: #8b0000; */
   font-family: "Playfair Display", serif;
   margin-bottom: 3rem;
   font-weight: 700;

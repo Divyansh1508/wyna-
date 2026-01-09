@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { GiShoppingCart } from "react-icons/gi";
+
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -89,7 +91,8 @@ const Header = () => {
               className="nav-item cart-link"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="cart-icon">🛒</span> Cart
+              <span className="cart-icon"><GiShoppingCart />
+</span> Cart
             </Link>
           </nav>
         </div>

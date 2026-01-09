@@ -430,7 +430,7 @@
   font-family: "Libre Baskerville", serif;
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--wyna-red);
+  /* color: var(--wyna-red); */
   margin-bottom: 1.5rem;
   position: relative;
   padding-bottom: 1.5rem;

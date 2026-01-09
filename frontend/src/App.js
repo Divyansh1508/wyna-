@@ -13,7 +13,6 @@ import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import FirstVisitConfetti from "./components/FirstVisitConfetti/FirstVisitConfetti";
-import CustomCursor from "./components/CustomCursor/CustomCursor";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import WhatsAppChat from "./components/WhatsAppChat/WhatsAppChat";
 import "./App.css";
@@ -22,7 +21,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <CustomCursor />
         <ScrollProgress />
         <FirstVisitConfetti />
         <WhatsAppChat />
