@@ -85,7 +85,7 @@ const Home = () => {
     },
     {
       id: 4,
-      name: "Banarasi Handcrafted Saree - Variant 4",
+      name: "Handcrafted Saree - Variant 4",
       price: "₹8,900",
       image: "/Asset/14.png",
       description:
@@ -184,15 +184,7 @@ const Home = () => {
                     {product.exclusive && (
                       <span className="badge badge-exclusive">Exclusive</span>
                     )}
-                    <span className="badge badge-series">{product.series}</span>
-                  </div>
-                  <div className="product-actions">
-                    <button className="btn-icon hover-scale">
-                      <i className="fas fa-heart"></i>
-                    </button>
-                    <button className="btn-icon hover-scale">
-                      <i className="fas fa-shopping-cart"></i>
-                    </button>
+                    {/* <span className="badge badge-series">{product.series}</span> */}
                   </div>
                 </div>
                 <div className="card-body">

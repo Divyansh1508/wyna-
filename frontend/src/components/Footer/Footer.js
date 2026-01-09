@@ -20,7 +20,7 @@ const Footer = () => {
             </div>
             <div className="social-links">
               <a
-                href="https://instagram.com/wyna"
+                href="https://www.instagram.com/wynaindia/?igsh=dzRzYmV4NWhqdHZs#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link hover-scale"
@@ -29,7 +29,7 @@ const Footer = () => {
                 <i className="fab fa-instagram"></i>
               </a>
               <a
-                href="https://facebook.com/wyna"
+                href="https://www.facebook.com/people/Wyna-India/61584648118709/?rdid=iZTz9gAGc0Wg6NZK&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AUAEsoAx8%2F"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link hover-scale"
@@ -38,7 +38,7 @@ const Footer = () => {
                 <i className="fab fa-facebook-f"></i>
               </a>
               <a
-                href="https://youtube.com/wyna"
+                href="https://www.youtube.com/@wynaindia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link hover-scale"
@@ -47,7 +47,7 @@ const Footer = () => {
                 <i className="fab fa-youtube"></i>
               </a>
               <a
-                href="https://wa.me/919876543210"
+                href="https://wa.me/918744923702"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link hover-scale"
@@ -56,7 +56,7 @@ const Footer = () => {
                 <i className="fab fa-whatsapp"></i>
               </a>
               <a
-                href="https://linkedin.com/company/wyna"
+                href="https://www.linkedin.com/in/wyna-india-661a3239b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-link hover-scale"
@@ -101,7 +101,7 @@ const Footer = () => {
                   href="/categories/banarasi"
                   className="footer-link hover-lift"
                 >
-                  Banarasi Series
+                 Series
                 </a>
               </li>
               <li>

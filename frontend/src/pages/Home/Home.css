@@ -17,11 +17,22 @@
   --wyna-deep-cream: #f5f2e8;
   --wyna-shadow-red: rgba(139, 0, 0, 0.15);
   --wyna-shadow-gold: rgba(255, 215, 0, 0.25);
-  --wyna-pattern-weave: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 215, 0, 0.03) 10px, rgba(255, 215, 0, 0.03) 20px);
+  --wyna-pattern-weave: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 215, 0, 0.03) 10px,
+    rgba(255, 215, 0, 0.03) 20px
+  );
 }
 
 .home {
-  background: linear-gradient(135deg, var(--wyna-ivory) 0%, var(--wyna-soft-ivory) 50%, var(--wyna-cream) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-ivory) 0%,
+    var(--wyna-soft-ivory) 50%,
+    var(--wyna-cream) 100%
+  );
   font-family: "Montserrat", sans-serif;
   color: var(--wyna-text-dark);
   margin-bottom: 0;
@@ -76,7 +87,8 @@
 }
 
 @keyframes parallaxWeave {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0) translateY(0);
   }
   25% {
@@ -344,7 +356,11 @@
 
 .categories {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--wyna-ivory) 0%, var(--wyna-soft-ivory) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-ivory) 0%,
+    var(--wyna-soft-ivory) 100%
+  );
   position: relative;
 }
 
@@ -524,7 +540,8 @@
 }
 
 @keyframes connectorPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.3;
     transform: translateX(-50%) scaleX(1);
   }
@@ -614,7 +631,8 @@
 }
 
 @keyframes floatThread {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(45deg) translateY(0);
   }
   50% {
@@ -715,7 +733,8 @@
 
 .category-image {
   position: relative;
-  height: 320px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -793,7 +812,11 @@
 /* Featured Products */
 .featured-products {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--wyna-soft-ivory) 0%, var(--wyna-cream) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-soft-ivory) 0%,
+    var(--wyna-cream) 100%
+  );
 }
 
 .products-grid {
@@ -842,7 +865,8 @@
 
 .product-image {
   position: relative;
-  height: 380px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 20px 20px 0 0;
 }
@@ -1003,7 +1027,8 @@
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1.1);
   }
   50% {
@@ -1029,7 +1054,11 @@
 /* Features Section */
 .features {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--wyna-ivory) 0%, var(--wyna-soft-ivory) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-ivory) 0%,
+    var(--wyna-soft-ivory) 100%
+  );
 }
 
 .features-grid {
@@ -1135,7 +1164,8 @@
 }
 
 @keyframes iconGlow {
-  0%, 100% {
+  0%,
+  100% {
     filter: brightness(1) drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
   }
   50% {
@@ -1170,7 +1200,11 @@
 /* Testimonials Section */
 .testimonials {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--wyna-soft-ivory) 0%, var(--wyna-ivory) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-soft-ivory) 0%,
+    var(--wyna-ivory) 100%
+  );
 }
 
 .testimonials-grid {
@@ -1500,7 +1534,11 @@
 /* How It Works Section */
 .how-it-works {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--wyna-ivory) 0%, var(--wyna-soft-ivory) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-ivory) 0%,
+    var(--wyna-soft-ivory) 100%
+  );
   position: relative;
   overflow: hidden;
 }
@@ -1598,7 +1636,8 @@
 }
 
 @keyframes stepIconGlow {
-  0%, 100% {
+  0%,
+  100% {
     filter: brightness(1) drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
   }
   50% {

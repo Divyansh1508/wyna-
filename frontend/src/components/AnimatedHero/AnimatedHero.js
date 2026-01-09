@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import './AnimatedHero.css';
+import React, { useState, useEffect } from "react";
+import "./AnimatedHero.css";
 
 const AnimatedHero = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  
-  const words = ['Elegance', 'Tradition', 'Luxury', 'Heritage', 'Aura'];
-  
+
+  const words = ["Elegance", "Tradition", "Luxury", "Heritage", "Aura"];
+
   useEffect(() => {
     setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 3000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className={`animated-hero ${isVisible ? 'visible' : ''}`}>
+    <section className={`animated-hero ${isVisible ? "visible" : ""}`}>
       <div className="floating-blob floating-blob-1"></div>
       <div className="floating-blob floating-blob-2"></div>
       <div className="floating-blob floating-blob-3"></div>
       <div className="grid-background"></div>
-      
+
       <div className="hero-content">
         <div className="hero-text">
           <div className="hero-title-container">
@@ -32,19 +32,17 @@ const AnimatedHero = () => {
             </h1>
             <div className="animated-words">
               <span className="word-prefix">Building</span>
-              <span className="word-animated">
-                {words[currentWord]}
-              </span>
+              <span className="word-animated">{words[currentWord]}</span>
             </div>
           </div>
-          
+
           <p className="hero-subtitle">
             Where tradition meets timeless luxury. Each saree is not just
             attire, but an aura — woven with heritage, elegance, and
-            individuality. Experience exclusive, one-of-a-kind creations
-            curated for the discerning woman.
+            individuality. Experience exclusive, one-of-a-kind creations curated
+            for the discerning woman.
           </p>
-          
+
           <div className="hero-stats">
             <div className="stat-item">
               <span className="stat-number">47</span>
@@ -59,9 +57,13 @@ const AnimatedHero = () => {
               <span className="stat-label">Handcrafted</span>
             </div>
           </div>
-          
+
           <div className="hero-buttons">
-            <a href="/products" className="btn btn-primary hover-scale">
+            <a
+              href="/Asset/Wyna Catalogue Profile_compressed.pdf"
+              download
+              className="btn btn-primary hover-scale"
+            >
               <i className="fas fa-shopping-bag"></i>
               DOWNLOAD CATTALOGUE
             </a>
@@ -71,17 +73,17 @@ const AnimatedHero = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="hero-visual">
           <div className="hero-image-container">
-            <img 
-              src="/Asset/model.png" 
-              alt="WYNA - Premium Ethnic Wear" 
+            {/* <img
+              src="/Asset/model.png"
+              alt="WYNA - Premium Ethnic Wear"
               className="hero-image animate-float"
-            />
-            <div className="image-glow"></div>
+            /> */}
+            {/* <div className="image-glow"></div> */}
           </div>
-          
+
           <div className="floating-elements">
             <div className="floating-element element-1 animate-float">
               <i className="fas fa-gem"></i>

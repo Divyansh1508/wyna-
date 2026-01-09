@@ -3,7 +3,7 @@ import "./WhatsAppChat.css";
 
 const WhatsAppChat = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "919876543210"; // +91 98765 43210
+  const phoneNumber = "918744923702"; // +91 87449 23702
   const message = "Hello WYNA! I would like to know more about your products.";
 
   const handleWhatsAppClick = () => {
@@ -37,7 +37,7 @@ const WhatsAppChat = () => {
               👋 Hello! Welcome to WYNA. How can we help you today?
             </p>
             <p className="phone-display">
-              <i className="fas fa-phone"></i> +91 98765 43210
+              <i className="fas fa-phone"></i> +91 87449 23702
             </p>
           </div>
           <button className="whatsapp-btn-main" onClick={handleWhatsAppClick}>
