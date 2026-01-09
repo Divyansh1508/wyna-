@@ -152,14 +152,14 @@ const Footer = () => {
               </button>
             </form>
             <div className="contact-info">
-              <p className="contact-item">
+              <a href="mailto:Wynaindia@gmail.com" className="contact-item">
                 <i className="fas fa-envelope"></i>
                 Wynaindia@gmail.com
-              </p>
-              <p className="contact-item">
+              </a>
+              <a href="tel:+918744923702" className="contact-item">
                 <i className="fas fa-phone"></i>
-                +91 98765 43210
-              </p>
+                +91 87449 23702
+              </a>
             </div>
           </div>
         </div>

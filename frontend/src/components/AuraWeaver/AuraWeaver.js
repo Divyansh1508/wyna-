@@ -36,8 +36,22 @@ const AuraWeaver = () => {
     setIsAnimating(true);
     setTimeout(() => {
       setIsAnimating(false);
-      // Handle the custom saree creation
-      alert(`Your custom ${patterns.find(p => p.id === selectedPattern)?.name} saree in ${colors.find(c => c.id === selectedColor)?.name} ${fabrics.find(f => f.id === selectedFabric)?.name} has been added to your wishlist!`);
+      
+      // Get selected options
+      const pattern = patterns.find(p => p.id === selectedPattern)?.name;
+      const color = colors.find(c => c.id === selectedColor)?.name;
+      const fabric = fabrics.find(f => f.id === selectedFabric)?.name;
+      
+      // Create WhatsApp message
+      const message = `Namaste! I'm interested in a custom saree with the following details:%0A%0A` +
+                     `*Pattern:* ${pattern}%0A` +
+                     `*Color:* ${color}%0A` +
+                     `*Fabric:* ${fabric}%0A%0A` +
+                     `Could you please provide more information about this custom order?`;
+      
+      // Open WhatsApp with pre-filled message
+      window.open(`https://wa.me/918744923702?text=${message}`, '_blank');
+      
     }, 2000);
   };
 

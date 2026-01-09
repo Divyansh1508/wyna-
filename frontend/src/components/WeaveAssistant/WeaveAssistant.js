@@ -29,7 +29,7 @@ const WeaveAssistant = () => {
     setTimeout(() => {
       const responses = [
         'I\'d be happy to help you explore our exquisite Banarasi collection! Each piece is handcrafted with love.',
-        'Our Series 01 features 47 unique Banarasi sarees with no repetitions. Would you like to see the featured pieces?',
+        'Our Series 01 features 47 unique rasi sarees with no repetitions. Would you like to see the featured pieces?',
         'We offer detailed sizing guides and personalized recommendations to ensure the perfect fit.',
         'Our Aura Weaver tool lets you customize patterns and colors. Would you like to try it?',
         'We provide secure shipping worldwide with premium packaging. Delivery typically takes 3-5 business days.'
