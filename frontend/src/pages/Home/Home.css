@@ -2022,9 +2022,12 @@
     font-size: 1.05rem;
   }
 
-  .product-image,
-  .category-image {
+  .product-image {
     height: 280px;
+  }
+
+  .category-image {
+    aspect-ratio: 1 / 1;
   }
 
   .testimonial-card {
@@ -2066,9 +2069,12 @@
     font-size: 1rem;
   }
 
-  .product-image,
-  .category-image {
+  .product-image {
     height: 250px;
+  }
+
+  .category-image {
+    aspect-ratio: 1 / 1;
   }
 
   .testimonial-card {
@@ -2138,9 +2144,12 @@
     font-size: 0.95rem;
   }
 
-  .product-image,
-  .category-image {
+  .product-image {
     height: 220px;
+  }
+
+  .category-image {
+    aspect-ratio: 1 / 1;
   }
 
   .hero-buttons .btn {
