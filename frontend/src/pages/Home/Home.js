@@ -57,9 +57,9 @@ const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: "Orange silk",
+      name: "Oranza silk",
       price: "₹2,799",
-      image: "/Asset/11.png",
+      image: "/Asset/product/1 (1).jpeg",
       description:
         "Exquisite handwoven saree with traditional golden zari work",
       series: "Series 01",
@@ -67,18 +67,18 @@ const Home = () => {
     },
     {
       id: 2,
-      name: " Wyna Primium silk",
+      name: " Wyna Premium silk",
       price: "₹2,099",
-      image: "/Asset/12.png",
+      image: "/Asset/product/1 (2).jpeg",
       description: "Pure silk masterpiece with intricate meenakari patterns",
       series: "Series 01",
       exclusive: true,
     },
     {
       id: 3,
-      name: "Primium Muslin silk",
+      name: "Premium Muslin silk",
       price: "₹2,099",
-      image: "/Asset/13.png",
+      image: "/Asset/product/1 (3).jpeg",
       description: "Heritageweave with antique gold zari borders",
       series: "Series 01",
       exclusive: true,
@@ -87,7 +87,7 @@ const Home = () => {
       id: 4,
       name: "Pure Katan Slik",
       price: "₹3,799",
-      image: "/Asset/14.png",
+      image: "/Asset/product/1 (4).jpeg",
       description:
         "Royal blue silk with golden paisley motifs and ornate border",
       series: "Series 01",
@@ -105,11 +105,11 @@ const Home = () => {
       image: "/Asset/12.png",
     },
     {
-      name: "Wyna Primium silk",
+      name: "Wyna Premium silk",
       image: "/Asset/13.png",
     },
     {
-      name: "Primium silk",
+      name: "Premium silk",
       image: "/Asset/14.png",
     },
   ];
@@ -169,7 +169,12 @@ const Home = () => {
 
           <div className="products-grid stagger-animation">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="product-card card hover-lift">
+              <Link
+                key={product.id}
+                to="/products#our-exquisite-collection"
+                className="product-card card hover-lift"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
                 <div className="product-image">
                   <img src={product.image} alt={product.name} />
                   <div className="product-badges">
@@ -184,15 +189,10 @@ const Home = () => {
                   <p className="card-text">{product.description}</p>
                   <div className="product-footer">
                     <span className="price">{product.price}</span>
-                    <Link
-                      to={`/products/${product.id}`}
-                      className="btn btn-outline"
-                    >
-                      View Details
-                    </Link>
+                    <span className="btn btn-outline">View Details</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

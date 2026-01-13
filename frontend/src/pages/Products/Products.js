@@ -17,7 +17,7 @@ const demoProducts = [
   },
   {
     _id: "2",
-    name: "Wyna Primium silk",
+    name: "Wyna Premium silk",
     price: 2099,
     category: "saree",
     image: "/Asset/product/1 (2).jpeg",
@@ -25,7 +25,7 @@ const demoProducts = [
   },
   {
     _id: "3",
-    name: "Primium Muslin silk",
+    name: "Premium Muslin silk",
     price: 2099,
     category: "saree",
     image: "/Asset/product/1 (3).jpeg",
@@ -89,7 +89,7 @@ const demoProducts = [
   },
   {
     _id: "11",
-    name: "Wyna Primium Silk",
+    name: "Wyna Premium Silk",
     price: 3799,
     category: "saree",
     image: "/Asset/product/1 (11).jpeg",
@@ -105,7 +105,7 @@ const demoProducts = [
   },
   {
     _id: "13",
-    name: "Wyna Primium Silk",
+    name: "Wyna Premium Silk",
     price: 4199,
     category: "saree",
     image: "/Asset/product/1 (13).jpeg",
@@ -129,7 +129,7 @@ const demoProducts = [
   },
   {
     _id: "16",
-    name: "Wyna Primium Silk",
+    name: "Wyna Premium Silk",
     price: 4199,
     category: "saree",
     image: "/Asset/product/1 (16).jpeg",
@@ -250,7 +250,13 @@ const Products = () => {
           <div className="products-grid">
             {safeFilteredProducts.map((product) => (
               <div key={product._id} className="product-card">
-                <Link to={`/products/${product._id}`} className="product-link">
+                <div
+                  className="product-link"
+                  onClick={() => product.buyNowButton && handleBuyNow(product)}
+                  style={{
+                    cursor: product.buyNowButton ? "pointer" : "default",
+                  }}
+                >
                   <div className="product-image">
                     <img
                       src={product.image}
@@ -276,7 +282,7 @@ const Products = () => {
                       <span className="category">{product.category}</span>
                     </div>
                   </div>
-                </Link>
+                </div>
                 {product.buyNowButton && (
                   <button
                     onClick={() => handleBuyNow(product)}
