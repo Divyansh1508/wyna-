@@ -909,8 +909,7 @@
 }
 
 .product-card:hover .product-image img {
-  transform: scale(1.12);
-  filter: brightness(1.1) saturate(1.1);
+  /* Removed hover tilt/scale effect for featuredProducts images */
 }
 
 .product-card:hover .product-image::after {
@@ -2023,7 +2022,7 @@
   }
 
   .product-image {
-    height: 280px;
+    aspect-ratio: 1 / 1;
   }
 
   .category-image {
@@ -2070,7 +2069,7 @@
   }
 
   .product-image {
-    height: 250px;
+    aspect-ratio: 1 / 1;
   }
 
   .category-image {
@@ -2145,7 +2144,7 @@
   }
 
   .product-image {
-    height: 220px;
+    aspect-ratio: 1 / 1;
   }
 
   .category-image {
