@@ -1,13 +1,14 @@
 /* Enhanced Buy Now Button Styling */
 .btn-buy-now {
-  background: linear-gradient(90deg, #FFD700 0%, #FFC300 100%);
+  background: linear-gradient(90deg, #ffd700 0%, #ffc300 100%);
   color: #fff8e1;
   border: none;
   border-radius: 25px;
   padding: 0.7em 2em;
   font-size: 1.1rem;
   font-weight: bold;
-  box-shadow: 0 4px 16px 0 rgba(255, 215, 0, 0.15), 0 1.5px 4px 0 rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px 0 rgba(255, 215, 0, 0.15),
+    0 1.5px 4px 0 rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
   margin: 1em auto 0 auto;
@@ -16,11 +17,13 @@
   outline: none;
 }
 
-.btn-buy-now:hover, .btn-buy-now:focus {
-  background: linear-gradient(90deg, #FFC300 0%, #FFD700 100%);
+.btn-buy-now:hover,
+.btn-buy-now:focus {
+  background: linear-gradient(90deg, #ffc300 0%, #ffd700 100%);
   color: #fffde7;
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 24px 0 rgba(255, 215, 0, 0.25), 0 2px 8px 0 rgba(0,0,0,0.10);
+  box-shadow: 0 8px 24px 0 rgba(255, 215, 0, 0.25),
+    0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Optional: Add a subtle border for more definition */
