@@ -98,19 +98,19 @@ const Home = () => {
   const categories = [
     {
       name: "Oranza silk",
-      image: "/Asset/11.png",
+      image: "/Asset/product/1 (5).jpeg",
     },
     {
       name: "Pure Katan Slik",
-      image: "/Asset/12.png",
+      image: "/Asset/product/1 (8).jpeg",
     },
     {
       name: "Wyna Premium silk",
-      image: "/Asset/13.png",
+      image: "/Asset/product/1 (11).jpeg",
     },
     {
       name: "Premium silk",
-      image: "/Asset/14.png",
+      image: "/Asset/product/1 (10).jpeg",
     },
   ];
 
