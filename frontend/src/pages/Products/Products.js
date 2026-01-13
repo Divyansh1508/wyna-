@@ -5,38 +5,166 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import "./Products.css";
 
+// Demo Products Data
+const demoProducts = [
+  {
+    _id: "1",
+    name: "Orange silk",
+    price: 2799,
+    category: "saree",
+    image: "/Asset/product/1 (1).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "2",
+    name: "Wyna Primium silk",
+    price: 2099,
+    category: "saree",
+    image: "/Asset/product/1 (2).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "3",
+    name: "Primium Muslin silk",
+    price: 2099,
+    category: "saree",
+    image: "/Asset/product/1 (3).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "4",
+    name: "Pure Katan Slik",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (4).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "5",
+    name: "Organza Silk",
+    price: 2799,
+    category: "saree",
+    image: "/Asset/product/1 (5).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "6",
+    name: "Wyna Special - Pashmina Silk",
+    price: 4999,
+    category: "saree",
+    image: "/Asset/product/1 (6).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "7",
+    name: "Banarasi Bridal Silk",
+    price: 3999,
+    category: "saree",
+    image: "/Asset/product/1 (7).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "8",
+    name: "Pure Katan Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (8).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "9",
+    name: "Muslin Silk",
+    price: 2499,
+    category: "saree",
+    image: "/Asset/product/1 (9).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "10",
+    name: "Pure Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (10).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "11",
+    name: "Wyna Primium Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (11).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "12",
+    name: "Muslin Silk",
+    price: 2499,
+    category: "saree",
+    image: "/Asset/product/1 (12).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "13",
+    name: "Wyna Primium Silk",
+    price: 4199,
+    category: "saree",
+    image: "/Asset/product/1 (13).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "14",
+    name: "Wyna Special - Pashmina Silk",
+    price: 4500,
+    category: "saree",
+    image: "/Asset/product/1 (14).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "15",
+    name: "Pure Katan Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (15).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "16",
+    name: "Wyna Primium Silk",
+    price: 4199,
+    category: "saree",
+    image: "/Asset/product/1 (16).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "17",
+    name: "Pure Katan Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (17).jpeg",
+    buyNowButton: true,
+  },
+  {
+    _id: "18",
+    name: "Pure Katan Silk",
+    price: 3799,
+    category: "saree",
+    image: "/Asset/product/1 (18).jpeg",
+    buyNowButton: true,
+  },
+];
+
 const Products = () => {
   const { slug } = useParams();
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(demoProducts);
+  const [loading, setLoading] = useState(false);
   const [filter, setFilter] = useState("all");
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(demoProducts);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        setLoading(true);
-        let url = "/api/products";
-
-        if (slug) {
-          url += `?category=${slug}`;
-        }
-
-        const response = await axios.get(url);
-        const productsData = Array.isArray(response.data) ? response.data : [];
-        setProducts(productsData);
-        setFilteredProducts(productsData);
-      } catch (error) {
-        toast.error("Failed to load products");
-        console.error(error);
-        setProducts([]);
-        setFilteredProducts([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
+    // Using demo products instead of API call
+    setProducts(demoProducts);
+    setFilteredProducts(demoProducts);
+    setLoading(false);
   }, [slug]);
 
   const handleFilter = (filterType) => {
@@ -55,6 +183,15 @@ const Products = () => {
     }
   };
 
+  const handleBuyNow = (product) => {
+    const phoneNumber = "919876543210"; // Replace with your WhatsApp number with country code, e.g. 919876543210
+    const message = `I am interested in buying the product: ${product.name} priced at ₹${product.price}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(url, "_blank");
+  };
+
   if (loading) {
     return (
       <div className="products-loading">
@@ -68,7 +205,7 @@ const Products = () => {
     : [];
 
   return (
-    <div className="products-page">
+    <>
       {/* Hero Section */}
       <div className="products-hero">
         <div className="container">
@@ -112,33 +249,48 @@ const Products = () => {
         ) : (
           <div className="products-grid">
             {safeFilteredProducts.map((product) => (
-              <Link
-                to={`/products/${product._id}`}
-                key={product._id}
-                className="product-card"
-              >
-                <div className="product-image">
-                  <img
-                    src={product.image || "/images/placeholder.jpg"}
-                    alt={product.name}
-                  />
-                </div>
-                <div className="product-info">
-                  <h3>{product.name}</h3>
-                  <p className="description">
-                    {product.description?.substring(0, 60)}...
-                  </p>
-                  <div className="product-footer">
-                    <span className="price">₹{product.price}</span>
-                    <span className="category">{product.category}</span>
+              <div key={product._id} className="product-card">
+                <Link to={`/products/${product._id}`} className="product-link">
+                  <div className="product-image">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      onError={(e) => {
+                        console.error(`Failed to load image: ${product.image}`);
+                        e.target.onerror = null; // Prevent infinite loop if placeholder also fails
+                        e.target.src =
+                          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23e0e0e0'%3E%3Crect width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-size='10' text-anchor='middle' dominant-baseline='middle' fill='%23999'%3ENo Image%3C/text%3E%3C/svg%3E";
+                      }}
+                      onLoad={(e) =>
+                        console.log(`Successfully loaded: ${product.image}`)
+                      }
+                    />
+                    <div style={{ display: "none" }}>
+                      Debug: {product.image}
+                    </div>
                   </div>
-                </div>
-              </Link>
+                  <div className="product-info">
+                    <h3>{product.name}</h3>
+                    <div className="product-footer">
+                      <span className="price">₹{product.price}</span>
+                      <span className="category">{product.category}</span>
+                    </div>
+                  </div>
+                </Link>
+                {product.buyNowButton && (
+                  <button
+                    onClick={() => handleBuyNow(product)}
+                    className="btn-buy-now"
+                  >
+                    Buy Now
+                  </button>
+                )}
+              </div>
             ))}
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

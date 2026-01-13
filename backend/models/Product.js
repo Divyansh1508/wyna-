@@ -64,4 +64,13 @@ productSchema.pre('save', function(next) {
   next();
 });
 
+// Virtual for getting the first image URL
+productSchema.virtual('image').get(function() {
+  return this.images && this.images.length > 0 ? this.images[0].url : null;
+});
+
+// Ensure virtual fields are serialized
+productSchema.set('toJSON', { virtuals: true });
+productSchema.set('toObject', { virtuals: true });
+
 module.exports = mongoose.model('Product', productSchema);

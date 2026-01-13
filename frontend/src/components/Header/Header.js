@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { GiShoppingCart } from "react-icons/gi";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 const Header = () => {
@@ -91,7 +91,7 @@ const Header = () => {
               className="nav-item cart-link"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="cart-icon"><GiShoppingCart />
+              <span className="cart-icon"><FaShoppingCart />
 </span> Cart
             </Link>
           </nav>

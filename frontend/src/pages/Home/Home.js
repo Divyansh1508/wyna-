@@ -57,18 +57,18 @@ const Home = () => {
   const featuredProducts = [
     {
       id: 1,
-      name: " Handcrafted Saree - Variant 1",
-      price: "₹8,500",
+      name: "Orange silk",
+      price: "₹2,799",
       image: "/Asset/11.png",
       description:
-        "Exquisite handwoven  saree with traditional golden zari work",
+        "Exquisite handwoven saree with traditional golden zari work",
       series: "Series 01",
       exclusive: true,
     },
     {
       id: 2,
-      name: " Handcrafted Saree - Variant 2",
-      price: "₹9,200",
+      name: " Wyna Primium silk",
+      price: "₹2,099",
       image: "/Asset/12.png",
       description: "Pure silk masterpiece with intricate meenakari patterns",
       series: "Series 01",
@@ -76,8 +76,8 @@ const Home = () => {
     },
     {
       id: 3,
-      name: " Handcrafted Saree - Variant 3",
-      price: "₹7,800",
+      name: "Primium Muslin silk",
+      price: "₹2,099",
       image: "/Asset/13.png",
       description: "Heritageweave with antique gold zari borders",
       series: "Series 01",
@@ -85,8 +85,8 @@ const Home = () => {
     },
     {
       id: 4,
-      name: "Handcrafted Saree - Variant 4",
-      price: "₹8,900",
+      name: "Pure Katan Slik",
+      price: "₹3,799",
       image: "/Asset/14.png",
       description:
         "Royal blue silk with golden paisley motifs and ornate border",
@@ -97,28 +97,20 @@ const Home = () => {
 
   const categories = [
     {
-      name: "Series",
-      count: 47,
+      name: "Oranza silk",
       image: "/Asset/11.png",
-      description: "Handcrafted  sarees",
     },
     {
-      name: "Coming Soon",
-      count: 0,
+      name: "Pure Katan Slik",
       image: "/Asset/12.png",
-      description: "Exclusive new series",
     },
     {
-      name: "Heritage Collection",
-      count: 15,
+      name: "Wyna Primium silk",
       image: "/Asset/13.png",
-      description: "Vintage masterpieces",
     },
     {
-      name: "Bridal Aura",
-      count: 12,
+      name: "Primium silk",
       image: "/Asset/14.png",
-      description: "Wedding exclusives",
     },
   ];
 

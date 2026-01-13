@@ -295,6 +295,48 @@
 }
 
 /* Responsive Design */
+
+/* Desktop Mode (1025px and above) */
+@media (min-width: 1025px) {
+  .section-title {
+    text-align: center;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links {
+    text-align: center;
+  }
+
+  .newsletter-form {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-content > div {
+    text-align: center;
+  }
+
+  .brand-title {
+    text-align: center;
+  }
+
+  .brand-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
