@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { FaShoppingCart } from "react-icons/fa";
 
-
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -91,8 +90,10 @@ const Header = () => {
               className="nav-item cart-link"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="cart-icon"><FaShoppingCart />
-</span> Cart
+              <span className="cart-icon">
+                <FaShoppingCart />
+              </span>{" "}
+              Cart
             </Link>
           </nav>
         </div>
