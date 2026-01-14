@@ -184,7 +184,7 @@ const Products = () => {
   };
 
   const handleBuyNow = (product) => {
-    const phoneNumber = "919876543210"; // Replace with your WhatsApp number with country code, e.g. 919876543210
+    const phoneNumber = "918744923702"; // Replace with your WhatsApp number with country code, e.g.
     const message = `I am interested in buying the product: ${product.name} priced at ₹${product.price}`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
