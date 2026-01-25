@@ -180,8 +180,8 @@ const Footer = () => {
               <a href="/shipping" className="footer-link">
                 Shipping Policy
               </a>
-              <a href="/refund" className="footer-link">
-                Refund Policy
+              <a href="/return-exchange" className="footer-link">
+                Return & Exchange Policy
               </a>
             </div>
           </div>

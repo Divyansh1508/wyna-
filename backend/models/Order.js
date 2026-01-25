@@ -1,34 +1,14 @@
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   orderNumber: {
     type: String,
     unique: true,
     required: true
-  },
-  customerInfo: {
-    name: {
-      type: String,
-      required: [true, 'Customer name is required']
-    },
-    email: {
-      type: String,
-      required: [true, 'Customer email is required']
-    },
-    phone: {
-      type: String,
-      required: [true, 'Customer phone is required']
-    },
-    address: {
-      street: String,
-      city: String,
-      state: String,
-      zipCode: String,
-      country: {
-        type: String,
-        default: 'India'
-      }
-    }
   },
   items: [{
     product: {
@@ -37,7 +17,10 @@ const orderSchema = new mongoose.Schema({
       required: true
     },
     name: String,
-    price: Number,
+    price: {
+      type: Number,
+      required: true
+    },
     quantity: {
       type: Number,
       required: true,
@@ -45,39 +28,103 @@ const orderSchema = new mongoose.Schema({
     },
     image: String
   }],
-  totalAmount: {
-    type: Number,
-    required: true,
-    min: 0
+  shippingAddress: {
+    fullName: {
+      type: String,
+      required: true
+    },
+    phone: {
+      type: String,
+      required: true
+    },
+    street: {
+      type: String,
+      required: true
+    },
+    city: {
+      type: String,
+      required: true
+    },
+    state: {
+      type: String,
+      required: true
+    },
+    zipCode: {
+      type: String,
+      required: true
+    },
+    country: {
+      type: String,
+      default: 'India'
+    }
   },
-  status: {
-    type: String,
-    enum: ['pending', 'processing', 'shipped', 'delivered', 'cancelled'],
-    default: 'pending'
+  billingAddress: {
+    fullName: String,
+    phone: String,
+    street: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    country: {
+      type: String,
+      default: 'India'
+    }
   },
   paymentMethod: {
     type: String,
-    enum: ['cod', 'card', 'upi', 'netbanking'],
-    default: 'cod'
+    required: true,
+    enum: ['cod', 'online', 'upi', 'card']
   },
   paymentStatus: {
     type: String,
-    enum: ['pending', 'paid', 'failed'],
+    enum: ['pending', 'completed', 'failed', 'refunded'],
     default: 'pending'
+  },
+  orderStatus: {
+    type: String,
+    enum: ['pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled'],
+    default: 'pending'
+  },
+  subtotal: {
+    type: Number,
+    required: true
+  },
+  tax: {
+    type: Number,
+    default: 0
+  },
+  shippingCost: {
+    type: Number,
+    default: 0
+  },
+  discount: {
+    type: Number,
+    default: 0
+  },
+  totalAmount: {
+    type: Number,
+    required: true
   },
   notes: {
     type: String,
-    default: ''
-  }
+    maxlength: 500
+  },
+  deliveredAt: Date,
+  cancelledAt: Date,
+  cancellationReason: String
 }, {
   timestamps: true
 });
 
 // Generate order number before saving
-orderSchema.pre('save', async function(next) {
-  if (this.isNew) {
-    const count = await mongoose.model('Order').countDocuments();
-    this.orderNumber = `ORD-${Date.now()}-${count + 1}`;
+orderSchema.pre('save', function(next) {
+  if (!this.orderNumber) {
+    const date = new Date();
+    const year = date.getFullYear().toString().substr(-2);
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+    this.orderNumber = `WYNA-${year}${month}${day}-${random}`;
   }
   next();
 });

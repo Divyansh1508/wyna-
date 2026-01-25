@@ -80,7 +80,7 @@ const Cart = () => {
 
                 <div className="item-details">
                   <h3>{item.name}</h3>
-                  <p className="item-category">{item.category}</p>
+                  <p className="item-category">{typeof item.category === 'object' ? (item.category?.name || 'N/A') : item.category || 'N/A'}</p>
                   <p className="item-price">₹{item.price}</p>
                 </div>
 

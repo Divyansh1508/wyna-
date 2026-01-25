@@ -57,7 +57,7 @@ const Checkout = () => {
     try {
       setLoading(true);
       const orderData = {
-        customer: {
+        customerInfo: {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
@@ -66,15 +66,13 @@ const Checkout = () => {
           postalCode: formData.postalCode,
         },
         items: cartItems,
-        totalAmount: total,
         paymentMethod: formData.paymentMethod,
-        status: "pending",
       };
 
-      const response = await axios.post("/api/orders", orderData);
+      const response = await axios.post("http://localhost:5000/api/guest-orders", orderData);
 
       if (response.status === 201 || response.status === 200) {
-        toast.success("Order placed successfully!");
+        toast.success(`Order placed successfully! Order #${response.data.data.orderNumber}`);
         localStorage.removeItem("cart");
         navigate("/");
       }
@@ -191,6 +189,18 @@ const Checkout = () => {
                     checked={formData.paymentMethod === "card"}
                     onChange={handleInputChange}
                   />
+                  Cash on Delivery
+                </label>
+              </div>
+              {/* <div className="radio-group">
+                <label>
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="card"
+                    checked={formData.paymentMethod === "card"}
+                    onChange={handleInputChange}
+                  />
                   Credit/Debit Card
                 </label>
               </div>
@@ -219,7 +229,7 @@ const Checkout = () => {
                   />
                   Net Banking
                 </label>
-              </div>
+              </div> */}
             </div>
 
             <button

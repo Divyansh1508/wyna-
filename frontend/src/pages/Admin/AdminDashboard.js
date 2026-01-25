@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAdminAuth } from "../../contexts/AdminAuthContext";
+import toast from "react-hot-toast";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const { admin, logout } = useAdminAuth();
   const [activeTab, setActiveTab] = useState("overview");
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -17,60 +20,71 @@ const AdminDashboard = () => {
 
   // Auth check
   useEffect(() => {
-    const adminPassword = localStorage.getItem("adminAuth");
-    if (!adminPassword) {
-      const password = prompt("Enter Admin Password:");
-      if (password === "wyna2027") {
-        localStorage.setItem("adminAuth", "true");
-      } else {
-        alert("Invalid password!");
-        navigate("/");
-        return;
-      }
+    const token = localStorage.getItem("adminToken");
+    if (!token) {
+      navigate("/admin/login");
+      return;
     }
-    fetchData();
-  }, [navigate]);
+    fetchData(token);
+  }, []);
 
-  const fetchData = async () => {
+  const fetchData = async (token = null) => {
     try {
+      const headers = token 
+        ? { "Authorization": `Bearer ${token}` }
+        : {};
+      
       // Fetch products
-      const productsRes = await fetch("http://localhost:5000/api/products");
+      const productsRes = await fetch("http://localhost:5000/api/products", {
+        headers
+      });
       const productsData = await productsRes.json();
-      setProducts(productsData);
+      setProducts(productsData.data || []);
 
-      // Fetch orders
-      const ordersRes = await fetch("http://localhost:5000/api/orders");
+      // Fetch admin orders (using admin endpoint)
+      const ordersRes = await fetch("http://localhost:5000/api/orders/admin/all", {
+        headers
+      });
       const ordersData = await ordersRes.json();
-      setOrders(ordersData);
+      const ordersList = ordersData.data || [];
+      setOrders(ordersList);
 
       // Fetch categories
-      const categoriesRes = await fetch("http://localhost:5000/api/categories");
+      const categoriesRes = await fetch("http://localhost:5000/api/categories", {
+        headers
+      });
       const categoriesData = await categoriesRes.json();
-      setCategories(categoriesData);
+      setCategories(categoriesData.data || []);
 
       // Calculate stats
-      const totalRevenue = ordersData.reduce(
-        (sum, order) => sum + order.totalAmount,
+      const totalRevenue = ordersList.reduce(
+        (sum, order) => sum + (order.totalAmount || 0),
         0
       );
-      const pendingOrders = ordersData.filter(
-        (order) => order.status === "pending"
+      const pendingOrders = ordersList.filter(
+        (order) => order.orderStatus === "pending"
       ).length;
 
       setStats({
-        totalProducts: productsData.length,
-        totalOrders: ordersData.length,
+        totalProducts: productsData.data?.length || 0,
+        totalOrders: ordersList.length,
         totalRevenue: totalRevenue,
         pendingOrders: pendingOrders,
       });
     } catch (error) {
       console.error("Error fetching data:", error);
+      toast.error("Failed to load dashboard data. Please login again.");
+      // Redirect to login if auth fails
+      if (token) {
+        logout();
+        navigate("/admin/login");
+      }
     }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("adminAuth");
-    navigate("/");
+    logout();
+    navigate("/admin/login");
   };
 
   const renderOverview = () => (
@@ -123,12 +137,12 @@ const AdminDashboard = () => {
             <tbody>
               {orders.slice(0, 5).map((order) => (
                 <tr key={order._id}>
-                  <td>#{order._id.slice(-8)}</td>
+                  <td>{order.orderNumber || '#' + order._id.slice(-8)}</td>
                   <td>{order.shippingAddress?.fullName || "N/A"}</td>
                   <td>₹{order.totalAmount.toLocaleString()}</td>
                   <td>
-                    <span className={`status-badge status-${order.status}`}>
-                      {order.status}
+                    <span className={`status-badge status-${order.orderStatus}`}>
+                      {order.orderStatus}
                     </span>
                   </td>
                   <td>{new Date(order.createdAt).toLocaleDateString()}</td>
@@ -161,6 +175,7 @@ const AdminDashboard = () => {
               <th>Category</th>
               <th>Price</th>
               <th>Stock</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -169,18 +184,33 @@ const AdminDashboard = () => {
               <tr key={product._id}>
                 <td>
                   <img
-                    src={product.images[0]?.url || "/placeholder.jpg"}
+                    src={product.images?.[0]?.url || "/Asset/product/placeholder.jpg"}
                     alt={product.name}
                     className="product-thumb"
                   />
                 </td>
                 <td>{product.name}</td>
                 <td>{product.category?.name || "N/A"}</td>
-                <td>₹{product.price.toLocaleString()}</td>
+                <td>₹{product.finalPrice?.toLocaleString() || product.price?.toLocaleString()}</td>
                 <td>{product.stock}</td>
                 <td>
-                  <button className="btn-edit">Edit</button>
-                  <button className="btn-delete">Delete</button>
+                  <span className={`status-badge status-${product.status || "draft"}`}>
+                    {product.status || "draft"}
+                  </span>
+                </td>
+                <td>
+                  <button 
+                    className="btn-edit" 
+                    onClick={() => navigate(`/admin/products/edit/${product._id}`)}
+                  >
+                    Edit
+                  </button>
+                  <button 
+                    className="btn-delete" 
+                    onClick={() => deleteProduct(product._id)}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -209,14 +239,14 @@ const AdminDashboard = () => {
           <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
-                <td>#{order._id.slice(-8)}</td>
+                <td>{order.orderNumber || '#' + order._id.slice(-8)}</td>
                 <td>{order.shippingAddress?.fullName || "N/A"}</td>
-                <td>{order.email}</td>
+                <td>{order.user?.email || "N/A"}</td>
                 <td>₹{order.totalAmount.toLocaleString()}</td>
                 <td>
                   <select
                     className="status-select"
-                    value={order.status}
+                    value={order.orderStatus}
                     onChange={(e) =>
                       updateOrderStatus(order._id, e.target.value)
                     }
@@ -242,14 +272,82 @@ const AdminDashboard = () => {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      await fetch(`http://localhost:5000/api/orders/${orderId}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
+      const token = localStorage.getItem("adminToken");
+      const headers = {
+        "Content-Type": "application/json",
+        ...(token && { "Authorization": `Bearer ${token}` })
+      };
+      
+      await fetch(`http://localhost:5000/api/orders/admin/${orderId}/status`, {
+        method: "PUT",
+        headers,
         body: JSON.stringify({ status: newStatus }),
       });
-      fetchData();
+      fetchData(token);
+      toast.success("Order status updated successfully");
     } catch (error) {
       console.error("Error updating order:", error);
+      toast.error("Failed to update order status");
+    }
+  };
+
+  const deleteProduct = async (productId) => {
+    if (!window.confirm("Are you sure you want to delete this product?")) {
+      return;
+    }
+    
+    try {
+      const token = localStorage.getItem("adminToken");
+      const headers = {
+        ...(token && { "Authorization": `Bearer ${token}` })
+      };
+      
+      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+        method: "DELETE",
+        headers
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        toast.success("Product deleted successfully");
+        fetchData(token);
+      } else {
+        toast.error(data.message || "Failed to delete product");
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      toast.error("Failed to delete product");
+    }
+  };
+
+  const deleteCategory = async (categoryId) => {
+    if (!window.confirm("Are you sure you want to delete this category?")) {
+      return;
+    }
+    
+    try {
+      const token = localStorage.getItem("adminToken");
+      const headers = {
+        ...(token && { "Authorization": `Bearer ${token}` })
+      };
+      
+      const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
+        method: "DELETE",
+        headers
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        toast.success("Category deleted successfully");
+        fetchData(token);
+      } else {
+        toast.error(data.message || "Failed to delete category");
+      }
+    } catch (error) {
+      console.error("Error deleting category:", error);
+      toast.error("Failed to delete category");
     }
   };
 
@@ -293,8 +391,13 @@ const AdminDashboard = () => {
 
       <div className="admin-content">
         <div className="admin-header">
-          <h1>Welcome to WYNA Admin Panel</h1>
-          <p>Manage your e-commerce platform</p>
+          <div>
+            <h1>Welcome to WYNA Admin Panel</h1>
+            <p>Welcome back, {admin?.name || "Admin"}</p>
+          </div>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
         </div>
 
         {activeTab === "overview" && renderOverview()}
@@ -302,14 +405,59 @@ const AdminDashboard = () => {
         {activeTab === "orders" && renderOrders()}
         {activeTab === "categories" && (
           <div className="categories-section">
-            <h2>Categories</h2>
-            <div className="categories-grid">
-              {categories.map((category) => (
-                <div key={category._id} className="category-item">
-                  <h3>{category.name}</h3>
-                  <p>{category.description}</p>
-                </div>
-              ))}
+            <div className="section-header">
+              <h2>Category Management</h2>
+              <button
+                className="btn-add"
+                onClick={() => navigate("/admin/categories/add")}
+              >
+                + Add New Category
+              </button>
+            </div>
+            <div className="table-responsive">
+              <table className="admin-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Featured</th>
+                    <th>Active</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {categories.map((category) => (
+                    <tr key={category._id}>
+                      <td><strong>{category.name}</strong></td>
+                      <td>{category.description?.substring(0, 100)}...</td>
+                      <td>
+                        <span className={`status-badge ${category.featured ? 'status-processing' : 'status-pending'}`}>
+                          {category.featured ? 'Yes' : 'No'}
+                        </span>
+                      </td>
+                      <td>
+                        <span className={`status-badge ${category.active ? 'status-delivered' : 'status-cancelled'}`}>
+                          {category.active ? 'Active' : 'Inactive'}
+                        </span>
+                      </td>
+                      <td>
+                        <button 
+                          className="btn-edit" 
+                          onClick={() => navigate(`/admin/categories/edit/${category._id}`)}
+                        >
+                          Edit
+                        </button>
+                        <button 
+                          className="btn-delete" 
+                          onClick={() => deleteCategory(category._id)}
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         )}

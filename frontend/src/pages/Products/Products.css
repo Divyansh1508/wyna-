@@ -581,3 +581,59 @@
     font-size: 0.85rem;
   }
 }
+
+/* Add to Cart Button Styling */
+.btn-add-to-cart {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #8b0000 0%, #d4af37 50%, #8b0000 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-add-to-cart::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #d4af37 0%, #8b0000 50%, #d4af37 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.btn-add-to-cart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
+  color: #fff;
+}
+
+.btn-add-to-cart:hover::before {
+  opacity: 1;
+}
+
+.btn-add-to-cart:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(139, 0, 0, 0.4);
+}
+
+.btn-add-to-cart i {
+  font-size: 1.2rem;
+}

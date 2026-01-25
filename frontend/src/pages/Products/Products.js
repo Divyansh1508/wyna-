@@ -1,171 +1,70 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "./Products.css";
 
-// Demo Products Data
-const demoProducts = [
-  {
-    _id: "1",
-    name: "Orange silk",
-    price: 2799,
-    category: "saree",
-    image: "/Asset/product/1 (1).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "2",
-    name: "Wyna Premium silk",
-    price: 2099,
-    category: "saree",
-    image: "/Asset/product/1 (2).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "3",
-    name: "Premium Muslin silk",
-    price: 2099,
-    category: "saree",
-    image: "/Asset/product/1 (3).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "4",
-    name: "Pure Katan Slik",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (4).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "5",
-    name: "Organza Silk",
-    price: 2799,
-    category: "saree",
-    image: "/Asset/product/1 (5).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "6",
-    name: "Wyna Special - Pashmina Silk",
-    price: 4999,
-    category: "saree",
-    image: "/Asset/product/1 (6).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "7",
-    name: "Banarasi Bridal Silk",
-    price: 3999,
-    category: "saree",
-    image: "/Asset/product/1 (7).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "8",
-    name: "Pure Katan Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (8).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "9",
-    name: "Muslin Silk",
-    price: 2499,
-    category: "saree",
-    image: "/Asset/product/1 (9).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "10",
-    name: "Pure Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (10).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "11",
-    name: "Wyna Premium Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (11).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "12",
-    name: "Muslin Silk",
-    price: 2499,
-    category: "saree",
-    image: "/Asset/product/1 (12).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "13",
-    name: "Wyna Premium Silk",
-    price: 4199,
-    category: "saree",
-    image: "/Asset/product/1 (13).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "14",
-    name: "Wyna Special - Pashmina Silk",
-    price: 4500,
-    category: "saree",
-    image: "/Asset/product/1 (14).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "15",
-    name: "Pure Katan Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (15).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "16",
-    name: "Wyna Premium Silk",
-    price: 4199,
-    category: "saree",
-    image: "/Asset/product/1 (16).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "17",
-    name: "Pure Katan Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (17).jpeg",
-    buyNowButton: true,
-  },
-  {
-    _id: "18",
-    name: "Pure Katan Silk",
-    price: 3799,
-    category: "saree",
-    image: "/Asset/product/1 (18).jpeg",
-    buyNowButton: true,
-  },
-];
 
 const Products = () => {
   const { slug } = useParams();
-  const [products, setProducts] = useState(demoProducts);
-  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState("all");
-  const [filteredProducts, setFilteredProducts] = useState(demoProducts);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    // Using demo products instead of API call
-    setProducts(demoProducts);
-    setFilteredProducts(demoProducts);
-    setLoading(false);
-  }, [slug]);
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        let apiUrl = "http://localhost:5000/api/products";
+        
+        // Add category filter if slug exists
+        if (slug) {
+          apiUrl += `?category=${slug}`;
+        }
+        
+        // Add search query if exists
+        if (searchQuery) {
+          const separator = apiUrl.includes('?') ? '&' : '?';
+          apiUrl += `${separator}search=${searchQuery}`;
+        }
+        
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        
+        // Check if response is successful
+        if (!data.success) {
+          throw new Error(data.message || 'Failed to fetch products');
+        }
+        
+        // Transform data for frontend
+        const transformedProducts = data.data.map(product => ({
+          _id: product._id,
+          name: product.name,
+          price: product.finalPrice,
+          category: typeof product.category === 'object' ? (product.category?.name || "Uncategorized") : product.category || "Uncategorized",
+          image: product.images && product.images.length > 0 ? `http://localhost:5000${product.images[0].url}` : "/Asset/product/placeholder.jpg",
+          buyNowButton: true,
+          hasDiscount: product.hasDiscount,
+          discountPercentage: product.discountPercentage,
+          originalPrice: product.price
+        }));
+        
+        setProducts(transformedProducts);
+        setFilteredProducts(transformedProducts);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+        toast.error("Failed to load products");
+      }
+    };
+    
+    fetchProducts();
+  }, [slug, searchQuery]);
 
   const handleFilter = (filterType) => {
     setFilter(filterType);
@@ -213,6 +112,20 @@ const Products = () => {
           <p className="products-subtitle">
             Discover handcrafted sarees with premium quality and unique designs
           </p>
+          
+          {/* Search Bar */}
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Search sarees..."
+              className="search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button className="search-btn">
+              <i className="fas fa-search"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -252,9 +165,9 @@ const Products = () => {
               <div key={product._id} className="product-card">
                 <div
                   className="product-link"
-                  onClick={() => product.buyNowButton && handleBuyNow(product)}
+                  onClick={() => navigate(`/products/${product._id}`)}
                   style={{
-                    cursor: product.buyNowButton ? "pointer" : "default",
+                    cursor: "pointer",
                   }}
                 >
                   <div className="product-image">
@@ -271,26 +184,50 @@ const Products = () => {
                         console.log(`Successfully loaded: ${product.image}`)
                       }
                     />
-                    <div style={{ display: "none" }}>
-                      Debug: {product.image}
-                    </div>
+
                   </div>
                   <div className="product-info">
                     <h3>{product.name}</h3>
                     <div className="product-footer">
-                      <span className="price">₹{product.price}</span>
-                      <span className="category">{product.category}</span>
+                      <div className="price-container">
+                        <span className="price">₹{product.price.toLocaleString()}</span>
+                        {product.hasDiscount && (
+                          <>
+                            <span className="original-price">₹{product.originalPrice.toLocaleString()}</span>
+                            <span className="discount-badge">{product.discountPercentage}% OFF</span>
+                          </>
+                        )}
+                      </div>
+                      <span className="category">{product.category?.name || product.category}</span>
                     </div>
                   </div>
                 </div>
-                {product.buyNowButton && (
-                  <button
-                    onClick={() => handleBuyNow(product)}
-                    className="btn-buy-now"
-                  >
-                    Buy Now
-                  </button>
-                )}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering card click
+                    // Add to cart functionality
+                    const cartItems = JSON.parse(localStorage.getItem('cart') || '[]');
+                    const existingItemIndex = cartItems.findIndex(item => item._id === product._id);
+                    
+                    if (existingItemIndex > -1) {
+                      // Update quantity if item already exists
+                      cartItems[existingItemIndex].quantity += 1;
+                    } else {
+                      // Add new item with quantity 1
+                      cartItems.push({
+                        ...product,
+                        image: product.image, // Use the transformed image URL
+                        quantity: 1
+                      });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+                    toast.success(`${product.name} added to cart!`);
+                  }}
+                  className="btn-add-to-cart"
+                >
+                  <i className="fas fa-shopping-cart"></i> Add to Cart
+                </button>
               </div>
             ))}
           </div>

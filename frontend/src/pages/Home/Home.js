@@ -54,65 +54,61 @@ const Home = () => {
     setIsLightboxOpen(false);
     document.body.style.overflow = "unset";
   };
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Oranza silk",
-      price: "₹2,799",
-      image: "/Asset/product/1 (1).jpeg",
-      description:
-        "Exquisite handwoven saree with traditional golden zari work",
-      series: "Series 01",
-      exclusive: true,
-    },
-    {
-      id: 2,
-      name: " Wyna Premium silk",
-      price: "₹2,099",
-      image: "/Asset/product/1 (2).jpeg",
-      description: "Pure silk masterpiece with intricate meenakari patterns",
-      series: "Series 01",
-      exclusive: true,
-    },
-    {
-      id: 3,
-      name: "Premium Muslin silk",
-      price: "₹2,099",
-      image: "/Asset/product/1 (3).jpeg",
-      description: "Heritageweave with antique gold zari borders",
-      series: "Series 01",
-      exclusive: true,
-    },
-    {
-      id: 4,
-      name: "Pure Katan Slik",
-      price: "₹3,799",
-      image: "/Asset/product/1 (4).jpeg",
-      description:
-        "Royal blue silk with golden paisley motifs and ornate border",
-      series: "Series 01",
-      exclusive: true,
-    },
-  ];
+  const [featuredProducts, setFeaturedProducts] = React.useState([]);
+  const [categories, setCategories] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
 
-  const categories = [
-    {
-      name: "Oranza silk",
-      image: "/Asset/product/1 (5).jpeg",
-    },
-    {
-      name: "Pure Katan Slik",
-      image: "/Asset/product/1 (8).jpeg",
-    },
-    {
-      name: "Wyna Premium silk",
-      image: "/Asset/product/1 (11).jpeg",
-    },
-    {
-      name: "Premium silk",
-      image: "/Asset/product/1 (10).jpeg",
-    },
-  ];
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch featured products
+        const productsRes = await fetch("http://localhost:5000/api/products/featured/home");
+        const productsData = await productsRes.json();
+        
+        // Fetch categories
+        const categoriesRes = await fetch("http://localhost:5000/api/categories/featured");
+        const categoriesData = await categoriesRes.json();
+        
+        // Transform data for frontend
+        const transformedProducts = productsData.data.map(product => ({
+          id: product._id,
+          name: product.name,
+          price: `₹${product.finalPrice.toLocaleString()}`,
+          image: product.images[0]?.url || "/Asset/product/placeholder.jpg",
+          description: product.shortDescription || product.description,
+          series: "Featured",
+          exclusive: product.featured
+        }));
+        
+        const transformedCategories = categoriesData.data.map(category => ({
+          name: category.name,
+          image: category.image || "/Asset/product/placeholder.jpg",
+          description: category.description,
+          count: 0 // Would need to fetch product counts per category
+        }));
+        
+        setFeaturedProducts(transformedProducts);
+        setCategories(transformedCategories);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false);
+      }
+    };
+    
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="home">
+        <div className="loading-container">
+          <div className="spinner"></div>
+          <p>Loading exquisite collection...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="home">
