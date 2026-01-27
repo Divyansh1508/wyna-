@@ -69,7 +69,7 @@ const Checkout = () => {
         paymentMethod: formData.paymentMethod,
       };
 
-      const response = await axios.post("http://localhost:5000/api/guest-orders", orderData);
+      const response = await axios.post("http://72.61.238.132:5000/api/guest-orders", orderData);
 
       if (response.status === 201 || response.status === 200) {
         toast.success(`Order placed successfully! Order #${response.data.data.orderNumber}`);

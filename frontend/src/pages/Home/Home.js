@@ -62,11 +62,11 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // Fetch featured products
-        const productsRes = await fetch("http://localhost:5000/api/products/featured/home");
+        const productsRes = await fetch("http://72.61.238.132:5000/api/products/featured/home");
         const productsData = await productsRes.json();
         
         // Fetch categories
-        const categoriesRes = await fetch("http://localhost:5000/api/categories/featured");
+        const categoriesRes = await fetch("http://72.61.238.132:5000/api/categories/featured");
         const categoriesData = await categoriesRes.json();
         
         // Transform data for frontend

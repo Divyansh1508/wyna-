@@ -27,7 +27,7 @@ export const AdminAuthProvider = ({ children }) => {
       
       if (token && adminInfo) {
         // Verify token with backend
-        const response = await fetch("http://localhost:5000/api/auth/admin/verify", {
+        const response = await fetch("http://72.61.238.132:5000/api/auth/admin/verify", {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -57,7 +57,7 @@ export const AdminAuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/admin/login", {
+      const response = await fetch("http://72.61.238.132:5000/api/auth/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -86,7 +86,7 @@ export const AdminAuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const response = await fetch("http://localhost:5000/api/auth/admin/register", {
+      const response = await fetch("http://72.61.238.132:5000/api/auth/admin/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

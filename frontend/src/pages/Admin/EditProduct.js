@@ -43,7 +43,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/categories");
+        const response = await fetch("http://72.61.238.132:5000/api/categories");
         const data = await response.json();
         setCategories(data.data || []);
       } catch (error) {
@@ -54,7 +54,7 @@ const EditProduct = () => {
 
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${productId}`);
+        const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -144,7 +144,7 @@ const EditProduct = () => {
         });
         
         const token = localStorage.getItem("adminToken");
-        const response = await fetch("http://localhost:5000/api/upload/multiple/products", {
+        const response = await fetch("http://72.61.238.132:5000/api/upload/multiple/products", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`
@@ -211,7 +211,7 @@ const EditProduct = () => {
         images: uploadedImages // Use the combined images from uploadImages function
       };
       
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -244,7 +244,7 @@ const EditProduct = () => {
     try {
       const token = localStorage.getItem("adminToken");
       
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -527,7 +527,7 @@ const EditProduct = () => {
                   {/* Show selected server images */}
                   {selectedImages.map((image, index) => (
                     <div key={`server-${index}`} className="preview-item">
-                      <img src={`http://localhost:5000${image.url}`} alt={image.alt} />
+                      <img src={`http://72.61.238.132:5000${image.url}`} alt={image.alt} />
                       <button
                         type="button"
                         className="remove-image"

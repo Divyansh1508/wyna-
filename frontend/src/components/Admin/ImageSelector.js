@@ -24,7 +24,7 @@ const ImageSelector = ({
         const token = localStorage.getItem('adminToken');
         
         const response = await fetch(
-          `http://localhost:5000/api/images/list/${selectedImageType}`, 
+          `http://72.61.238.132:5000/api/images/list/${selectedImageType}`, 
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -56,7 +56,7 @@ const ImageSelector = ({
       try {
         const token = localStorage.getItem('adminToken');
         
-        const response = await fetch('http://localhost:5000/api/images/types', {
+        const response = await fetch('http://72.61.238.132:5000/api/images/types', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -192,7 +192,7 @@ const ImageSelector = ({
               <div className="selected-images-list">
                 {localSelectedImages.map((img, index) => (
                   <div key={index} className="selected-image-item">
-                    <img src={`http://localhost:5000${img.url}`} alt={img.alt} />
+                    <img src={`http://72.61.238.132:5000${img.url}`} alt={img.alt} />
                     <div className="image-actions">
                       <button 
                         className={`primary-btn ${img.isPrimary ? 'active' : ''}`}
@@ -231,7 +231,7 @@ const ImageSelector = ({
                     onClick={() => handleImageSelect(image)}
                   >
                     <img 
-                      src={`http://localhost:5000${image.url}`} 
+                      src={`http://72.61.238.132:5000${image.url}`} 
                       alt={image.filename} 
                       className="thumbnail"
                     />

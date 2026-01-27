@@ -15,7 +15,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/products/${id}`
+          `http://72.61.238.132:5000/api/products/${id}`
         );
         if (res.data.success) {
           setProduct(res.data.data);
@@ -40,7 +40,7 @@ const ProductDetail = () => {
             {product.images?.map((img, i) => (
               <img
                 key={i}
-                src={`http://localhost:5000${img.url}`}
+                src={`http://72.61.238.132:5000${img.url}`}
                 alt=""
                 className={activeImage === img.url ? "thumb active" : "thumb"}
                 onClick={() => setActiveImage(img.url)}
@@ -50,7 +50,7 @@ const ProductDetail = () => {
 
           <div className="main-image">
             <img
-              src={`http://localhost:5000${activeImage}`}
+              src={`http://72.61.238.132:5000${activeImage}`}
               alt={product.name}
             />
           </div>
@@ -101,7 +101,7 @@ const ProductDetail = () => {
                 cart.push({ 
                   ...product, 
                   image: product.images && product.images.length > 0 
-                    ? `http://localhost:5000${product.images[0].url}` 
+                    ? `http://72.61.238.132:5000${product.images[0].url}` 
                     : "/images/placeholder.jpg",
                   quantity: qty 
                 });

@@ -19,7 +19,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        let apiUrl = "http://localhost:5000/api/products";
+        let apiUrl = "http://72.61.238.132:5000/api/products";
         
         // Add category filter if slug exists
         if (slug) {
@@ -46,7 +46,7 @@ const Products = () => {
           name: product.name,
           price: product.finalPrice,
           category: typeof product.category === 'object' ? (product.category?.name || "Uncategorized") : product.category || "Uncategorized",
-          image: product.images && product.images.length > 0 ? `http://localhost:5000${product.images[0].url}` : "/Asset/product/placeholder.jpg",
+          image: product.images && product.images.length > 0 ? `http://72.61.238.132:5000${product.images[0].url}` : "/Asset/product/placeholder.jpg",
           buyNowButton: true,
           hasDiscount: product.hasDiscount,
           discountPercentage: product.discountPercentage,

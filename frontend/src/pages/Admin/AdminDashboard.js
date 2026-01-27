@@ -35,14 +35,14 @@ const AdminDashboard = () => {
         : {};
       
       // Fetch products
-      const productsRes = await fetch("http://localhost:5000/api/products", {
+      const productsRes = await fetch("http://72.61.238.132:5000/api/products", {
         headers
       });
       const productsData = await productsRes.json();
       setProducts(productsData.data || []);
 
       // Fetch admin orders (using admin endpoint)
-      const ordersRes = await fetch("http://localhost:5000/api/orders/admin/all", {
+      const ordersRes = await fetch("http://72.61.238.132:5000/api/orders/admin/all", {
         headers
       });
       const ordersData = await ordersRes.json();
@@ -50,7 +50,7 @@ const AdminDashboard = () => {
       setOrders(ordersList);
 
       // Fetch categories
-      const categoriesRes = await fetch("http://localhost:5000/api/categories", {
+      const categoriesRes = await fetch("http://72.61.238.132:5000/api/categories", {
         headers
       });
       const categoriesData = await categoriesRes.json();
@@ -278,7 +278,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      await fetch(`http://localhost:5000/api/orders/admin/${orderId}/status`, {
+      await fetch(`http://72.61.238.132:5000/api/orders/admin/${orderId}/status`, {
         method: "PUT",
         headers,
         body: JSON.stringify({ status: newStatus }),
@@ -302,7 +302,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      const response = await fetch(`http://localhost:5000/api/products/${productId}`, {
+      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
         method: "DELETE",
         headers
       });
@@ -332,7 +332,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
+      const response = await fetch(`http://72.61.238.132:5000/api/categories/${categoryId}`, {
         method: "DELETE",
         headers
       });

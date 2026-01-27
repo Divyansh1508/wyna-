@@ -40,7 +40,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/categories");
+        const response = await fetch("http://72.61.238.132:5000/api/categories");
         const data = await response.json();
         setCategories(data.data || []);
         
@@ -88,7 +88,7 @@ const AddProduct = () => {
         });
         
         const token = localStorage.getItem("adminToken");
-        const response = await fetch("http://localhost:5000/api/upload/multiple/products", {
+        const response = await fetch("http://72.61.238.132:5000/api/upload/multiple/products", {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`
@@ -152,7 +152,7 @@ const AddProduct = () => {
         images: uploadedImages // Add combined images to product data
       };
       
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("http://72.61.238.132:5000/api/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
