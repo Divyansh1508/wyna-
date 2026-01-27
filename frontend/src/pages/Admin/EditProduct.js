@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import ImageSelector from '../../components/Admin/ImageSelector';
+import API_CONFIG from "../../config/api";
 import "./AdminDashboard.css";
 
 const EditProduct = () => {
@@ -43,7 +44,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://72.61.238.132:5000/api/categories");
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES));
         const data = await response.json();
         setCategories(data.data || []);
       } catch (error) {
@@ -54,7 +55,7 @@ const EditProduct = () => {
 
     const fetchProduct = async () => {
       try {
-        const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`);
+        const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${productId}`));
         const data = await response.json();
         
         if (data.success) {
@@ -144,7 +145,7 @@ const EditProduct = () => {
         });
         
         const token = localStorage.getItem("adminToken");
-        const response = await fetch("http://72.61.238.132:5000/api/upload/multiple/products", {
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.UPLOAD_MULTIPLE('products')), {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`
@@ -211,7 +212,7 @@ const EditProduct = () => {
         images: uploadedImages // Use the combined images from uploadImages function
       };
       
-      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${productId}`), {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -244,7 +245,7 @@ const EditProduct = () => {
     try {
       const token = localStorage.getItem("adminToken");
       
-      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${productId}`), {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`

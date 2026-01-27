@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_CONFIG from "../../config/api";
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
@@ -15,7 +16,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const res = await axios.get(
-          `http://72.61.238.132:5000/api/products/${id}`
+          API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${id}`)
         );
         if (res.data.success) {
           setProduct(res.data.data);
@@ -40,7 +41,7 @@ const ProductDetail = () => {
             {product.images?.map((img, i) => (
               <img
                 key={i}
-                src={`http://72.61.238.132:5000${img.url}`}
+                src={`${API_CONFIG.BASE_URL}${img.url}`}
                 alt=""
                 className={activeImage === img.url ? "thumb active" : "thumb"}
                 onClick={() => setActiveImage(img.url)}
@@ -50,7 +51,7 @@ const ProductDetail = () => {
 
           <div className="main-image">
             <img
-              src={`http://72.61.238.132:5000${activeImage}`}
+              src={`${API_CONFIG.BASE_URL}${activeImage}`}
               alt={product.name}
             />
           </div>
@@ -101,7 +102,7 @@ const ProductDetail = () => {
                 cart.push({ 
                   ...product, 
                   image: product.images && product.images.length > 0 
-                    ? `http://72.61.238.132:5000${product.images[0].url}` 
+                    ? `${API_CONFIG.BASE_URL}${product.images[0].url}` 
                     : "/images/placeholder.jpg",
                   quantity: qty 
                 });

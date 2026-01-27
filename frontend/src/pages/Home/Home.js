@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 import "./Home.css";
+import API_CONFIG from "../../config/api";
 import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
 import InstagramLightbox from "../../components/InstagramLightbox/InstagramLightbox";
 // import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
@@ -61,13 +63,29 @@ const Home = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
+        console.log('Fetching from API URL:', API_CONFIG.BASE_URL);
+        console.log('Products endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED));
+        console.log('Categories endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED));
+        
         // Fetch featured products
-        const productsRes = await fetch("http://72.61.238.132:5000/api/products/featured/home");
-        const productsData = await productsRes.json();
+        const productsResponse = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED));
+        
+        if (!productsResponse.ok) {
+          throw new Error(`Products API failed with status ${productsResponse.status}: ${productsResponse.statusText}`);
+        }
+        
+        const productsData = await productsResponse.json();
+        console.log('Products data received:', productsData);
         
         // Fetch categories
-        const categoriesRes = await fetch("http://72.61.238.132:5000/api/categories/featured");
-        const categoriesData = await categoriesRes.json();
+        const categoriesResponse = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED));
+        
+        if (!categoriesResponse.ok) {
+          throw new Error(`Categories API failed with status ${categoriesResponse.status}: ${categoriesResponse.statusText}`);
+        }
+        
+        const categoriesData = await categoriesResponse.json();
+        console.log('Categories data received:', categoriesData);
         
         // Transform data for frontend
         const transformedProducts = productsData.data.map(product => ({
@@ -92,6 +110,15 @@ const Home = () => {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
+        console.error("Full error details:", {
+          message: error.message,
+          stack: error.stack,
+          apiUrl: API_CONFIG.BASE_URL,
+          productsEndpoint: API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED,
+          categoriesEndpoint: API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED
+        });
+        // Show user-friendly error message
+        toast.error("Failed to load products. Please try again later.");
         setLoading(false);
       }
     };

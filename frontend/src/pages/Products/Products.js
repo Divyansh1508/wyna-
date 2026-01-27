@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import API_CONFIG from "../../config/api";
 // import axios from "axios";
 import toast from "react-hot-toast";
 import "./Products.css";
@@ -19,7 +20,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        let apiUrl = "http://72.61.238.132:5000/api/products";
+        let apiUrl = API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS);
         
         // Add category filter if slug exists
         if (slug) {

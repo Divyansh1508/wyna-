@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import ImageSelector from '../../components/Admin/ImageSelector';
+import API_CONFIG from "../../config/api";
 import "./AdminDashboard.css";
 
 const AddProduct = () => {
@@ -40,7 +41,7 @@ const AddProduct = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://72.61.238.132:5000/api/categories");
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES));
         const data = await response.json();
         setCategories(data.data || []);
         
@@ -88,7 +89,7 @@ const AddProduct = () => {
         });
         
         const token = localStorage.getItem("adminToken");
-        const response = await fetch("http://72.61.238.132:5000/api/upload/multiple/products", {
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.UPLOAD_MULTIPLE('products')), {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${token}`
@@ -152,7 +153,7 @@ const AddProduct = () => {
         images: uploadedImages // Add combined images to product data
       };
       
-      const response = await fetch("http://72.61.238.132:5000/api/products", {
+      const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_CONFIG from '../../config/api';
 import './ImageSelector.css';
 
 const ImageSelector = ({ 
@@ -24,7 +25,7 @@ const ImageSelector = ({
         const token = localStorage.getItem('adminToken');
         
         const response = await fetch(
-          `http://72.61.238.132:5000/api/images/list/${selectedImageType}`, 
+          API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.IMAGES_LIST(selectedImageType)), 
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -56,7 +57,7 @@ const ImageSelector = ({
       try {
         const token = localStorage.getItem('adminToken');
         
-        const response = await fetch('http://72.61.238.132:5000/api/images/types', {
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.IMAGES_TYPES), {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -192,7 +193,7 @@ const ImageSelector = ({
               <div className="selected-images-list">
                 {localSelectedImages.map((img, index) => (
                   <div key={index} className="selected-image-item">
-                    <img src={`http://72.61.238.132:5000${img.url}`} alt={img.alt} />
+                    <img src={`${API_CONFIG.BASE_URL}${img.url}`} alt={img.alt} />
                     <div className="image-actions">
                       <button 
                         className={`primary-btn ${img.isPrimary ? 'active' : ''}`}
@@ -231,7 +232,7 @@ const ImageSelector = ({
                     onClick={() => handleImageSelect(image)}
                   >
                     <img 
-                      src={`http://72.61.238.132:5000${image.url}`} 
+                      src={`${API_CONFIG.BASE_URL}${image.url}`} 
                       alt={image.filename} 
                       className="thumbnail"
                     />

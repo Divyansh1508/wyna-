@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAdminAuth } from "../../contexts/AdminAuthContext";
 import toast from "react-hot-toast";
+import API_CONFIG from "../../config/api";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
@@ -25,14 +26,14 @@ const AdminDashboard = () => {
         : {};
       
       // Fetch products
-      const productsRes = await fetch("http://72.61.238.132:5000/api/products", {
+      const productsRes = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS), {
         headers
       });
       const productsData = await productsRes.json();
       setProducts(productsData.data || []);
 
       // Fetch admin orders (using admin endpoint)
-      const ordersRes = await fetch("http://72.61.238.132:5000/api/orders/admin/all", {
+      const ordersRes = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.ORDERS_ADMIN_ALL), {
         headers
       });
       const ordersData = await ordersRes.json();
@@ -40,7 +41,7 @@ const AdminDashboard = () => {
       setOrders(ordersList);
 
       // Fetch categories
-      const categoriesRes = await fetch("http://72.61.238.132:5000/api/categories", {
+      const categoriesRes = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES), {
         headers
       });
       const categoriesData = await categoriesRes.json();
@@ -278,7 +279,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      await fetch(`http://72.61.238.132:5000/api/orders/admin/${orderId}/status`, {
+      await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.ORDERS_ADMIN_STATUS(orderId)), {
         method: "PUT",
         headers,
         body: JSON.stringify({ status: newStatus }),
@@ -302,7 +303,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      const response = await fetch(`http://72.61.238.132:5000/api/products/${productId}`, {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.PRODUCTS}/${productId}`), {
         method: "DELETE",
         headers
       });
@@ -332,7 +333,7 @@ const AdminDashboard = () => {
         ...(token && { "Authorization": `Bearer ${token}` })
       };
       
-      const response = await fetch(`http://72.61.238.132:5000/api/categories/${categoryId}`, {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.CATEGORIES}/${categoryId}`), {
         method: "DELETE",
         headers
       });

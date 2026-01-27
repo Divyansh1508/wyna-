@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import toast from "react-hot-toast";
+import API_CONFIG from "../config/api";
 
 const AdminAuthContext = createContext();
 
@@ -27,7 +28,7 @@ export const AdminAuthProvider = ({ children }) => {
       
       if (token && adminInfo) {
         // Verify token with backend
-        const response = await fetch("http://72.61.238.132:5000/api/auth/admin/verify", {
+        const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.AUTH_ADMIN_VERIFY), {
           headers: {
             "Authorization": `Bearer ${token}`
           }
@@ -57,7 +58,7 @@ export const AdminAuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await fetch("http://72.61.238.132:5000/api/auth/admin/login", {
+      const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.AUTH_ADMIN_LOGIN), {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -86,7 +87,7 @@ export const AdminAuthProvider = ({ children }) => {
 
   const register = async (name, email, password) => {
     try {
-      const response = await fetch("http://72.61.238.132:5000/api/auth/admin/register", {
+      const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.AUTH_ADMIN_REGISTER), {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
