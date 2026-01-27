@@ -14,7 +14,7 @@ const AnimatedHero = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   return (
     <section className={`animated-hero ${isVisible ? "visible" : ""}`}>

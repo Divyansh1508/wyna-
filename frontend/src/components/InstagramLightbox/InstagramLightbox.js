@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './InstagramLightbox.css';
 
 const InstagramLightbox = ({ images, isOpen, onClose, currentIndex, setCurrentIndex }) => {
-  const handlePrevious = () => {
+  const handlePrevious = React.useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  }, [images.length, setCurrentIndex]);
 
-  const handleNext = () => {
+  const handleNext = React.useCallback(() => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  }, [images.length, setCurrentIndex]);
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = React.useCallback((e) => {
     if (e.key === 'Escape') onClose();
     if (e.key === 'ArrowLeft') handlePrevious();
     if (e.key === 'ArrowRight') handleNext();
-  };
+  }, [onClose, handlePrevious, handleNext]);
 
   useEffect(() => {
     if (isOpen) {

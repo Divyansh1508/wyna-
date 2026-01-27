@@ -18,17 +18,7 @@ const AdminDashboard = () => {
     pendingOrders: 0,
   });
 
-  // Auth check
-  useEffect(() => {
-    const token = localStorage.getItem("adminToken");
-    if (!token) {
-      navigate("/admin/login");
-      return;
-    }
-    fetchData(token);
-  }, []);
-
-  const fetchData = async (token = null) => {
+  const fetchData = React.useCallback(async (token = null) => {
     try {
       const headers = token 
         ? { "Authorization": `Bearer ${token}` }
@@ -80,7 +70,17 @@ const AdminDashboard = () => {
         navigate("/admin/login");
       }
     }
-  };
+  }, [logout, navigate]);
+
+  // Auth check
+  useEffect(() => {
+    const token = localStorage.getItem("adminToken");
+    if (!token) {
+      navigate("/admin/login");
+      return;
+    }
+    fetchData(token);
+  }, [fetchData, navigate]);
 
   const handleLogout = () => {
     logout();

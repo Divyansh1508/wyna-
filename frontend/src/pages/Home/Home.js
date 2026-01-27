@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
 import InstagramLightbox from "../../components/InstagramLightbox/InstagramLightbox";
-import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
-import AnimatedHero from "../../components/AnimatedHero/AnimatedHero";
+// import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
+// import AnimatedHero from "../../components/AnimatedHero/AnimatedHero";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
 
 const Home = () => {
@@ -44,11 +44,11 @@ const Home = () => {
     },
   ];
 
-  const openLightbox = (index) => {
-    setCurrentImageIndex(index);
-    setIsLightboxOpen(true);
-    document.body.style.overflow = "hidden";
-  };
+  // const openLightbox = (index) => {
+  //   setCurrentImageIndex(index);
+  //   setIsLightboxOpen(true);
+  //   document.body.style.overflow = "hidden";
+  // };
 
   const closeLightbox = () => {
     setIsLightboxOpen(false);

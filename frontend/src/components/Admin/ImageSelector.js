@@ -14,7 +14,7 @@ const ImageSelector = ({
   const [imageTypes, setImageTypes] = useState([]);
   const [selectedImageType, setSelectedImageType] = useState(imageType);
   const [localSelectedImages, setLocalSelectedImages] = useState([...selectedImages]);
-  const [viewMode, setViewMode] = useState('gallery'); // gallery or upload
+  // const [viewMode, setViewMode] = useState('gallery'); // gallery or upload
 
   // Fetch available images from server
   useEffect(() => {
@@ -121,16 +121,16 @@ const ImageSelector = ({
     onClose();
   };
 
-  const handleUploadSuccess = (uploadedImages) => {
-    // Add newly uploaded images to the selected images
-    const newImages = uploadedImages.map(img => ({
-      url: img.url,
-      alt: 'Uploaded image',
-      isPrimary: localSelectedImages.length === 0 // Make first image primary if no primary exists
-    }));
-    
-    setLocalSelectedImages([...localSelectedImages, ...newImages]);
-  };
+  // const handleUploadSuccess = (uploadedImages) => {
+  //   // Add newly uploaded images to the selected images
+  //   const newImages = uploadedImages.map(img => ({
+  //     url: img.url,
+  //     alt: 'Uploaded image',
+  //     isPrimary: localSelectedImages.length === 0 // Make first image primary if no primary exists
+  //   }));
+  //   
+  //   setLocalSelectedImages([...localSelectedImages, ...newImages]);
+  // };
 
   const formatFileSize = (bytes) => {
     if (bytes === 0) return '0 Bytes';

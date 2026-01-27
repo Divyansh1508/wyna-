@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import toast from "react-hot-toast";
 import "./Products.css";
 
@@ -82,14 +82,14 @@ const Products = () => {
     }
   };
 
-  const handleBuyNow = (product) => {
-    const phoneNumber = "918744923702"; // Replace with your WhatsApp number with country code, e.g.
-    const message = `I am interested in buying the product: ${product.name} priced at ₹${product.price}`;
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-    window.open(url, "_blank");
-  };
+  // const handleBuyNow = (product) => {
+  //   const phoneNumber = "918744923702"; // Replace with your WhatsApp number with country code, e.g.
+  //   const message = `I am interested in buying the product: ${product.name} priced at ₹${product.price}`;
+  //   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+  //     message
+  //   )}`;
+  //   window.open(url, "_blank");
+  // };
 
   if (loading) {
     return (

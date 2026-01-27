@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [product, setProduct] = useState(null);
   const [activeImage, setActiveImage] = useState("");
   const [qty, setQty] = useState(1);

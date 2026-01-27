@@ -13,7 +13,7 @@ const EditProduct = () => {
   const [imageFiles, setImageFiles] = useState([]);
   const [imagePreviews, setImagePreviews] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [productDataFromServer, setProductDataFromServer] = useState(null);
+  // const [productDataFromServer, setProductDataFromServer] = useState(null);
   const [showImageSelector, setShowImageSelector] = useState(false);
   const [selectedImages, setSelectedImages] = useState([]);
 
@@ -59,7 +59,7 @@ const EditProduct = () => {
         
         if (data.success) {
           const product = data.data;
-          setProductDataFromServer(product); // Store original product data
+          // setProductDataFromServer(product); // Store original product data
           
           // Set selected images from the existing product images
           if (product.images && product.images.length > 0) {
