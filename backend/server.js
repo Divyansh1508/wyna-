@@ -51,7 +51,7 @@ app.use("/api/auth/admin", adminRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/images", imageRoutes);
 
-// Health check
+// Health check 
 app.get("/api/health", (req, res) => {
   res.json({
     message: "WYNA E-commerce API is running",
