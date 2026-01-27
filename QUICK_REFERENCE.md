@@ -30,7 +30,7 @@ npm start
 | Service         | URL                         |
 | --------------- | --------------------------- |
 | **Frontend**    | http://localhost:3000       |
-| **Backend API** | http://72.61.238.132:5000       |
+| **Backend API** | http://localhost:5000       |
 | **Admin Panel** | http://localhost:3000/admin |
 
 ## 🔐 Credentials

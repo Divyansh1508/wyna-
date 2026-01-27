@@ -51,7 +51,7 @@ npm run seed:saree
 npm run dev
 ```
 
-The server will start on `http://72.61.238.132:5000`
+The server will start on `http://localhost:5000`
 
 ## Available Scripts
 
@@ -64,8 +64,8 @@ The server will start on `http://72.61.238.132:5000`
 
 Once the server is running, you can access:
 
-- **API Base URL**: `http://72.61.238.132:5000/api`
-- **Health Check**: `http://72.61.238.132:5000/api/health`
+- **API Base URL**: `http://localhost:5000/api`
+- **Health Check**: `http://localhost:5000/api/health`
 
 ## Testing the API
 
@@ -73,7 +73,7 @@ Once the server is running, you can access:
 
 Register a new user:
 ```bash
-curl -X POST http://72.61.238.132:5000/api/auth/register \
+curl -X POST http://localhost:5000/api/auth/register \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Test User",
@@ -85,7 +85,7 @@ curl -X POST http://72.61.238.132:5000/api/auth/register \
 
 Login:
 ```bash
-curl -X POST http://72.61.238.132:5000/api/auth/login \
+curl -X POST http://localhost:5000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{
     "email": "test@example.com",
@@ -95,7 +95,7 @@ curl -X POST http://72.61.238.132:5000/api/auth/login \
 
 Get products:
 ```bash
-curl http://72.61.238.132:5000/api/products
+curl http://localhost:5000/api/products
 ```
 
 ### Using Postman
@@ -106,7 +106,7 @@ Import the following collection for easy testing:
 2. Click "Import"
 3. Select the `WYNA_API.postman_collection.json` file (if available)
 4. Set environment variables:
-   - `BASE_URL`: http://72.61.238.132:5000/api
+   - `BASE_URL`: http://localhost:5000/api
    - `TOKEN`: Your JWT token after login
 
 ## Database Structure

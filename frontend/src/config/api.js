@@ -1,6 +1,6 @@
 // API Configuration
 const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL || 'http://72.61.238.132:5000',
+  BASE_URL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
   
   // API Endpoints
   ENDPOINTS: {
@@ -31,7 +31,13 @@ const API_CONFIG = {
   
   // Helper method to build full URLs
   buildUrl(endpoint) {
-    return `${this.BASE_URL}${endpoint}`;
+    const fullUrl = `${this.BASE_URL}${endpoint}`;
+    console.log('API Config - Building URL:', { 
+      baseUrl: this.BASE_URL, 
+      endpoint: endpoint, 
+      fullUrl: fullUrl 
+    });
+    return fullUrl;
   }
 };
 

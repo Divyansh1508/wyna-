@@ -31,7 +31,7 @@ const EditCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://72.61.238.132:5000/api/categories");
+        const response = await fetch("http://localhost:5000/api/categories");
         const data = await response.json();
         setAllCategories(data.data || []);
       } catch (error) {
@@ -41,7 +41,7 @@ const EditCategory = () => {
 
     const fetchCategory = async () => {
       try {
-        const response = await fetch(`http://72.61.238.132:5000/api/categories/${categoryId}`);
+        const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`);
         const data = await response.json();
         
         if (data.success) {
@@ -108,7 +108,7 @@ const EditCategory = () => {
       formData.append('image', imageFile);
       
       const token = localStorage.getItem("adminToken");
-      const response = await fetch("http://72.61.238.132:5000/api/upload/single/categories", {
+      const response = await fetch("http://localhost:5000/api/upload/single/categories", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -170,7 +170,7 @@ const EditCategory = () => {
         keywords: formData.keywords.split(",").map(keyword => keyword.trim()).filter(keyword => keyword)
       };
       
-      const response = await fetch(`http://72.61.238.132:5000/api/categories/${categoryId}`, {
+      const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -203,7 +203,7 @@ const EditCategory = () => {
     try {
       const token = localStorage.getItem("adminToken");
       
-      const response = await fetch(`http://72.61.238.132:5000/api/categories/${categoryId}`, {
+      const response = await fetch(`http://localhost:5000/api/categories/${categoryId}`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${token}`
