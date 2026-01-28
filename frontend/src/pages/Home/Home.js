@@ -63,6 +63,9 @@ const Home = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
+        // Debug URL construction
+        API_CONFIG.debugUrlConstruction();
+        
         console.log('Fetching from API URL:', API_CONFIG.BASE_URL);
         console.log('Products endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED));
         console.log('Categories endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED));

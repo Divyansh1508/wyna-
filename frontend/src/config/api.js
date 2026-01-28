@@ -1,8 +1,19 @@
 // API Configuration
+console.log('=== API CONFIG DEBUG ===');
 console.log('Environment REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+console.log('typeof process.env.REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
 const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
+  BASE_URL: 'http://localhost:5000', // Hardcoded for testing
   ACTUAL_BASE_URL: process.env.REACT_APP_API_URL, // For debugging
+  
+  // Debug method to check URL construction
+  debugUrlConstruction() {
+    console.log('=== URL Construction Debug ===');
+    console.log('BASE_URL:', this.BASE_URL);
+    console.log('typeof BASE_URL:', typeof this.BASE_URL);
+    console.log('ENDPOINTS.PRODUCTS:', this.ENDPOINTS.PRODUCTS);
+    console.log('Full URL:', this.buildUrl(this.ENDPOINTS.PRODUCTS));
+  },
   
   // API Endpoints
   ENDPOINTS: {
