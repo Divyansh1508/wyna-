@@ -1,7 +1,7 @@
 // API Configuration
 console.log('Environment REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL || 'http://72.60.202.38:5000',
+  BASE_URL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
   ACTUAL_BASE_URL: process.env.REACT_APP_API_URL, // For debugging
   
   // API Endpoints
@@ -13,11 +13,11 @@ const API_CONFIG = {
     
     // Products
     PRODUCTS: '/api/products',
-    PRODUCTS_FEATURED: '/api/products',
+    PRODUCTS_FEATURED: '/api/products/featured/home',
     
     // Categories
     CATEGORIES: '/api/categories',
-    CATEGORIES_FEATURED: '/api/categories',
+    CATEGORIES_FEATURED: '/api/categories/featured',
     
     // Orders
     ORDERS_ADMIN_ALL: '/api/orders/admin/all',
