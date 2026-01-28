@@ -30,7 +30,7 @@ const corsOptions = {
     process.env.CLIENT_URL || 'http://localhost:3000',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'http://72.60.202.38:3000'
+    'http://72.61.238.132:3000'
   ],
   credentials: true,
   optionsSuccessStatus: 200,
