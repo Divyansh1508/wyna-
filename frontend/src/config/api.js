@@ -13,11 +13,11 @@ const API_CONFIG = {
     
     // Products
     PRODUCTS: '/api/products',
-    PRODUCTS_FEATURED: '/api/products/featured/home',
+    PRODUCTS_FEATURED: '/api/products',
     
     // Categories
     CATEGORIES: '/api/categories',
-    CATEGORIES_FEATURED: '/api/categories/featured',
+    CATEGORIES_FEATURED: '/api/categories',
     
     // Orders
     ORDERS_ADMIN_ALL: '/api/orders/admin/all',
