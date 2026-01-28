@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import API_CONFIG from "../../config/api";
 import "./Checkout.css";
 
 const Checkout = () => {
@@ -69,7 +70,7 @@ const Checkout = () => {
         paymentMethod: formData.paymentMethod,
       };
 
-      const response = await axios.post("http://72.60.202.38:5000/api/guest-orders", orderData);
+      const response = await axios.post(API_CONFIG.buildUrl('/api/guest-orders'), orderData);
 
       if (response.status === 201 || response.status === 200) {
         toast.success(`Order placed successfully! Order #${response.data.data.orderNumber}`);
