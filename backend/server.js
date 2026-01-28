@@ -1,219 +1,92 @@
-const express = require('express');
-const cors = require('cors');
-const mockData = require('./mockData');
+const path = require("path");
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+
+const connectDB = require("./config/db");
+const { errorHandler } = require('./middleware/error');
+
+// Import all routes
+const authRoutes = require("./routes/authRoutes");
+const productRoutes = require("./routes/productRoutesEnhanced");
+const categoryRoutes = require("./routes/categoryRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const guestOrderRoutes = require("./routes/guestOrderRoutes");
+const newsletterRoutes = require("./routes/newsletterRoutes");
+const contactRoutes = require("./routes/contactRoutes");
+const wishlistRoutes = require("./routes/wishlistRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const uploadRoutes = require("./routes/uploadRoutes");
+const imageRoutes = require("./routes/imageRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+
+// Connect to database
+connectDB();
 
 // Middleware
-app.use(cors({
-  origin: [process.env.CLIENT_URL, 'http://localhost:3000', 'http://72.60.202.38:3000', 'http://localhost:3001'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'Accept', 'Origin']
-}));
-app.use(express.json());
+app.use(cors());
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-// Handle preflight requests
-app.options('*', cors());
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  next();
-});
-// Log all requests
-app.use((req, res, next) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`);
-  next();
-});
+// Static files
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-// Mock API Routes
-app.get('/api/products/featured/home', (req, res) => {
-  console.log('Serving mock featured products');
-  res.json(mockData.mockEndpoints['/api/products/featured/home']);
-});
+// Routes
+console.log('Mounting routes...');
+app.use("/api/auth", authRoutes);
+console.log('Auth routes mounted');
+app.use("/api/products", productRoutes);
+console.log('Product routes mounted');
+app.use("/api/categories", categoryRoutes);
+console.log('Category routes mounted');
+app.use("/api/orders", orderRoutes);
+console.log('Order routes mounted');
+app.use("/api/guest-orders", guestOrderRoutes);
+console.log('Guest order routes mounted');
+app.use("/api/newsletter", newsletterRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/wishlist", wishlistRoutes);
+app.use("/api/auth/admin", adminRoutes);
+app.use("/api/upload", uploadRoutes);
+app.use("/api/images", imageRoutes);
 
-app.get('/api/categories/featured', (req, res) => {
-  console.log('Serving mock featured categories');
-  res.json(mockData.mockEndpoints['/api/categories/featured']);
-});
-
-app.get('/api/products', (req, res) => {
-  console.log('Serving mock products');
+// Health check 
+app.get("/api/health", (req, res) => {
   res.json({
-    success: true,
-    data: mockData.MOCK_PRODUCTS
+    message: "WYNA E-commerce API is running",
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || "development",
   });
 });
 
-app.get('/api/products/:id', (req, res) => {
-  const product = mockData.MOCK_PRODUCTS.find(p => p._id === req.params.id);
-  if (product) {
-    res.json({
-      success: true,
-      data: product
-    });
-  } else {
-    res.status(404).json({
-      success: true,
-      message: 'Product not found'
-    });
-  }
-});
+// Error handling middleware
+app.use(errorHandler);
 
-app.get('/api/categories', (req, res) => {
-  console.log('Serving mock categories');
-  res.json({
-    success: true,
-    data: mockData.MOCK_CATEGORIES
-  });
-});
-
-// Mock Auth Routes
-app.post('/api/auth/admin/register', (req, res) => {
-  console.log('Serving mock admin registration');
-  res.json({
-    success: true,
-    message: 'Registration successful! Please login.',
-    data: {
-      id: 'mock-admin-id',
-      name: req.body.name || 'Mock Admin',
-      email: req.body.email || 'mock@example.com'
-    }
-  });
-});
-
-app.post('/api/auth/admin/login', (req, res) => {
-  console.log('Serving mock admin login');
-  res.json({
-    success: true,
-    message: 'Login successful!',
-    token: 'mock-jwt-token-for-development',
-    admin: {
-      id: 'mock-admin-id',
-      name: req.body.email ? req.body.email.split('@')[0] : 'Mock Admin',
-      email: req.body.email || 'mock@example.com'
-    }
-  });
-});
-
-app.get('/api/auth/admin/verify', (req, res) => {
-  console.log('Serving mock admin verification');
-  res.json({
-    success: true,
-    message: 'Token verified',
-    admin: {
-      id: 'mock-admin-id',
-      name: 'Mock Admin',
-      email: 'mock@example.com'
-    }
-  });
-});
-
-// Mock Orders Routes
-app.get('/api/orders/admin/all', (req, res) => {
-  console.log('Serving mock orders');
-  res.json({
-    success: true,
-    data: [] // Empty array for now
-  });
-});
-
-// Mock Images Routes
-app.get('/api/images/types', (req, res) => {
-  console.log('Serving mock image types');
-  res.json({
-    success: true,
-    data: ['products', 'categories', 'banners']
-  });
-});
-
-app.get('/api/images/list/:type', (req, res) => {
-  console.log('Serving mock images for type:', req.params.type);
-  res.json({
-    success: true,
-    data: [
-      { url: '/Asset/product/placeholder.jpg', filename: 'sample-image.jpg', size: 102400 },
-      { url: '/Asset/product/placeholder.jpg', filename: 'sample-image2.jpg', size: 204800 }
-    ]
-  });
-});
-
-// Mock Upload Routes
-app.post('/api/upload/multiple/:type', (req, res) => {
-  console.log('Serving mock image upload for type:', req.params.type);
-  res.json({
-    success: true,
-    message: 'Images uploaded successfully',
-    urls: [
-      { url: '/Asset/product/placeholder.jpg', filename: 'uploaded-image.jpg' }
-    ]
-  });
-});
-
-// Mock Orders Status Route
-app.put('/api/orders/admin/:orderId/status', (req, res) => {
-  console.log('Serving mock order status update for order:', req.params.orderId);
-  res.json({
-    success: true,
-    message: 'Order status updated successfully'
-  });
-});
-
-// Mock Product Deletion Route
-app.delete('/api/products/:productId', (req, res) => {
-  console.log('Serving mock product deletion for product:', req.params.productId);
-  res.json({
-    success: true,
-    message: 'Product deleted successfully'
-  });
-});
-
-// Mock Category Deletion Route
-app.delete('/api/categories/:categoryId', (req, res) => {
-  console.log('Serving mock category deletion for category:', req.params.categoryId);
-  res.json({
-    success: true,
-    message: 'Category deleted successfully'
-  });
-});
-
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'Mock API server running',
-    timestamp: new Date().toISOString()
-  });
-});
-
-// Catch-all for undefined routes
-app.use('*', (req, res) => {
-  console.log(`404 - Route not found: ${req.originalUrl}`);
-  res.status(404).json({
+// 404 handler
+app.use("*", (req, res) => {
+  res.status(404).json({ 
     success: false,
-    message: 'Endpoint not found'
+    message: "Route not found" 
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Mock API Server running on port ${PORT}`);
-  console.log(`📋 Available endpoints:`);
-  console.log(`   GET  /api/products/featured/home`);
-  console.log(`   GET  /api/categories/featured`);
-  console.log(`   GET  /api/products`);
-  console.log(`   GET  /api/products/:id`);
-  console.log(`   GET  /api/categories`);
-  console.log(`   POST /api/auth/admin/register`);
-  console.log(`   POST /api/auth/admin/login`);
-  console.log(`   GET  /api/auth/admin/verify`);
-  console.log(`   GET  /api/orders/admin/all`);
-  console.log(`   GET  /api/images/types`);
-  console.log(`   GET  /api/images/list/:type`);
-  console.log(`   POST /api/upload/multiple/:type`);
-  console.log(`   PUT  /api/orders/admin/:orderId/status`);
-  console.log(`   DELETE /api/products/:productId`);
-  console.log(`   DELETE /api/categories/:categoryId`);
-  console.log(`   GET  /health`);
+const PORT = process.env.PORT || 5000;
+
+const server = app.listen(PORT, () => {
+  console.log(
+    `Server running in ${
+      process.env.NODE_ENV || "development"
+    } mode on port ${PORT}`
+  );
 });
+
+// Graceful shutdown
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received. Shutting down gracefully");
+  server.close(() => {
+    console.log("Process terminated");
+  });
+});
+
+module.exports = app;
