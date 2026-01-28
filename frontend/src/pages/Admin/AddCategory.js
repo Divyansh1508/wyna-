@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import API_CONFIG from "../../config/api";
 import "./AdminDashboard.css";
 
 const AddCategory = () => {
@@ -50,7 +51,7 @@ const AddCategory = () => {
       formData.append('image', imageFile);
       
       const token = localStorage.getItem("adminToken");
-      const response = await fetch("http://72.60.202.38:5000/api/upload/single/categories", {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.UPLOAD_MULTIPLE('categories')}`), {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -111,7 +112,7 @@ const AddCategory = () => {
         keywords: formData.keywords.split(",").map(keyword => keyword.trim()).filter(keyword => keyword)
       };
       
-      const response = await fetch("http://72.60.202.38:5000/api/categories", {
+      const response = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

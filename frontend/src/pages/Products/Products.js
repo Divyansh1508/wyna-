@@ -47,7 +47,7 @@ const Products = () => {
           name: product.name,
           price: product.finalPrice,
           category: typeof product.category === 'object' ? (product.category?.name || "Uncategorized") : product.category || "Uncategorized",
-          image: product.images && product.images.length > 0 ? `http://72.60.202.38:5000${product.images[0].url}` : "/Asset/product/placeholder.jpg",
+          image: product.images && product.images.length > 0 ? `${API_CONFIG.BASE_URL}${product.images[0].url}` : "/Asset/product/placeholder.jpg",
           buyNowButton: true,
           hasDiscount: product.hasDiscount,
           discountPercentage: product.discountPercentage,
