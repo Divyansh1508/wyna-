@@ -50,7 +50,7 @@ const AddCategory = () => {
       formData.append('image', imageFile);
       
       const token = localStorage.getItem("adminToken");
-      const response = await fetch("http://localhost:5000/api/upload/single/categories", {
+      const response = await fetch("http://72.60.202.38:5000/api/upload/single/categories", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`
@@ -111,7 +111,7 @@ const AddCategory = () => {
         keywords: formData.keywords.split(",").map(keyword => keyword.trim()).filter(keyword => keyword)
       };
       
-      const response = await fetch("http://localhost:5000/api/categories", {
+      const response = await fetch("http://72.60.202.38:5000/api/categories", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

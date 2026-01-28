@@ -113,7 +113,7 @@ npm start
 ```
 Frontend Components
     ↓
-API Calls (http://localhost:5000/api/*)
+API Calls (http://72.60.202.38:5000/api/*)
     ↓
 Backend Server (Node.js/Express)
     ↓

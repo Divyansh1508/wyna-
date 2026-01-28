@@ -528,7 +528,7 @@ const EditProduct = () => {
                   {/* Show selected server images */}
                   {selectedImages.map((image, index) => (
                     <div key={`server-${index}`} className="preview-item">
-                      <img src={`http://localhost:5000${image.url}`} alt={image.alt} />
+                      <img src={`http://72.60.202.38:5000${image.url}`} alt={image.alt} />
                       <button
                         type="button"
                         className="remove-image"

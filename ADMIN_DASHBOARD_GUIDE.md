@@ -84,14 +84,14 @@ The admin dashboard is fully responsive and works on:
 ## ⚠️ Important Notes
 
 - Make sure both frontend (`npm start`) and backend (`npm run dev`) are running
-- Backend should be running on `http://localhost:5000`
+- Backend should be running on `http://72.60.202.38:5000`
 - Frontend should be running on `http://localhost:3000`
 - MongoDB database should be connected and seeded
 
 ## 🔧 Troubleshooting
 
 ### If you can't access the admin panel:
-1. Check if backend is running: `http://localhost:5000/api/health`
+1. Check if backend is running: `http://72.60.202.38:5000/api/health`
 2. Check if frontend is running: `http://localhost:3000`
 3. Clear browser cache and cookies
 4. Try incognito/private browsing mode
@@ -104,13 +104,13 @@ The admin dashboard is fully responsive and works on:
 
 ### If products aren't loading:
 1. Check browser console for API errors
-2. Verify backend is responding: `http://localhost:5000/api/products`
+2. Verify backend is responding: `http://72.60.202.38:5000/api/products`
 3. Make sure database is seeded with sample data
 
 ## 🎯 Quick Links
 
 - **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000/api
+- **Backend API**: http://72.60.202.38:5000/api
 - **Admin Dashboard**: http://localhost:3000/admin
 - **Add Product**: http://localhost:3000/admin/products/add
 

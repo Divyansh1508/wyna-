@@ -37,18 +37,18 @@ I have successfully created a **fully dynamic backend** for your WYNA saree e-co
 ## 🚀 Getting Started
 
 ### 1. Backend is Already Running!
-The backend server is currently running at: `http://localhost:5000`
+The backend server is currently running at: `http://72.60.202.38:5000`
 
 ### 2. Test the APIs
 ```bash
 # Health check
-curl http://localhost:5000/api/health
+curl http://72.60.202.38:5000/api/health
 
 # Get all products
-curl http://localhost:5000/api/products
+curl http://72.60.202.38:5000/api/products
 
 # Get categories
-curl http://localhost:5000/api/categories
+curl http://72.60.202.38:5000/api/categories
 ```
 
 ### 3. Database is Seeded
@@ -150,6 +150,6 @@ The backend is fully functional and ready to use. All the APIs match your fronte
 **Your WYNA e-commerce website is now fully dynamic!** 🎉
 
 ---
-*Backend running at http://localhost:5000*
+*Backend running at http://72.60.202.38:5000*
 *Database connected and seeded with sample data*
 *All APIs tested and working*
