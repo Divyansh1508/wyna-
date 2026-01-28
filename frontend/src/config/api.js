@@ -3,8 +3,8 @@ console.log('=== API CONFIG DEBUG ===');
 console.log('Environment REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 console.log('typeof process.env.REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
 const API_CONFIG = {
-  BASE_URL: 'http://localhost:5000', // Hardcoded for testing
-  ACTUAL_BASE_URL: process.env.REACT_APP_API_URL, // For debugging
+  BASE_URL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
+  ACTUAL_BASE_URL: process.env.REACT_APP_API_URL,
   
   // Debug method to check URL construction
   debugUrlConstruction() {
