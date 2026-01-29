@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://YOUR_VPS_IP:5000/:path*"
+      "destination": "http://http://72.61.238.132:5000/:path*"
     }
   ]
 }
