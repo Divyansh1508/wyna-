@@ -5,6 +5,7 @@ import "./Home.css";
 import API_CONFIG from "../../config/api";
 import AuraWeaver from "../../components/AuraWeaver/AuraWeaver";
 import InstagramLightbox from "../../components/InstagramLightbox/InstagramLightbox";
+// import ApiTest from "../../components/ApiTest/ApiTest";
 // import WeaveAssistant from "../../components/WeaveAssistant/WeaveAssistant";
 // import AnimatedHero from "../../components/AnimatedHero/AnimatedHero";
 import ImageSlider from "../../components/ImageSlider/ImageSlider";
@@ -462,6 +463,9 @@ const Home = () => {
         currentIndex={currentImageIndex}
         setCurrentIndex={setCurrentImageIndex}
       />
+
+      {/* API Test Component - Debug */}
+      {/* <ApiTest /> */}
 
       {/* Weave Assistant */}
       {/* <WeaveAssistant /> */}

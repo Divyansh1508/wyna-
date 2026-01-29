@@ -2,9 +2,20 @@
 console.log('=== API CONFIG DEBUG ===');
 console.log('Environment REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 console.log('typeof process.env.REACT_APP_API_URL:', typeof process.env.REACT_APP_API_URL);
+console.log('All REACT_APP_ env vars:', Object.keys(process.env).filter(key => key.startsWith('REACT_APP_')));
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+// Force the correct URL if environment variable is not set or is wrong
+const configuredUrl = process.env.REACT_APP_API_URL;
+const correctUrl = 'http://72.60.202.38:5000';
+const finalBaseUrl = (configuredUrl && configuredUrl.includes('72.60.202.38')) ? configuredUrl : correctUrl;
+
+console.log('Configured URL:', configuredUrl);
+console.log('Final BASE_URL:', finalBaseUrl);
+
 const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL,
-  ACTUAL_BASE_URL: process.env.REACT_APP_API_URL,
+  BASE_URL: finalBaseUrl,
+  ACTUAL_BASE_URL: configuredUrl,
   
   // Debug method to check URL construction
   debugUrlConstruction() {
