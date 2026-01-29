@@ -22,7 +22,7 @@ const ApiTest = () => {
       });
   }, []);
 
-  const expectedUrl = 'http://72.60.202.38:5000';
+  const expectedUrl = 'http://72.61.238.132:5000';
   const isCorrect = API_CONFIG.BASE_URL === expectedUrl;
 
   return (

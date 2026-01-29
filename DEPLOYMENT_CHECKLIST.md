@@ -54,7 +54,7 @@ npm start
    ```
    MONGODB_URI=mongodb+srv://ankitgangrade9617_db_user:wyna@cluster0.ltg7kmg.mongodb.net/wyna?retryWrites=true&w=majority
    JWT_SECRET=wyna_jwt_secret_key_2025_shrinaya_parampara
-   CLIENT_URL=http://72.60.202.38:3000
+   CLIENT_URL=http://72.61.238.132:3000
    PORT=5000
    NODE_ENV=production
    ```

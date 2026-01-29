@@ -1,21 +1,21 @@
 # Backend Connection Test
 
 ## ✅ Frontend Configuration Fixed
-The frontend is now correctly sending requests to `http://72.60.202.38:5000/api/products`
+The frontend is now correctly sending requests to `http://72.61.238.132:5000/api/products`
 
 ## 🔍 Current Issue: 404 Not Found
-The backend server at `72.60.202.38:5000` is responding, but the `/api/products` endpoint returns 404.
+The backend server at `72.61.238.132:5000` is responding, but the `/api/products` endpoint returns 404.
 
 ## 🧪 Tests to Run
 
 ### 1. Test Health Endpoint
 ```bash
-curl http://72.60.202.38:5000/api/health
+curl http://72.61.238.132:5000/api/health
 ```
 
 ### 2. Test Products Endpoint Directly
 ```bash
-curl http://72.60.202.38:5000/api/products
+curl http://72.61.238.132:5000/api/products
 ```
 
 ### 3. Check if Backend is Running
@@ -28,7 +28,7 @@ npm start
 ## 🔧 Possible Solutions
 
 ### Option 1: Backend Not Running at That IP
-The backend might be running locally on `localhost:5000` instead of `72.60.202.38:5000`
+The backend might be running locally on `localhost:5000` instead of `72.61.238.132:5000`
 
 **Fix**: Update frontend to use localhost for development:
 ```javascript

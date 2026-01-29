@@ -17,7 +17,7 @@ REACT_APP_API_URL=http://localhost:5000
 
 This overrides the `.env.development` and `.env.production` files that correctly contain:
 ```
-REACT_APP_API_URL=http://72.60.202.38:5000
+REACT_APP_API_URL=http://72.61.238.132:5000
 ```
 
 ## ✅ Fix Applied
@@ -28,8 +28,8 @@ Updated `src/config/api.js` to force the correct URL:
 ```javascript
 // Force the correct URL if environment variable is not set or is wrong
 const configuredUrl = process.env.REACT_APP_API_URL;
-const correctUrl = 'http://72.60.202.38:5000';
-const finalBaseUrl = (configuredUrl && configuredUrl.includes('72.60.202.38')) ? configuredUrl : correctUrl;
+const correctUrl = 'http://72.61.238.132:5000';
+const finalBaseUrl = (configuredUrl && configuredUrl.includes('72.61.238.132')) ? configuredUrl : correctUrl;
 ```
 
 ### 2. Enhanced Debugging
@@ -54,21 +54,21 @@ Added `ApiTest` component that:
 
 2. **Check Home Page**:
    - Look for debug box (green = correct, red = wrong)
-   - Should show: `http://72.60.202.38:5000`
+   - Should show: `http://72.61.238.132:5000`
 
 3. **Check Browser Console**:
    - Look for "=== API CONFIG DEBUG ==="
    - Verify "Final BASE_URL" shows correct IP
 
 4. **Check Network Tab**:
-   - All requests should go to `72.60.202.38:5000`
+   - All requests should go to `72.61.238.132:5000`
    - No requests to `localhost:5000`
 
 ## 🎯 Expected Results
 
 - ✅ Debug box shows GREEN (correct URL)
-- ✅ Console shows: `Final BASE_URL: http://72.60.202.38:5000`
-- ✅ Network requests go to `72.60.202.38:5000`
+- ✅ Console shows: `Final BASE_URL: http://72.61.238.132:5000`
+- ✅ Network requests go to `72.61.238.132:5000`
 - ✅ No localhost requests
 
 ## 🔄 Alternative Solutions
@@ -78,14 +78,14 @@ If you prefer to fix the root cause instead:
 1. **Check `.env` file**:
    ```bash
    # Make sure it contains:
-   REACT_APP_API_URL=http://72.60.202.38:5000
+   REACT_APP_API_URL=http://72.61.238.132:5000
    ```
 
 2. **Or delete `.env`** to let `.env.development` take precedence
 
 3. **Or override at startup**:
    ```bash
-   REACT_APP_API_URL=http://72.60.202.38:5000 npm start
+   REACT_APP_API_URL=http://72.61.238.132:5000 npm start
    ```
 
 The current fix ensures the correct URL is always used regardless of environment variable issues.
