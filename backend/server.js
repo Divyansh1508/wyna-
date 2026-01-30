@@ -31,7 +31,7 @@ const corsOptions = {
     "http://localhost:3000",
     "https://wyna.in",
     "https://www.wyna.in",
-    "https://wyna.in",
+    // "https://wyna.in",
   ],
   credentials: true,
   optionsSuccessStatus: 200,
