@@ -1,6 +1,10 @@
 /* Aura Weaver Interactive Customization Tool */
 .aura-weaver {
-  background: linear-gradient(135deg, var(--wyna-deep-cream) 0%, var(--wyna-cream) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-deep-cream) 0%,
+    var(--wyna-cream) 100%
+  );
   border-radius: 25px;
   padding: 3rem;
   margin: 2rem 0;
@@ -17,7 +21,12 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--wyna-gold), var(--wyna-orange), var(--wyna-gold));
+  background: linear-gradient(
+    90deg,
+    var(--wyna-gold),
+    var(--wyna-orange),
+    var(--wyna-gold)
+  );
   animation: shimmer 3s linear infinite;
 }
 
@@ -27,7 +36,7 @@
 }
 
 .aura-weaver-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 2.5rem;
   color: var(--wyna-red);
   margin-bottom: 1rem;
@@ -43,7 +52,7 @@
 }
 
 .aura-weaver-subtitle {
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
   font-size: 1.2rem;
   color: var(--wyna-text-light);
   max-width: 600px;
@@ -85,10 +94,19 @@
 }
 
 @keyframes weave {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  25% { transform: scale(1.05) rotate(1deg); }
-  50% { transform: scale(1.1) rotate(-1deg); }
-  75% { transform: scale(1.05) rotate(1deg); }
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-1deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(1deg);
+  }
 }
 
 .saree-base {
@@ -131,27 +149,40 @@
 }
 
 .pattern-floral {
-  background: radial-gradient(
-    circle at 20% 80%, rgba(255, 182, 193, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 182, 193, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.3) 0%, transparent 40%);
+  background:
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 182, 193, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 182, 193, 0.4) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 215, 0, 0.3) 0%,
+      transparent 40%
+    );
 }
 
 .pattern-geometric {
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 20px,
-    rgba(255, 255, 255, 0.2) 20px,
-    rgba(255, 255, 255, 0.2) 21px
-  ),
-  repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 20px,
-    rgba(255, 255, 255, 0.2) 20px,
-    rgba(255, 255, 255, 0.2) 21px
-  );
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.2) 20px,
+      rgba(255, 255, 255, 0.2) 21px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 20px,
+      rgba(255, 255, 255, 0.2) 20px,
+      rgba(255, 255, 255, 0.2) 21px
+    );
 }
 
 .pattern-paisley {
@@ -240,13 +271,22 @@
   left: -10px;
   width: 10px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--wyna-gold), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--wyna-gold),
+    transparent
+  );
   animation: threadMove 2s linear infinite;
 }
 
 @keyframes threadMove {
-  0% { left: -10px; }
-  100% { left: calc(100% + 10px); }
+  0% {
+    left: -10px;
+  }
+  100% {
+    left: calc(100% + 10px);
+  }
 }
 
 .weaving-sparkles {
@@ -255,24 +295,35 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 215, 0, 0.3) 0%,
+    transparent 70%
+  );
   animation: sparkle 2s ease-in-out infinite;
 }
 
 @keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0.8); }
-  50% { opacity: 1; transform: scale(1.2); }
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 .preview-info h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   color: var(--wyna-red);
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
 
 .preview-info p {
-  font-family: 'Crimson Text', serif;
+  font-family: "Crimson Text", serif;
   color: var(--wyna-text-light);
   margin: 0.5rem 0;
   font-size: 1rem;
@@ -293,7 +344,7 @@
 }
 
 .control-title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   color: var(--wyna-red);
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
@@ -335,7 +386,11 @@
 
 .pattern-option.active {
   border-color: var(--wyna-gold);
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 237, 78, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 237, 78, 0.1) 100%
+  );
 }
 
 .pattern-icon {
@@ -352,12 +407,14 @@
 /* Color Grid */
 .color-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1rem;
 }
 
 .color-option {
-  height: 60px;
+  aspect-ratio: 1;
+  min-height: 50px;
+  max-height: 80px;
   border: 3px solid transparent;
   border-radius: 12px;
   cursor: pointer;
@@ -419,11 +476,15 @@
 
 .fabric-option.active {
   border-color: var(--wyna-gold);
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 237, 78, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 215, 0, 0.1) 0%,
+    rgba(255, 237, 78, 0.1) 100%
+  );
 }
 
 .fabric-option h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   color: var(--wyna-red);
   margin-bottom: 0.5rem;
   font-size: 1rem;
@@ -470,7 +531,11 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--wyna-gold) 0%, var(--wyna-orange) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--wyna-gold) 0%,
+    var(--wyna-orange) 100%
+  );
   color: var(--wyna-red);
   box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
 }
@@ -492,22 +557,22 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .aura-weaver {
     padding: 2rem;
   }
-  
+
   .aura-weaver-title {
     font-size: 2rem;
   }
-  
+
   .pattern-grid,
   .fabric-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .color-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -516,16 +581,60 @@
     padding: 1.5rem;
     margin: 1rem 0;
   }
-  
+
   .aura-weaver-title {
     font-size: 1.8rem;
   }
-  
+
   .weaver-actions {
     flex-direction: column;
   }
-  
+
   .color-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .color-option {
+    min-height: 45px;
+    max-height: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aura-weaver {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+
+  .aura-weaver-title {
+    font-size: 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .aura-weaver-subtitle {
+    font-size: 1rem;
+  }
+
+  .control-group {
+    padding: 1rem;
+  }
+
+  .color-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+
+  .color-option {
+    min-height: 40px;
+    max-height: 55px;
+  }
+
+  .pattern-icon {
+    font-size: 1.5rem;
+  }
+
+  .pattern-name {
+    font-size: 0.8rem;
   }
 }

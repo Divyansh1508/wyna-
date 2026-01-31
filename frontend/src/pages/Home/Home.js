@@ -66,49 +66,68 @@ const Home = () => {
       try {
         // Debug URL construction
         API_CONFIG.debugUrlConstruction();
-        
-        console.log('Fetching from API URL:', API_CONFIG.BASE_URL);
-        console.log('Products endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED));
-        console.log('Categories endpoint:', API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED));
-        
+
+        console.log("Fetching from API URL:", API_CONFIG.BASE_URL);
+        console.log(
+          "Products endpoint:",
+          API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED),
+        );
+        console.log(
+          "Categories endpoint:",
+          API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED),
+        );
+
         // Fetch featured products
-        const productsResponse = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED));
-        
+        const productsResponse = await fetch(
+          API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED),
+        );
+
         if (!productsResponse.ok) {
-          throw new Error(`Products API failed with status ${productsResponse.status}: ${productsResponse.statusText}`);
+          throw new Error(
+            `Products API failed with status ${productsResponse.status}: ${productsResponse.statusText}`,
+          );
         }
-        
+
         const productsData = await productsResponse.json();
-        console.log('Products data received:', productsData);
-        
+        console.log("Products data received:", productsData);
+
         // Fetch categories
-        const categoriesResponse = await fetch(API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED));
-        
+        const categoriesResponse = await fetch(
+          API_CONFIG.buildUrl(API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED),
+        );
+
         if (!categoriesResponse.ok) {
-          throw new Error(`Categories API failed with status ${categoriesResponse.status}: ${categoriesResponse.statusText}`);
+          throw new Error(
+            `Categories API failed with status ${categoriesResponse.status}: ${categoriesResponse.statusText}`,
+          );
         }
-        
+
         const categoriesData = await categoriesResponse.json();
-        console.log('Categories data received:', categoriesData);
-        
+        console.log("Categories data received:", categoriesData);
+
         // Transform data for frontend
-        const transformedProducts = productsData.data.map(product => ({
+        const transformedProducts = productsData.data.map((product) => ({
           id: product._id,
           name: product.name,
           price: `₹${product.finalPrice.toLocaleString()}`,
-          image: product.images[0]?.url || "/Asset/product/placeholder.jpg",
+          image:
+            product.images && product.images.length > 0
+              ? `${API_CONFIG.BASE_URL}${product.images[0].url}`
+              : "/Asset/product/placeholder.jpg",
           description: product.shortDescription || product.description,
           series: "Featured",
-          exclusive: product.featured
+          exclusive: product.featured,
         }));
-        
-        const transformedCategories = categoriesData.data.map(category => ({
+
+        const transformedCategories = categoriesData.data.map((category) => ({
           name: category.name,
-          image: category.image || "/Asset/product/placeholder.jpg",
+          image: category.image
+            ? `${API_CONFIG.BASE_URL}${category.image}`
+            : "/Asset/product/placeholder.jpg",
           description: category.description,
-          count: 0 // Would need to fetch product counts per category
+          count: 0, // Would need to fetch product counts per category
         }));
-        
+
         setFeaturedProducts(transformedProducts);
         setCategories(transformedCategories);
         setLoading(false);
@@ -119,14 +138,14 @@ const Home = () => {
           stack: error.stack,
           apiUrl: API_CONFIG.BASE_URL,
           productsEndpoint: API_CONFIG.ENDPOINTS.PRODUCTS_FEATURED,
-          categoriesEndpoint: API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED
+          categoriesEndpoint: API_CONFIG.ENDPOINTS.CATEGORIES_FEATURED,
         });
         // Show user-friendly error message
         toast.error("Failed to load products. Please try again later.");
         setLoading(false);
       }
     };
-    
+
     fetchData();
   }, []);
 
