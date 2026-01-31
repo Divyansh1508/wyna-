@@ -261,7 +261,12 @@ const AdminDashboard = () => {
                 </td>
                 <td>{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td>
-                  <button className="btn-view">View</button>
+                  <button 
+                    className="btn-view" 
+                    onClick={() => navigate(`/admin/orders/${order._id}`)}
+                  >
+                    View
+                  </button>
                 </td>
               </tr>
             ))}

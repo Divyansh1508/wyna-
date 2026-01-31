@@ -1,7 +1,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
 const Category = require('../models/Category');
-const { protect, authorize } = require('../middleware/auth');
+const adminAuth = require('../middleware/adminAuth');
 const { ErrorResponse } = require('../middleware/error');
 
 const router = express.Router();
@@ -90,7 +90,7 @@ router.get('/slug/:slug', async (req, res, next) => {
 // @route   POST /api/categories
 // @desc    Create new category
 // @access  Private (Admin only)
-router.post('/', protect, authorize('admin'), [
+router.post('/', adminAuth, [
   body('name').trim().isLength({ min: 2, max: 50 }).withMessage('Category name must be between 2 and 50 characters'),
   body('description').trim().isLength({ min: 10, max: 500 }).withMessage('Description must be between 10 and 500 characters'),
   body('parentCategory').optional().isMongoId().withMessage('Parent category must be a valid ID')
@@ -131,7 +131,7 @@ router.post('/', protect, authorize('admin'), [
 // @route   PUT /api/categories/:id
 // @desc    Update category
 // @access  Private (Admin only)
-router.put('/:id', protect, authorize('admin'), async (req, res, next) => {
+router.put('/:id', adminAuth, async (req, res, next) => {
   try {
     let category = await Category.findById(req.params.id);
 
@@ -177,7 +177,7 @@ router.put('/:id', protect, authorize('admin'), async (req, res, next) => {
 // @route   DELETE /api/categories/:id
 // @desc    Delete category
 // @access  Private (Admin only)
-router.delete('/:id', protect, authorize('admin'), async (req, res, next) => {
+router.delete('/:id', adminAuth, async (req, res, next) => {
   try {
     const category = await Category.findById(req.params.id);
 

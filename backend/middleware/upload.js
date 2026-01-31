@@ -1,5 +1,6 @@
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 
 // Configure multer for file uploads
 const storage = multer.diskStorage({
@@ -7,6 +8,12 @@ const storage = multer.diskStorage({
     // Create destination folder based on upload type
     const uploadType = req.params.type || 'general';
     const destPath = path.join(__dirname, '..', 'uploads', 'images', uploadType);
+    
+    // Ensure directory exists
+    if (!fs.existsSync(destPath)) {
+      fs.mkdirSync(destPath, { recursive: true });
+    }
+    
     cb(null, destPath);
   },
   filename: function (req, file, cb) {

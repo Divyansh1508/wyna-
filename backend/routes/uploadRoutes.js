@@ -6,6 +6,13 @@ const router = express.Router();
 // Single image upload
 router.post('/single/:type?', adminAuth, upload.single('image'), (req, res) => {
   try {
+    console.log('Single image upload request:', {
+      type: req.params.type,
+      adminId: req.admin ? req.admin.id : 'no admin',
+      file: req.file ? req.file.filename : 'no file',
+      originalname: req.file ? req.file.originalname : 'no file'
+    });
+    
     if (!req.file) {
       return res.status(400).json({
         success: false,
@@ -14,6 +21,9 @@ router.post('/single/:type?', adminAuth, upload.single('image'), (req, res) => {
     }
 
     const imageUrl = `/uploads/images/${req.params.type || 'general'}/${req.file.filename}`;
+    
+    console.log('File saved:', req.file.filename);
+    console.log('Image URL:', imageUrl);
     
     res.json({
       success: true,
@@ -34,6 +44,12 @@ router.post('/single/:type?', adminAuth, upload.single('image'), (req, res) => {
 // Multiple images upload
 router.post('/multiple/:type?', adminAuth, upload.array('images', 10), (req, res) => {
   try {
+    console.log('Multiple image upload request:', {
+      type: req.params.type,
+      adminId: req.admin ? req.admin.id : 'no admin',
+      fileCount: req.files ? req.files.length : 0
+    });
+    
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({
         success: false,
@@ -43,11 +59,14 @@ router.post('/multiple/:type?', adminAuth, upload.array('images', 10), (req, res
 
     const imageUrls = req.files.map(file => {
       const imageUrl = `/uploads/images/${req.params.type || 'general'}/${file.filename}`;
+      console.log('File saved:', file.filename);
       return {
         url: imageUrl,
         filename: file.filename
       };
     });
+    
+    console.log('Image URLs generated:', imageUrls);
     
     res.json({
       success: true,

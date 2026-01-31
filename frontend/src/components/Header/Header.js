@@ -86,6 +86,13 @@ const Header = () => {
               Contact
             </Link>
             <Link
+              to="/my-orders"
+              className="nav-item"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              My Orders
+            </Link>
+            <Link
               to="/cart"
               className="nav-item cart-link"
               onClick={() => setMobileMenuOpen(false)}

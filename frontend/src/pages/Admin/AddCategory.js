@@ -109,6 +109,7 @@ const AddCategory = () => {
       const categoryData = {
         ...formData,
         image: uploadedImageUrl || formData.image, // Use uploaded image URL or existing URL
+        sortOrder: formData.sortOrder ? Number(formData.sortOrder) : 0,
         keywords: formData.keywords.split(",").map(keyword => keyword.trim()).filter(keyword => keyword)
       };
       
@@ -251,7 +252,7 @@ const AddCategory = () => {
                   type="number"
                   id="sortOrder"
                   name="sortOrder"
-                  value={formData.sortOrder || ""}
+                  value={formData.sortOrder || "0"}
                   onChange={handleChange}
                   min="0"
                   placeholder="Display order (lower numbers first)"

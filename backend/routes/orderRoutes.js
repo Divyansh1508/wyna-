@@ -143,17 +143,58 @@ router.get('/', protect, async (req, res, next) => {
 });
 
 // @route   GET /api/orders/:id
-// @desc    Get single order
+// @desc    Get single order (user or admin)
 // @access  Private
-router.get('/:id', protect, async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
-    const order = await Order.findOne({
-      _id: req.params.id,
-      user: req.user.id
-    }).populate([
-      { path: 'user', select: 'name email phone' },
-      { path: 'items.product', select: 'name slug images' }
-    ]);
+    let order;
+    
+    // Check if admin token is provided
+    const authHeader = req.headers.authorization;
+    if (authHeader && authHeader.startsWith('Bearer')) {
+      const token = authHeader.split(' ')[1];
+      try {
+        const jwt = require('jsonwebtoken');
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        
+        // If admin token, allow access to any order
+        if (decoded.adminId) {
+          order = await Order.findById(req.params.id).populate([
+            { path: 'user', select: 'name email phone' },
+            { path: 'items.product', select: 'name slug images' }
+          ]);
+        } else if (decoded.id) {
+          // Regular user token - only their own orders
+          order = await Order.findOne({
+            _id: req.params.id,
+            user: decoded.id
+          }).populate([
+            { path: 'user', select: 'name email phone' },
+            { path: 'items.product', select: 'name slug images' }
+          ]);
+        }
+      } catch (err) {
+        // Invalid token, proceed with regular user check
+        if (req.user && req.user.id) {
+          order = await Order.findOne({
+            _id: req.params.id,
+            user: req.user.id
+          }).populate([
+            { path: 'user', select: 'name email phone' },
+            { path: 'items.product', select: 'name slug images' }
+          ]);
+        }
+      }
+    } else if (req.user && req.user.id) {
+      // Fallback to middleware-provided user
+      order = await Order.findOne({
+        _id: req.params.id,
+        user: req.user.id
+      }).populate([
+        { path: 'user', select: 'name email phone' },
+        { path: 'items.product', select: 'name slug images' }
+      ]);
+    }
 
     if (!order) {
       return next(new ErrorResponse('Order not found', 404));

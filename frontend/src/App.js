@@ -23,6 +23,8 @@ import AddProduct from "./pages/Admin/AddProduct";
 import EditProduct from "./pages/Admin/EditProduct";
 import AddCategory from "./pages/Admin/AddCategory";
 import EditCategory from "./pages/Admin/EditCategory";
+import OrderDetail from "./pages/OrderDetail/OrderDetail";
+import MyOrders from "./pages/MyOrders/MyOrders";
 import FirstVisitConfetti from "./components/FirstVisitConfetti/FirstVisitConfetti";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 import WhatsAppChat from "./components/WhatsAppChat/WhatsAppChat";
@@ -78,6 +80,7 @@ function App() {
               <Route path="/series/handcrafted" element={<SeriesHandcrafted />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/my-orders" element={<MyOrders />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/shipping" element={<ShippingPolicy />} />
@@ -138,6 +141,18 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <EditCategory />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/orders/:id" 
+                element={<OrderDetail />} 
+              />
+              <Route 
+                path="/admin/orders/:id" 
+                element={
+                  <ProtectedRoute>
+                    <OrderDetail />
                   </ProtectedRoute>
                 } 
               />
