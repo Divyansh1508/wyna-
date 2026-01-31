@@ -51,7 +51,7 @@ const AddCategory = () => {
       formData.append('image', imageFile);
       
       const token = localStorage.getItem("adminToken");
-      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.UPLOAD_MULTIPLE('categories')}`), {
+      const response = await fetch(API_CONFIG.buildUrl(`${API_CONFIG.ENDPOINTS.UPLOAD_SINGLE('categories')}`), {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${token}`

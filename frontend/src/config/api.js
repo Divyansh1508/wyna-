@@ -51,6 +51,7 @@ const API_CONFIG = {
     ORDERS_ADMIN_STATUS: (orderId) => `/api/orders/admin/${orderId}/status`,
     
     // Upload
+    UPLOAD_SINGLE: (type) => `/api/upload/single/${type}`,
     UPLOAD_MULTIPLE: (type) => `/api/upload/multiple/${type}`,
     
     // Images

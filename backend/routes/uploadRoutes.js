@@ -1,9 +1,10 @@
 const express = require('express');
 const upload = require('../middleware/upload');
+const adminAuth = require('../middleware/adminAuth');
 const router = express.Router();
 
 // Single image upload
-router.post('/single/:type?', upload.single('image'), (req, res) => {
+router.post('/single/:type?', adminAuth, upload.single('image'), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -31,7 +32,7 @@ router.post('/single/:type?', upload.single('image'), (req, res) => {
 });
 
 // Multiple images upload
-router.post('/multiple/:type?', upload.array('images', 10), (req, res) => {
+router.post('/multiple/:type?', adminAuth, upload.array('images', 10), (req, res) => {
   try {
     if (!req.files || req.files.length === 0) {
       return res.status(400).json({
